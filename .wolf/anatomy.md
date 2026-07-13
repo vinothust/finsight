@@ -1,7 +1,7 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-07-13T11:37:11.322Z
-> Files: 91 tracked | Anatomy hits: 0 | Misses: 0
+> Auto-maintained by OpenWolf. Last scanned: 2026-07-13T11:46:09.502Z
+> Files: 94 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ../../../Users/180655/AppData/Local/Temp/claude/c--Vino-FinSight-Source/9a861225-893c-4e78-9ebb-113290c5fed6/scratchpad/
 
@@ -26,6 +26,7 @@
 - `task-10-report.md` — Task 10 Report: Frontend Scaffold + Role Context (~1752 tok)
 - `task-11-report.md` — Task 11 Report: Dashboard + Utilization Pages (~1038 tok)
 - `task-12-report.md` — Task 12 Report: Scorecards + Insights Pages (~1200 tok)
+- `task-13-report.md` — Task 13 Report: Ask FinSight (NL2SQL) + Uploads Pages (~831 tok)
 - `task-2-report.md` — Task 2 Report: Database Models (~954 tok)
 - `task-3-report.md` — Task 3 Report: Role Scoping Dependency (~1094 tok)
 - `task-4-report.md` — Task 4 Report: Ingestion Service + Uploads Router (~1741 tok)
@@ -118,6 +119,8 @@
 
 ## apps/web/src/
 
+- `App.test.tsx` (~122 tok)
+- `App.tsx` — NAV_ITEMS (~546 tok)
 - `index.css` — Tailwind base/components/utilities directives (~10 tok)
 - `index.css` — Styles: 3 rules (~17 tok)
 - `setupTests.ts` — Vitest setup: jest-dom/vitest matchers, jsdom pointer-capture/scrollIntoView polyfills for Radix, RTL cleanup afterEach (~90 tok)
