@@ -113,3 +113,13 @@
 | 17:35 | Edited apps/api/app/services/nl2sql.py | modified question_to_sql() | ~252 |
 | 17:35 | Edited apps/api/app/routers/nlq.py | modified ask_question() | ~147 |
 | 17:39 | Created .superpowers/sdd/task-15-report.md | — | ~1895 |
+| 17:46 | Created apps/web/src/components/ScopePicker.test.tsx | — | ~438 |
+| 17:47 | Edited apps/web/src/context/RoleContext.tsx | CSS: setScopeId, id | ~220 |
+| 17:47 | Edited apps/web/src/lib/api.ts | added 2 condition(s) | ~317 |
+| 17:48 | Created apps/web/src/components/ScopePicker.tsx | — | ~545 |
+| 17:48 | Edited apps/web/src/App.tsx | added 1 import(s) | ~33 |
+| 17:49 | Edited apps/web/src/App.tsx | 2→5 lines | ~41 |
+| 17:49 | Edited apps/web/src/pages/AskFinSight.test.tsx | expanded (+19 lines) | ~202 |
+| 17:50 | Edited apps/web/src/pages/AskFinSight.tsx | added error handling | ~129 |
+| 17:50 | Edited apps/web/src/pages/AskFinSight.tsx | 2→3 lines | ~30 |
+| 17:53 | Edited apps/web/src/components/ScopePicker.test.tsx | reduced (-6 lines) | ~38 |

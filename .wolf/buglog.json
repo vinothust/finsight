@@ -119,6 +119,102 @@
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-07-13T12:05:35.287Z"
+    },
+    {
+      "id": "bug-008",
+      "timestamp": "2026-07-13T12:17:20.715Z",
+      "error_message": "CSS fix: scopeId",
+      "file": "apps/web/src/context/RoleContext.tsx",
+      "root_cause": "scopeId: null, setRole → number | null",
+      "fix": "Changed scopeId: null, setRole → number | null",
+      "tags": [
+        "auto-detected",
+        "style-fix",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-07-13T12:17:20.715Z"
+    },
+    {
+      "id": "bug-009",
+      "timestamp": "2026-07-13T12:17:44.362Z",
+      "error_message": "Type error",
+      "file": "apps/web/src/lib/api.ts",
+      "root_cause": "Missing or incorrect type annotation",
+      "fix": "Added type assertion/annotation",
+      "tags": [
+        "auto-detected",
+        "type-fix",
+        "ts"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-07-13T12:17:44.362Z"
+    },
+    {
+      "id": "bug-010",
+      "timestamp": "2026-07-13T12:19:30.629Z",
+      "error_message": "Function not marked async",
+      "file": "apps/web/src/pages/AskFinSight.test.tsx",
+      "root_cause": "Function uses await but wasn't declared async",
+      "fix": "Added async modifier",
+      "tags": [
+        "auto-detected",
+        "async-fix",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-07-13T12:19:30.629Z"
+    },
+    {
+      "id": "bug-011",
+      "timestamp": "2026-07-13T12:20:49.076Z",
+      "error_message": "Missing error handling in unknown",
+      "file": "apps/web/src/pages/AskFinSight.tsx",
+      "root_cause": "Code path had no error handling — exceptions would propagate uncaught",
+      "fix": "Added try/catch block",
+      "tags": [
+        "auto-detected",
+        "error-handling",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-07-13T12:20:49.076Z"
+    },
+    {
+      "id": "bug-012",
+      "timestamp": "2026-07-13T12:20:57.802Z",
+      "error_message": "Wrong reference: result should be error",
+      "file": "apps/web/src/pages/AskFinSight.tsx",
+      "root_cause": "Used \"result\" instead of \"error\"",
+      "fix": "Changed result → error",
+      "tags": [
+        "auto-detected",
+        "wrong-reference",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-07-13T12:20:57.802Z"
+    },
+    {
+      "id": "bug-013",
+      "timestamp": "2026-07-13T12:23:13.291Z",
+      "error_message": "Significant refactor of ",
+      "file": "apps/web/src/components/ScopePicker.test.tsx",
+      "root_cause": "6 lines replaced/restructured",
+      "fix": "Rewrote 10→4 lines (6 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-07-13T12:23:13.291Z"
     }
   ]
 }

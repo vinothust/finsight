@@ -1,7 +1,7 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-07-13T12:09:43.918Z
-> Files: 98 tracked | Anatomy hits: 0 | Misses: 0
+> Auto-maintained by OpenWolf. Last scanned: 2026-07-13T12:23:13.252Z
+> Files: 100 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ../../../Users/180655/AppData/Local/Temp/claude/c--Vino-FinSight-Source/9a861225-893c-4e78-9ebb-113290c5fed6/scratchpad/
 
@@ -124,7 +124,7 @@
 ## apps/web/src/
 
 - `App.test.tsx` (~122 tok)
-- `App.tsx` — NAV_ITEMS (~546 tok)
+- `App.tsx` — NAV_ITEMS (~591 tok)
 - `index.css` — Tailwind base/components/utilities directives (~10 tok)
 - `index.css` — Styles: 3 rules (~17 tok)
 - `setupTests.ts` — Vitest setup: jest-dom/vitest matchers, jsdom pointer-capture/scrollIntoView polyfills for Radix, RTL cleanup afterEach (~90 tok)
@@ -136,21 +136,23 @@
 - `RoleSwitcher.test.tsx` (~258 tok)
 - `RoleSwitcher.tsx` — Radix Select dropdown bound to useRole(); labels PM/Account Director/Area Director (~220 tok)
 - `RoleSwitcher.tsx` — ROLE_LABELS (~330 tok)
+- `ScopePicker.test.tsx` (~391 tok)
+- `ScopePicker.tsx` — ScopePicker (~545 tok)
 
 ## apps/web/src/context/
 
-- `RoleContext.tsx` — `RoleProvider`/`useRole()`; Role = "pm"|"account_director"|"area_director"; persists to localStorage["finsight_role"], defaults "area_director", scopeId always null (~250 tok)
+- `RoleContext.tsx` — STORAGE_KEY (~311 tok)
 - `RoleContext.tsx` — STORAGE_KEY (~270 tok)
 
 ## apps/web/src/lib/
 
-- `api.ts` — Typed fetch client; `request<T>()` helper adds X-Role/X-Scope-Id headers from RequestOptions; exports getRevenueMargin, getUtilization, getScorecards, getInsight, askQuestion, uploadDataset + their types (~420 tok)
+- `api.ts` — Exports RequestOptions, RevenueMarginPoint, getRevenueMargin, UtilizationPoint + 11 more (~858 tok)
 - `api.ts` — Exports RequestOptions, RevenueMarginPoint, getRevenueMargin, UtilizationPoint + 7 more (~648 tok)
 
 ## apps/web/src/pages/
 
-- `AskFinSight.test.tsx` (~296 tok)
-- `AskFinSight.tsx` — AskFinSight — renders table (~643 tok)
+- `AskFinSight.test.tsx` (~465 tok)
+- `AskFinSight.tsx` — AskFinSight — renders table (~697 tok)
 - `Dashboard.test.tsx` (~209 tok)
 - `Dashboard.tsx` — Dashboard (~313 tok)
 - `Insights.tsx` — Insights (~203 tok)
