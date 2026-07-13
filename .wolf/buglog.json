@@ -35,6 +35,74 @@
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-07-13T08:28:00.000Z"
+    },
+    {
+      "id": "bug-003",
+      "timestamp": "2026-07-13T10:58:11.559Z",
+      "error_message": "Incorrect value in code",
+      "file": "apps/web/src/setupTests.ts",
+      "root_cause": "Had \"@testing-library/jest-dom\"",
+      "fix": "Changed to \"@testing-library/jest-dom/vitest\"",
+      "tags": [
+        "auto-detected",
+        "wrong-value",
+        "ts"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-07-13T10:58:11.559Z"
+    },
+    {
+      "id": "bug-004",
+      "timestamp": "2026-07-13T10:50:00.000Z",
+      "error_message": "npx tailwindcss init -p failed with 'could not determine executable to run'",
+      "file": "apps/web/package.json",
+      "root_cause": "`npm install -D tailwindcss` (no version pin) installed Tailwind v4, which removed the `tailwindcss init` CLI command and changed the PostCSS plugin/config model entirely. The task brief's tailwind.config.js/postcss.config.js/@tailwind directive content is v3-only.",
+      "fix": "Uninstalled tailwindcss and reinstalled with `npm install -D tailwindcss@^3` to match the brief's config format exactly.",
+      "tags": [
+        "tailwind",
+        "version-mismatch",
+        "vite",
+        "frontend"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-07-13T10:50:00.000Z"
+    },
+    {
+      "id": "bug-005",
+      "timestamp": "2026-07-13T10:55:00.000Z",
+      "error_message": "Error: Cannot find module 'tslib' (required by react-remove-scroll, a transitive dep of @radix-ui/react-select)",
+      "file": "apps/web/package.json",
+      "root_cause": "react-remove-scroll's es5 build requires tslib at runtime but does not declare/hoist it correctly, so it was absent from node_modules even though @radix-ui/react-select was installed.",
+      "fix": "Ran `npm install tslib` as a direct dependency.",
+      "tags": [
+        "radix-ui",
+        "tslib",
+        "missing-dependency",
+        "frontend"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-07-13T10:55:00.000Z"
+    },
+    {
+      "id": "bug-006",
+      "timestamp": "2026-07-13T11:00:00.000Z",
+      "error_message": "TypeError: target.hasPointerCapture is not a function (thrown inside @radix-ui/react-select during userEvent.click in tests); also 'Found multiple elements with role combobox' across tests",
+      "file": "apps/web/src/setupTests.ts",
+      "root_cause": "jsdom does not implement Element.hasPointerCapture/setPointerCapture/releasePointerCapture/scrollIntoView, which Radix UI Select's pointer-interaction code calls directly. Separately, RTL does not auto-cleanup after each test under Vitest unless `test.globals: true` is set or cleanup is called explicitly, so a second test's render leaves duplicate DOM from the first.",
+      "fix": "Added no-op polyfills for hasPointerCapture/setPointerCapture/releasePointerCapture/scrollIntoView on Element.prototype in setupTests.ts, and added an explicit `afterEach(() => cleanup())` using @testing-library/react's cleanup.",
+      "tags": [
+        "radix-ui",
+        "jsdom",
+        "vitest",
+        "testing-library",
+        "pointer-events"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-07-13T11:00:00.000Z"
     }
   ]
 }

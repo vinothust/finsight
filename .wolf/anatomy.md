@@ -1,7 +1,7 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-07-13T10:37:36.446Z
-> Files: 60 tracked | Anatomy hits: 0 | Misses: 0
+> Auto-maintained by OpenWolf. Last scanned: 2026-07-13T11:18:19.677Z
+> Files: 83 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ../../../Users/180655/AppData/Local/Temp/claude/c--Vino-FinSight-Source/9a861225-893c-4e78-9ebb-113290c5fed6/scratchpad/
 
@@ -23,6 +23,7 @@
 ## .superpowers/sdd/
 
 - `task-1-report.md` — Task 1 Report: Backend Project Scaffold (~785 tok)
+- `task-10-report.md` — Task 10 Report: Frontend Scaffold + Role Context (~1752 tok)
 - `task-2-report.md` — Task 2 Report: Database Models (~954 tok)
 - `task-3-report.md` — Task 3 Report: Role Scoping Dependency (~1094 tok)
 - `task-4-report.md` — Task 4 Report: Ingestion Service + Uploads Router (~1741 tok)
@@ -30,6 +31,7 @@
 - `task-6-report.md` — Task 6 Report: Scorecards Service + Router (~879 tok)
 - `task-7-report.md` — Task 7 Report: Pluggable LLM Client (~1369 tok)
 - `task-8-report.md` — Task 8 Report: AI Narrative Insights Router (~1642 tok)
+- `task-9-report.md` — Task 9 Report: NL2SQL Agent ("Ask FinSight") (~1445 tok)
 
 ## apps/api/
 
@@ -102,6 +104,45 @@
 - `test_nl2sql_run_query.py` — FakeClient: complete, test_run_query_executes_generated_sql (~232 tok)
 - `test_scorecards.py` — test_program_scorecards_assigns_rag_status (~308 tok)
 - `test_uploads_api.py` — test_upload_financial_endpoint, test_upload_unknown_dataset_returns_400 (~194 tok)
+
+## apps/web/
+
+- `package.json` — Node.js package manifest (~262 tok)
+- `postcss.config.js` — PostCSS plugins: tailwindcss + autoprefixer (~15 tok)
+- `tailwind.config.js` — Tailwind v3 config, content globs for index.html + src/**/*.{ts,tsx} (~30 tok)
+- `tailwind.config.js` (~45 tok)
+- `vite.config.ts` — Vite config via `vitest/config`'s defineConfig; includes `test: { environment: "jsdom", setupFiles: "./src/setupTests.ts" }` (~40 tok)
+- `vite.config.ts` — https://vite.dev/config/ (~72 tok)
+
+## apps/web/src/
+
+- `index.css` — Tailwind base/components/utilities directives (~10 tok)
+- `index.css` — Styles: 3 rules (~17 tok)
+- `setupTests.ts` — Vitest setup: jest-dom/vitest matchers, jsdom pointer-capture/scrollIntoView polyfills for Radix, RTL cleanup afterEach (~90 tok)
+- `setupTests.ts` — jsdom does not implement these APIs, but Radix UI's Select uses them (~202 tok)
+
+## apps/web/src/components/
+
+- `RoleSwitcher.test.tsx` — RTL tests: default label renders, selecting "Program Manager" persists "pm" to localStorage (~180 tok)
+- `RoleSwitcher.test.tsx` (~258 tok)
+- `RoleSwitcher.tsx` — Radix Select dropdown bound to useRole(); labels PM/Account Director/Area Director (~220 tok)
+- `RoleSwitcher.tsx` — ROLE_LABELS (~330 tok)
+
+## apps/web/src/context/
+
+- `RoleContext.tsx` — `RoleProvider`/`useRole()`; Role = "pm"|"account_director"|"area_director"; persists to localStorage["finsight_role"], defaults "area_director", scopeId always null (~250 tok)
+- `RoleContext.tsx` — STORAGE_KEY (~270 tok)
+
+## apps/web/src/lib/
+
+- `api.ts` — Typed fetch client; `request<T>()` helper adds X-Role/X-Scope-Id headers from RequestOptions; exports getRevenueMargin, getUtilization, getScorecards, getInsight, askQuestion, uploadDataset + their types (~420 tok)
+- `api.ts` — Exports RequestOptions, RevenueMarginPoint, getRevenueMargin, UtilizationPoint + 7 more (~648 tok)
+
+## apps/web/src/pages/
+
+- `Dashboard.test.tsx` (~209 tok)
+- `Dashboard.tsx` — Dashboard (~313 tok)
+- `Utilization.tsx` — Utilization (~307 tok)
 
 ## docs/superpowers/plans/
 

@@ -74,3 +74,22 @@
 | 16:06 | Created apps/api/tests/test_nl2sql_run_query.py | — | ~232 |
 | 16:07 | Created apps/api/app/routers/nlq.py | — | ~117 |
 | 16:07 | Edited apps/api/app/main.py | 6→7 lines | ~71 |
+| 16:11 | Created .superpowers/sdd/task-9-report.md | — | ~1542 |
+| 16:23 | Created apps/web/tailwind.config.js | — | ~45 |
+| 16:23 | Created apps/web/src/index.css | — | ~17 |
+| 16:24 | Created apps/web/src/context/RoleContext.tsx | — | ~270 |
+| 16:24 | Created apps/web/src/components/RoleSwitcher.test.tsx | — | ~258 |
+| 16:25 | Created apps/web/src/components/RoleSwitcher.tsx | — | ~330 |
+| 16:25 | Created apps/web/src/setupTests.ts | — | ~11 |
+| 16:26 | Edited apps/web/vite.config.ts | 7→11 lines | ~72 |
+| 16:26 | Edited apps/web/package.json | 2→3 lines | ~22 |
+| 16:28 | Edited apps/web/src/setupTests.ts | "@testing-library/jest-dom" → "@testing-library/jest-dom" | ~12 |
+| 16:31 | Edited apps/web/src/setupTests.ts | expanded (+7 lines) | ~48 |
+| 16:32 | Edited apps/web/src/setupTests.ts | added 4 condition(s) | ~201 |
+| 16:33 | Created apps/web/src/lib/api.ts | — | ~648 |
+| 16:35 | Task 10: Scaffolded apps/web (Vite+React+TS), pinned Tailwind v3, added RoleContext/RoleSwitcher (TDD RED->GREEN), api.ts client, committed 8e735ed | apps/web | tests 2/2 passed, build OK | ~2200 tok |
+| 16:40 | Created .superpowers/sdd/task-10-report.md | — | ~1868 |
+| 16:46 | Created apps/web/src/pages/Dashboard.test.tsx | — | ~209 |
+| 16:47 | Created apps/web/src/pages/Dashboard.tsx | — | ~313 |
+| 16:48 | Created apps/web/src/pages/Utilization.tsx | — | ~307 |
+| 16:49 | Task 11: Dashboard (TDD RED->GREEN) + Utilization pages with Recharts, both consuming useRole/getRevenueMargin/getUtilization from Task 10 | apps/web/src/pages | tests 3/3 passed, tsc clean | ~900 tok |
