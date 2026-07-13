@@ -18,3 +18,10 @@ dist/
 # OS
 .DS_Store
 Thumbs.db
+
+# Coding assistant / tooling (not part of the project)
+.claude/
+.wolf/
+.superpowers/
+docs/superpowers/
+CLAUDE.md
