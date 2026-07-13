@@ -45,3 +45,8 @@
 | 13:58 | Edited apps/api/app/routers/uploads.py | modified create_upload() | ~99 |
 | 13:58 | Edited apps/api/tests/conftest.py | modified db_session() | ~144 |
 | 14:02 | Created .superpowers/sdd/task-4-report.md | — | ~1857 |
+| 14:07 | Created apps/api/tests/test_dashboard.py | — | ~615 |
+| 14:08 | Created apps/api/app/services/dashboard.py | — | ~734 |
+| 14:08 | Created apps/api/app/routers/dashboard.py | — | ~183 |
+| 14:09 | Edited apps/api/app/main.py | 3→4 lines | ~33 |
+| 14:11 | Created .superpowers/sdd/task-5-report.md | — | ~872 |
