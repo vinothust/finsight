@@ -1,0 +1,41 @@
+{
+  "session_id": "",
+  "started": "",
+  "files_read": {},
+  "files_written": [
+    {
+      "file": "c:/Vino/FinSight/Source/docs/superpowers/specs/2026-07-13-finsight-mvp-design.md",
+      "action": "create",
+      "tokens": 1256,
+      "at": "2026-07-13T07:38:21.728Z"
+    },
+    {
+      "file": "c:/Vino/FinSight/Source/docs/superpowers/plans/2026-07-13-finsight-mvp.md",
+      "action": "create",
+      "tokens": 20540,
+      "at": "2026-07-13T07:47:54.547Z"
+    },
+    {
+      "file": "c:/Vino/FinSight/Source/docs/superpowers/plans/2026-07-13-finsight-mvp.md",
+      "action": "edit",
+      "tokens": 100,
+      "at": "2026-07-13T07:48:12.373Z"
+    },
+    {
+      "file": "c:/Vino/FinSight/Source/.gitignore",
+      "action": "create",
+      "tokens": 44,
+      "at": "2026-07-13T07:52:31.375Z"
+    }
+  ],
+  "edit_counts": {
+    "docs/superpowers/specs/2026-07-13-finsight-mvp-design.md": 1,
+    "docs/superpowers/plans/2026-07-13-finsight-mvp.md": 2,
+    ".gitignore": 1
+  },
+  "anatomy_hits": 0,
+  "anatomy_misses": 0,
+  "repeated_reads_warned": 0,
+  "cerebrum_warnings": 0,
+  "stop_count": 3
+}
