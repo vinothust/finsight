@@ -5,9 +5,8 @@ class Settings(BaseSettings):
     model_config = SettingsConfigDict(env_file=".env", extra="ignore")
 
     database_url: str = "postgresql+psycopg://finsight:finsight@localhost:5432/finsight"
-    llm_provider: str = "anthropic"
-    anthropic_api_key: str = ""
-    openai_api_key: str = ""
+    gcp_project: str = ""
+    gcp_location: str = "us-central1"
 
 
 settings = Settings()

@@ -1,0 +1,13 @@
+{
+  "name": "finsight-monorepo",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "install:all": "npm install --prefix apps/web && pip install -r apps/api/requirements.txt",
+    "dev": "concurrently -n API,WEB -c blue,green \"uvicorn app.main:app --reload --port 8001 --app-dir apps/api\" \"npm --prefix apps/web run dev\"",
+    "test": "concurrently -n API,WEB -c blue,green --success all \"cd apps/api && pytest -v\" \"npm --prefix apps/web run test\""
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  }
+}

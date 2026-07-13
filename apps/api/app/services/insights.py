@@ -15,5 +15,5 @@ def generate_narrative(db: Session, scope: RoleScope) -> str:
         f"Revenue/margin by period: {revenue}\n"
         f"Utilization by period: {utilization}"
     )
-    client = get_llm_client()
-    return client.complete(prompt, system="Be concise and specific with numbers.")
+    client = get_llm_client(db)
+    return client.complete(prompt, system="Be concise and specific with numbers.", tier="simple")

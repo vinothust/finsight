@@ -6,6 +6,7 @@ import { AskFinSight } from "./pages/AskFinSight";
 import { Dashboard } from "./pages/Dashboard";
 import { Insights } from "./pages/Insights";
 import { Scorecards } from "./pages/Scorecards";
+import { Settings } from "./pages/Settings";
 import { Uploads } from "./pages/Uploads";
 import { Utilization } from "./pages/Utilization";
 
@@ -16,6 +17,7 @@ const NAV_ITEMS = [
   { to: "/insights", label: "Insights" },
   { to: "/ask", label: "Ask FinSight" },
   { to: "/uploads", label: "Uploads" },
+  { to: "/settings", label: "Settings" },
 ];
 
 export default function App() {
@@ -48,6 +50,7 @@ export default function App() {
             <Route path="/insights" element={<Insights />} />
             <Route path="/ask" element={<AskFinSight />} />
             <Route path="/uploads" element={<Uploads />} />
+            <Route path="/settings" element={<Settings />} />
           </Routes>
         </main>
       </BrowserRouter>

@@ -1,15 +1,15 @@
-from functools import lru_cache
+from sqlalchemy.orm import Session
 
-from app.core.config import settings
-from app.core.llm.base import LLMClient
+from app.core.llm.vertex_client import VertexAIClient
+from app.services.llm_settings import get_or_create_llm_settings
 
 
-@lru_cache
-def get_llm_client() -> LLMClient:
-    if settings.llm_provider == "openai":
-        from app.core.llm.openai_client import OpenAIClient
-
-        return OpenAIClient()
-    from app.core.llm.anthropic_client import AnthropicClient
-
-    return AnthropicClient()
+def get_llm_client(db: Session) -> VertexAIClient:
+    row = get_or_create_llm_settings(db)
+    return VertexAIClient(
+        project=row.gcp_project,
+        location=row.gcp_location,
+        model_simple=row.model_simple,
+        model_complex=row.model_complex,
+        model_fallback=row.model_fallback,
+    )

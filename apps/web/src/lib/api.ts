@@ -1,4 +1,4 @@
-const API_BASE = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000";
+const API_BASE = import.meta.env.VITE_API_BASE_URL || "http://localhost:8001";
 
 export interface RequestOptions {
   role: string;
@@ -87,4 +87,26 @@ export async function getProgramOptions(): Promise<ProgramOption[]> {
   const response = await fetch(`${API_BASE}/scope-options/programs`);
   if (!response.ok) throw new Error(`API error ${response.status}: ${await response.text()}`);
   return response.json() as Promise<ProgramOption[]>;
+}
+
+export interface LLMSettings {
+  gcp_project: string;
+  gcp_location: string;
+  model_simple: string;
+  model_complex: string;
+  model_fallback: string;
+}
+export async function getLLMSettings(): Promise<LLMSettings> {
+  const response = await fetch(`${API_BASE}/llm-settings`);
+  if (!response.ok) throw new Error(`API error ${response.status}: ${await response.text()}`);
+  return response.json() as Promise<LLMSettings>;
+}
+export async function updateLLMSettings(payload: Partial<LLMSettings>): Promise<LLMSettings> {
+  const response = await fetch(`${API_BASE}/llm-settings`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload),
+  });
+  if (!response.ok) throw new Error(`API error ${response.status}: ${await response.text()}`);
+  return response.json() as Promise<LLMSettings>;
 }

@@ -3,6 +3,7 @@ import re
 from sqlalchemy import text
 from sqlalchemy.orm import Session
 
+from app.core.llm.base import LLMClient
 from app.core.llm.factory import get_llm_client
 from app.deps import RoleScope
 
@@ -36,8 +37,7 @@ def validate_select_only(sql: str) -> str:
     return sql.strip()
 
 
-def question_to_sql(question: str, scope: RoleScope) -> str:
-    client = get_llm_client()
+def question_to_sql(question: str, scope: RoleScope, client: LLMClient) -> str:
     prompt = (
         f"Given this schema:\n{SCHEMA_DESCRIPTION}\n"
         f"Write a single read-only PostgreSQL SELECT statement to answer: {question}\n"
@@ -49,18 +49,19 @@ def question_to_sql(question: str, scope: RoleScope) -> str:
             f"\nThe caller's role is {scope.role}. Restrict results to {column} = {scope.scope_id} "
             "wherever the schema allows it."
         )
-    raw = client.complete(prompt, system="You only write safe, read-only SQL.")
+    raw = client.complete(prompt, system="You only write safe, read-only SQL.", tier="complex")
     return validate_select_only(_extract_sql(raw))
 
 
 def run_query(db: Session, question: str, scope: RoleScope) -> dict:
-    sql = question_to_sql(question, scope)
+    client = get_llm_client(db)
+    sql = question_to_sql(question, scope, client)
     rows = [dict(row) for row in db.execute(text(sql)).mappings().all()]
 
-    client = get_llm_client()
     explanation = client.complete(
         f"Question: {question}\nSQL used: {sql}\nResult rows: {rows}\n"
-        "Explain the result in 2-3 plain-English sentences."
+        "Explain the result in 2-3 plain-English sentences.",
+        tier="simple",
     )
 
     return {"sql": sql, "rows": rows, "explanation": explanation}
