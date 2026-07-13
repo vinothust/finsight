@@ -93,3 +93,11 @@
 | 16:47 | Created apps/web/src/pages/Dashboard.tsx | — | ~313 |
 | 16:48 | Created apps/web/src/pages/Utilization.tsx | — | ~307 |
 | 16:49 | Task 11: Dashboard (TDD RED->GREEN) + Utilization pages with Recharts, both consuming useRole/getRevenueMargin/getUtilization from Task 10 | apps/web/src/pages | tests 3/3 passed, tsc clean | ~900 tok |
+| 16:53 | Created .superpowers/sdd/task-11-report.md | — | ~1108 |
+| 16:58 | Created apps/web/src/pages/Scorecards.test.tsx | — | ~227 |
+| 16:59 | Created apps/web/src/pages/Scorecards.tsx | — | ~331 |
+| 17:00 | Created apps/web/src/pages/Insights.tsx | — | ~203 |
+| 17:03 | Created .superpowers/sdd/task-12-report.md | — | ~1280 |
+| 17:06 | Created apps/web/src/pages/AskFinSight.test.tsx | — | ~296 |
+| 17:07 | Created apps/web/src/pages/AskFinSight.tsx | — | ~643 |
+| 17:07 | Created apps/web/src/pages/Uploads.tsx | — | ~430 |

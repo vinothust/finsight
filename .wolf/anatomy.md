@@ -1,7 +1,7 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-07-13T11:18:19.677Z
-> Files: 83 tracked | Anatomy hits: 0 | Misses: 0
+> Auto-maintained by OpenWolf. Last scanned: 2026-07-13T11:37:11.322Z
+> Files: 91 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ../../../Users/180655/AppData/Local/Temp/claude/c--Vino-FinSight-Source/9a861225-893c-4e78-9ebb-113290c5fed6/scratchpad/
 
@@ -24,6 +24,8 @@
 
 - `task-1-report.md` — Task 1 Report: Backend Project Scaffold (~785 tok)
 - `task-10-report.md` — Task 10 Report: Frontend Scaffold + Role Context (~1752 tok)
+- `task-11-report.md` — Task 11 Report: Dashboard + Utilization Pages (~1038 tok)
+- `task-12-report.md` — Task 12 Report: Scorecards + Insights Pages (~1200 tok)
 - `task-2-report.md` — Task 2 Report: Database Models (~954 tok)
 - `task-3-report.md` — Task 3 Report: Role Scoping Dependency (~1094 tok)
 - `task-4-report.md` — Task 4 Report: Ingestion Service + Uploads Router (~1741 tok)
@@ -140,8 +142,14 @@
 
 ## apps/web/src/pages/
 
+- `AskFinSight.test.tsx` (~296 tok)
+- `AskFinSight.tsx` — AskFinSight — renders table (~643 tok)
 - `Dashboard.test.tsx` (~209 tok)
 - `Dashboard.tsx` — Dashboard (~313 tok)
+- `Insights.tsx` — Insights (~203 tok)
+- `Scorecards.test.tsx` (~227 tok)
+- `Scorecards.tsx` — RAG_COLORS (~331 tok)
+- `Uploads.tsx` — Uploads (~430 tok)
 - `Utilization.tsx` — Utilization (~307 tok)
 
 ## docs/superpowers/plans/
