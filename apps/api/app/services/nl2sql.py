@@ -4,6 +4,7 @@ from sqlalchemy import text
 from sqlalchemy.orm import Session
 
 from app.core.llm.factory import get_llm_client
+from app.deps import RoleScope
 
 SCHEMA_DESCRIPTION = """
 Tables:
@@ -35,19 +36,25 @@ def validate_select_only(sql: str) -> str:
     return sql.strip()
 
 
-def question_to_sql(question: str) -> str:
+def question_to_sql(question: str, scope: RoleScope) -> str:
     client = get_llm_client()
     prompt = (
         f"Given this schema:\n{SCHEMA_DESCRIPTION}\n"
         f"Write a single read-only PostgreSQL SELECT statement to answer: {question}\n"
         "Return only the SQL in a ```sql code block."
     )
+    if scope.role != "area_director" and scope.scope_id is not None:
+        column = "account_id" if scope.role == "account_director" else "program_id"
+        prompt += (
+            f"\nThe caller's role is {scope.role}. Restrict results to {column} = {scope.scope_id} "
+            "wherever the schema allows it."
+        )
     raw = client.complete(prompt, system="You only write safe, read-only SQL.")
     return validate_select_only(_extract_sql(raw))
 
 
-def run_query(db: Session, question: str) -> dict:
-    sql = question_to_sql(question)
+def run_query(db: Session, question: str, scope: RoleScope) -> dict:
+    sql = question_to_sql(question, scope)
     rows = [dict(row) for row in db.execute(text(sql)).mappings().all()]
 
     client = get_llm_client()
