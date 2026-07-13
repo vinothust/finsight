@@ -1,13 +1,7 @@
 from sqlalchemy.orm import Session
 
 from app.core.config import settings
-from app.models.llm_settings import (
-    DEFAULT_MODEL_COMPLEX,
-    DEFAULT_MODEL_FALLBACK,
-    DEFAULT_MODEL_SIMPLE,
-    SETTINGS_ROW_ID,
-    LLMSettings,
-)
+from app.models.llm_settings import SETTINGS_ROW_ID, LLMSettings
 
 
 def get_or_create_llm_settings(db: Session) -> LLMSettings:
@@ -17,9 +11,9 @@ def get_or_create_llm_settings(db: Session) -> LLMSettings:
             id=SETTINGS_ROW_ID,
             gcp_project=settings.gcp_project,
             gcp_location=settings.gcp_location,
-            model_simple=DEFAULT_MODEL_SIMPLE,
-            model_complex=DEFAULT_MODEL_COMPLEX,
-            model_fallback=DEFAULT_MODEL_FALLBACK,
+            model_simple=settings.model_simple,
+            model_complex=settings.model_complex,
+            model_fallback=settings.model_fallback,
         )
         db.add(row)
         db.commit()

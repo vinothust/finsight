@@ -67,12 +67,15 @@ Model selection is tiered and configurable **at runtime from the Settings page**
 | Complex | Query generation and other heavy operations (NL2SQL SQL generation) | `gemini-2.5-flash` |
 | Fallback | Automatically retried once if the tiered model call fails | `gemini-2.5-pro` |
 
-Optional `apps/api/.env` (all fields optional — seeds the initial DB row on first run; change anytime via the Settings page after that):
+Optional `apps/api/.env` (all fields optional — these only *seed* the initial `llm_settings` DB row on first run; once that row exists, the Settings page/API is authoritative and these env values are no longer read):
 
 ```
 DATABASE_URL=postgresql+psycopg://finsight:finsight@localhost:5432/finsight
 GCP_PROJECT=your-gcp-project-id
 GCP_LOCATION=us-central1
+MODEL_SIMPLE=gemini-2.5-flash-lite
+MODEL_COMPLEX=gemini-2.5-flash
+MODEL_FALLBACK=gemini-2.5-pro
 ```
 
 ## Backend (`apps/api`) — run standalone
