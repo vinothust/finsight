@@ -104,3 +104,12 @@
 | 17:10 | Created .superpowers/sdd/task-13-report.md | — | ~887 |
 | 17:15 | Created apps/web/src/App.test.tsx | — | ~122 |
 | 17:16 | Created apps/web/src/App.tsx | — | ~546 |
+| 17:20 | Created .superpowers/sdd/task-14-report.md | — | ~1671 |
+| 17:33 | Created apps/api/tests/test_scope_options.py | — | ~470 |
+| 17:34 | Edited apps/api/tests/test_nl2sql_run_query.py | modified __init__() | ~670 |
+| 17:34 | Created apps/api/app/routers/scope_options.py | — | ~235 |
+| 17:35 | Edited apps/api/app/main.py | 7→8 lines | ~87 |
+| 17:35 | Edited apps/api/app/services/nl2sql.py | added 1 import(s) | ~41 |
+| 17:35 | Edited apps/api/app/services/nl2sql.py | modified question_to_sql() | ~252 |
+| 17:35 | Edited apps/api/app/routers/nlq.py | modified ask_question() | ~147 |
+| 17:39 | Created .superpowers/sdd/task-15-report.md | — | ~1895 |

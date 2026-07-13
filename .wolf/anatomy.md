@@ -1,7 +1,7 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-07-13T11:46:09.502Z
-> Files: 94 tracked | Anatomy hits: 0 | Misses: 0
+> Auto-maintained by OpenWolf. Last scanned: 2026-07-13T12:09:43.918Z
+> Files: 98 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ../../../Users/180655/AppData/Local/Temp/claude/c--Vino-FinSight-Source/9a861225-893c-4e78-9ebb-113290c5fed6/scratchpad/
 
@@ -27,6 +27,8 @@
 - `task-11-report.md` — Task 11 Report: Dashboard + Utilization Pages (~1038 tok)
 - `task-12-report.md` — Task 12 Report: Scorecards + Insights Pages (~1200 tok)
 - `task-13-report.md` — Task 13 Report: Ask FinSight (NL2SQL) + Uploads Pages (~831 tok)
+- `task-14-report.md` — Task 14 Report: App Shell, Routing, and Smoke Test (~1566 tok)
+- `task-15-report.md` — Task 15 Report: Scope-Options Router + Scope-Aware NL2SQL (~1777 tok)
 - `task-2-report.md` — Task 2 Report: Database Models (~954 tok)
 - `task-3-report.md` — Task 3 Report: Role Scoping Dependency (~1094 tok)
 - `task-4-report.md` — Task 4 Report: Ingestion Service + Uploads Router (~1741 tok)
@@ -44,7 +46,7 @@
 
 - `__init__.py` (~0 tok)
 - `deps.py` — Role-scoping dependency: RoleScope dataclass, get_role_scope (~148 tok)
-- `main.py` — API: 1 endpoints (~157 tok)
+- `main.py` — API: 1 endpoints (~173 tok)
 
 ## apps/api/app/core/
 
@@ -74,7 +76,8 @@
 - `__init__.py` (~0 tok)
 - `dashboard.py` — API: 2 endpoints (~183 tok)
 - `insights.py` — API: 1 endpoints (~124 tok)
-- `nlq.py` — API: 1 endpoints (~117 tok)
+- `nlq.py` — API: 1 endpoints (~147 tok)
+- `scope_options.py` — API: 2 endpoints (~235 tok)
 - `scorecards.py` — API: 1 endpoints (~122 tok)
 - `uploads.py` — API: 2 endpoints (~359 tok)
 
@@ -89,7 +92,7 @@
 - `dashboard.py` — revenue_margin_summary, utilization_summary (~734 tok)
 - `ingestion.py` — ingest_financial, ingest_utilization (~969 tok)
 - `insights.py` — generate_narrative (~205 tok)
-- `nl2sql.py` — UnsafeSQLError: validate_select_only, question_to_sql, run_query (~556 tok)
+- `nl2sql.py` — UnsafeSQLError: validate_select_only, question_to_sql, run_query (~672 tok)
 - `scorecards.py` — program_scorecards (~363 tok)
 
 ## apps/api/tests/
@@ -104,7 +107,8 @@
 - `test_llm_factory.py` — test_factory_returns_anthropic_by_default, test_factory_returns_openai_when_configured (~223 tok)
 - `test_models.py` — test_account_program_financial_record_relationship (~215 tok)
 - `test_nl2sql_guard.py` — test_validate_select_only_accepts_select, test_validate_select_only_rejects_delete, test_validate_se (~281 tok)
-- `test_nl2sql_run_query.py` — FakeClient: complete, test_run_query_executes_generated_sql (~232 tok)
+- `test_nl2sql_run_query.py` — FakeClient: complete, test_run_query_executes_generated_sql, test_run_query_includes_scoping_hint_in (~670 tok)
+- `test_scope_options.py` — test_list_accounts_returns_seeded_accounts_ordered_by_name, test_list_programs_without_account_id_re (~470 tok)
 - `test_scorecards.py` — test_program_scorecards_assigns_rag_status (~308 tok)
 - `test_uploads_api.py` — test_upload_financial_endpoint, test_upload_unknown_dataset_returns_400 (~194 tok)
 

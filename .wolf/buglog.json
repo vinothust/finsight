@@ -103,6 +103,22 @@
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-07-13T11:00:00.000Z"
+    },
+    {
+      "id": "bug-007",
+      "timestamp": "2026-07-13T12:05:35.287Z",
+      "error_message": "Significant refactor of ",
+      "file": "apps/api/app/services/nl2sql.py",
+      "root_cause": "3 lines replaced/restructured",
+      "fix": "Rewrote 13→19 lines (3 removed)",
+      "tags": [
+        "auto-detected",
+        "refactor",
+        "py"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-07-13T12:05:35.287Z"
     }
   ]
 }
