@@ -1,5 +1,6 @@
 import { BrowserRouter, NavLink, Route, Routes } from "react-router-dom";
 import { RoleSwitcher } from "./components/RoleSwitcher";
+import { ScopePicker } from "./components/ScopePicker";
 import { RoleProvider } from "./context/RoleContext";
 import { AskFinSight } from "./pages/AskFinSight";
 import { Dashboard } from "./pages/Dashboard";
@@ -34,7 +35,10 @@ export default function App() {
               </NavLink>
             ))}
           </nav>
-          <RoleSwitcher />
+          <div className="flex items-center gap-2">
+            <RoleSwitcher />
+            <ScopePicker />
+          </div>
         </header>
         <main>
           <Routes>
