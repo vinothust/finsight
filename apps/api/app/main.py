@@ -3,12 +3,13 @@ from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI(title="FinSight API")
 
-from app.routers import dashboard, insights, scorecards, uploads
+from app.routers import dashboard, insights, nlq, scorecards, uploads
 
 app.include_router(uploads.router)
 app.include_router(dashboard.router)
 app.include_router(scorecards.router)
 app.include_router(insights.router)
+app.include_router(nlq.router)
 
 app.add_middleware(
     CORSMiddleware,

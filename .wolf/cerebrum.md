@@ -18,6 +18,9 @@
 - **ORM Models:** SQLAlchemy 2.0 with Mapped types, mapped_column(), and relationship() for FK references. Model classes must be imported in conftest.py before create_all() so tables register with Base.metadata
 - **CORS:** Enabled with `allow_origins=["*"]` for development in main.py
 - **Project Structure:** MCP project with `.wolf/` directory for OpenWolf context; task briefs in `.superpowers/sdd/`; git repo at Source root
+- **LLM Abstraction Pattern:** Use ABC base class with abstract method, concrete implementations per provider, @lru_cache factory for singleton pattern. Monkeypatch `__init__` in tests to prevent real API calls during unit testing.
+- **Dependencies:** anthropic and openai packages in requirements.txt may need explicit pip install even if listed — check installation before running tests.
+- **NL2SQL Safety Guard (Task 9):** `validate_select_only` in `app/services/nl2sql.py` is a keyword-blocklist guard (must start with "select", rejects insert/update/delete/drop/alter/create/truncate/attach/`;`), not a full SQL parser. It correctly blocks all required attack cases (DELETE, stacked `;` statements, UPDATE, TRUNCATE, comment-hidden DROP) but does NOT block semantic data-exfiltration via UNION SELECT (e.g. `SELECT * FROM accounts UNION SELECT * FROM sqlite_master`) since that still starts with SELECT and contains no forbidden keyword. This is an accepted limitation per the task-9 brief's exact spec — do not silently expand scope to add a real SQL parser without being asked.
 
 ## Do-Not-Repeat
 

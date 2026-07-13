@@ -50,3 +50,27 @@
 | 14:08 | Created apps/api/app/routers/dashboard.py | — | ~183 |
 | 14:09 | Edited apps/api/app/main.py | 3→4 lines | ~33 |
 | 14:11 | Created .superpowers/sdd/task-5-report.md | — | ~872 |
+| 14:15 | Created apps/api/tests/test_scorecards.py | — | ~308 |
+| 14:16 | Created apps/api/app/services/scorecards.py | — | ~363 |
+| 14:17 | Created apps/api/app/routers/scorecards.py | — | ~122 |
+| 14:17 | Edited apps/api/app/main.py | 4→5 lines | ~48 |
+| 14:19 | Created .superpowers/sdd/task-6-report.md | — | ~938 |
+| 14:22 | Created apps/api/tests/test_llm_factory.py | — | ~223 |
+| 14:23 | Created apps/api/app/core/llm/__init__.py | — | ~0 |
+| 14:23 | Created apps/api/app/core/llm/base.py | — | ~47 |
+| 14:23 | Created apps/api/app/core/llm/anthropic_client.py | — | ~164 |
+| 14:23 | Created apps/api/app/core/llm/openai_client.py | — | ~174 |
+| 14:23 | Created apps/api/app/core/llm/factory.py | — | ~110 |
+| 15:51 | Created .superpowers/sdd/task-7-report.md | — | ~1460 |
+| 15:51 | Task 7: Committed LLM client implementation (f741bc4), all 16 tests PASSED | apps/api/app/core/llm, apps/api/tests/test_llm_factory.py | DONE |
+| 15:56 | Created apps/api/tests/test_insights.py | — | ~131 |
+| 15:57 | Created apps/api/app/services/insights.py | — | ~205 |
+| 15:57 | Created apps/api/app/routers/insights.py | — | ~124 |
+| 15:58 | Edited apps/api/app/main.py | inline fix | ~19 |
+| 15:58 | Edited apps/api/app/main.py | 3→4 lines | ~42 |
+| 16:01 | Created .superpowers/sdd/task-8-report.md | — | ~1752 |
+| 16:04 | Created apps/api/tests/test_nl2sql_guard.py | — | ~281 |
+| 16:05 | Created apps/api/app/services/nl2sql.py | — | ~556 |
+| 16:06 | Created apps/api/tests/test_nl2sql_run_query.py | — | ~232 |
+| 16:07 | Created apps/api/app/routers/nlq.py | — | ~117 |
+| 16:07 | Edited apps/api/app/main.py | 6→7 lines | ~71 |
