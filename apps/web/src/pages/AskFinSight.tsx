@@ -7,12 +7,16 @@ export function AskFinSight() {
   const [question, setQuestion] = useState("");
   const [result, setResult] = useState<NLQResult | null>(null);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
   const handleAsk = async () => {
     if (!question.trim()) return;
     setLoading(true);
+    setError("");
     try {
       setResult(await askQuestion(question, { role, scopeId }));
+    } catch (err) {
+      setError((err as Error).message);
     } finally {
       setLoading(false);
     }
@@ -36,6 +40,7 @@ export function AskFinSight() {
           {loading ? "Asking..." : "Ask"}
         </button>
       </div>
+      {error && <p className="text-sm text-rose-600 mb-4">{error}</p>}
       {result && (
         <div className="space-y-3">
           <p className="text-sm text-slate-700">{result.explanation}</p>
