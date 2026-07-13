@@ -556,6 +556,26 @@
       "count": 1,
       "tokens": 1644,
       "first_read": "2026-07-13T12:35:18.621Z"
+    },
+    "C:/Vino/FinSight/Source/.superpowers/sdd/review-088ee0e..ae247ad.diff": {
+      "count": 1,
+      "tokens": 0,
+      "first_read": "2026-07-13T12:37:47.553Z"
+    },
+    "c:/Vino/FinSight/Source/apps/api/app/services/ingestion.py": {
+      "count": 1,
+      "tokens": 969,
+      "first_read": "2026-07-13T12:39:14.874Z"
+    },
+    "c:/Vino/FinSight/Source/apps/api/app/routers/uploads.py": {
+      "count": 1,
+      "tokens": 359,
+      "first_read": "2026-07-13T12:39:15.933Z"
+    },
+    "c:/Vino/FinSight/Source/apps/api/tests/test_ingestion.py": {
+      "count": 1,
+      "tokens": 294,
+      "first_read": "2026-07-13T12:39:22.869Z"
     }
   },
   "files_written": [
@@ -1278,6 +1298,36 @@
       "action": "edit",
       "tokens": 698,
       "at": "2026-07-13T12:35:37.405Z"
+    },
+    {
+      "file": "c:/Vino/FinSight/Source/apps/api/tests/test_ingestion.py",
+      "action": "edit",
+      "tokens": 312,
+      "at": "2026-07-13T12:39:56.348Z"
+    },
+    {
+      "file": "c:/Vino/FinSight/Source/apps/api/tests/test_ingestion.py",
+      "action": "edit",
+      "tokens": 57,
+      "at": "2026-07-13T12:40:10.832Z"
+    },
+    {
+      "file": "c:/Vino/FinSight/Source/apps/api/app/services/ingestion.py",
+      "action": "edit",
+      "tokens": 107,
+      "at": "2026-07-13T12:40:52.881Z"
+    },
+    {
+      "file": "c:/Vino/FinSight/Source/apps/api/app/services/ingestion.py",
+      "action": "edit",
+      "tokens": 108,
+      "at": "2026-07-13T12:41:02.980Z"
+    },
+    {
+      "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-17-report.md",
+      "action": "create",
+      "tokens": 1442,
+      "at": "2026-07-13T12:45:24.036Z"
     }
   ],
   "edit_counts": {
@@ -1305,12 +1355,12 @@
     "apps/api/tests/test_deps.py": 1,
     "apps/api/app/deps.py": 1,
     ".superpowers/sdd/task-3-report.md": 1,
-    "apps/api/tests/test_ingestion.py": 1,
+    "apps/api/tests/test_ingestion.py": 3,
     "apps/api/tests/test_uploads_api.py": 1,
     "apps/api/app/services/__init__.py": 1,
     "apps/api/app/schemas/__init__.py": 1,
     "apps/api/app/routers/__init__.py": 1,
-    "apps/api/app/services/ingestion.py": 1,
+    "apps/api/app/services/ingestion.py": 3,
     "apps/api/app/schemas/upload.py": 1,
     "apps/api/app/routers/uploads.py": 3,
     "../../../Users/180655/AppData/Local/Temp/claude/c--Vino-FinSight-Source/9a861225-893c-4e78-9ebb-113290c5fed6/scratchpad/probe.py": 1,
@@ -1369,10 +1419,11 @@
     ".superpowers/sdd/task-15-report.md": 1,
     "apps/web/src/components/ScopePicker.test.tsx": 3,
     "apps/web/src/components/ScopePicker.tsx": 3,
-    ".superpowers/sdd/task-16-report.md": 2
+    ".superpowers/sdd/task-16-report.md": 2,
+    ".superpowers/sdd/task-17-report.md": 1
   },
-  "anatomy_hits": 68,
-  "anatomy_misses": 43,
+  "anatomy_hits": 71,
+  "anatomy_misses": 44,
   "repeated_reads_warned": 74,
   "cerebrum_warnings": 0,
   "stop_count": 3

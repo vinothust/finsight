@@ -37,7 +37,10 @@ def _get_or_create_program(db: Session, name: str, account: Account) -> Program:
 
 
 def ingest_financial(db: Session, filename: str, content: bytes) -> tuple[int, list[dict]]:
-    df = _read_dataframe(filename, content)
+    try:
+        df = _read_dataframe(filename, content)
+    except Exception as exc:  # noqa: BLE001 - malformed/unparseable file, report as structured error
+        return 0, [{"row": 0, "error": f"could not parse file: {exc}"}]
     missing = FINANCIAL_COLUMNS - set(df.columns)
     if missing:
         return 0, [{"row": 0, "error": f"missing columns: {sorted(missing)}"}]
@@ -64,7 +67,10 @@ def ingest_financial(db: Session, filename: str, content: bytes) -> tuple[int, l
 
 
 def ingest_utilization(db: Session, filename: str, content: bytes) -> tuple[int, list[dict]]:
-    df = _read_dataframe(filename, content)
+    try:
+        df = _read_dataframe(filename, content)
+    except Exception as exc:  # noqa: BLE001 - malformed/unparseable file, report as structured error
+        return 0, [{"row": 0, "error": f"could not parse file: {exc}"}]
     missing = UTILIZATION_COLUMNS - set(df.columns)
     if missing:
         return 0, [{"row": 0, "error": f"missing columns: {sorted(missing)}"}]

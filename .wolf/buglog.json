@@ -263,6 +263,23 @@
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-07-13T12:35:37.414Z"
+    },
+    {
+      "id": "bug-017",
+      "timestamp": "2026-07-13T18:12:00.000Z",
+      "error_message": "Uploading malformed/unparseable CSV or XLSX content raised an unhandled pandas exception (EmptyDataError, ValueError, etc.) through create_upload, producing a raw HTTP 500 instead of the structured {created_rows, errors} contract.",
+      "file": "apps/api/app/services/ingestion.py",
+      "root_cause": "_read_dataframe(filename, content) was called directly inside ingest_financial/ingest_utilization, outside the per-row try/except that handles row-level errors, so parse-time failures (bad CSV/XLSX, empty file, binary garbage) propagated all the way to the FastAPI router unhandled.",
+      "fix": "Wrapped the _read_dataframe(...) call in ingest_financial and ingest_utilization each in their own try/except, returning the same (0, [{\"row\": 0, \"error\": ...}]) structured shape already used for the missing-columns case.",
+      "tags": [
+        "ingestion",
+        "error-handling",
+        "py",
+        "review-finding"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-07-13T18:12:00.000Z"
     }
   ]
 }

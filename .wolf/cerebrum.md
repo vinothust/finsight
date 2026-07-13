@@ -40,6 +40,8 @@
 
 - [2026-07-13] **ScopePicker error-handling fix:** `ScopePicker.tsx`'s `useEffect` fetches (`getAccountOptions()`/`getProgramOptions()`) had no `.catch`, so a rejected fetch silently left the picker showing only the placeholder with no error indication. Fixed by adding `.catch` per branch that sets a local `error` state, rendered as a `<p className="text-sm text-rose-600">` above the `Select.Root` (mirrors `AskFinSight.tsx`'s existing error-message pattern). Error is cleared at the top of the effect on every role change so a stale error from a previous role doesn't linger.
 
+- [2026-07-13] **Ingestion parse-error fix (Task 17):** `_read_dataframe()` in `app/services/ingestion.py` was called before the per-row try/except in both `ingest_financial` and `ingest_utilization`, so a malformed/unparseable upload (bad CSV/XLSX, empty file, binary garbage) raised straight from pandas (`EmptyDataError`, `ValueError`, etc.) into `uploads.py`'s `create_upload` as an unhandled 500, instead of the established `{created_rows, errors}` contract. Fixed by wrapping each `_read_dataframe(...)` call site in its own try/except, returning `(0, [{"row": 0, "error": ...}])` — the same shape already used for the missing-columns case. See `.wolf/buglog.json` bug-017.
+
 ## Decision Log
 
 <!-- Significant technical decisions with rationale. Why X was chosen over Y. -->

@@ -26,3 +26,21 @@ def test_ingest_utilization_rejects_unknown_program(db_session):
     created, errors = ingest_utilization(db_session, "data.csv", csv_content)
     assert created == 0
     assert len(errors) == 1
+
+
+def test_ingest_financial_malformed_content_returns_structured_error(db_session):
+    garbage_content = b"\x89PNG\r\n\x1a\n\x00\x00\x00\rIHDR\x00\x00\x00\x01"
+    created, errors = ingest_financial(db_session, "data.xlsx", garbage_content)
+    assert created == 0
+    assert len(errors) == 1
+    assert errors[0]["row"] == 0
+    assert "error" in errors[0]
+
+
+def test_ingest_utilization_empty_file_returns_structured_error(db_session):
+    empty_content = b""
+    created, errors = ingest_utilization(db_session, "data.csv", empty_content)
+    assert created == 0
+    assert len(errors) == 1
+    assert errors[0]["row"] == 0
+    assert "error" in errors[0]

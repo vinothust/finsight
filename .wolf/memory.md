@@ -128,3 +128,8 @@
 | 18:02 | Edited apps/web/src/components/ScopePicker.tsx | 18→19 lines | ~169 |
 | 18:03 | Edited apps/web/src/components/ScopePicker.test.tsx | expanded (+12 lines) | ~206 |
 | 18:05 | Edited .superpowers/sdd/task-16-report.md | added error handling | ~652 |
+| 18:09 | Edited apps/api/tests/test_ingestion.py | modified test_ingest_utilization_rejects_unknown_program() | ~312 |
+| 18:10 | Edited apps/api/tests/test_ingestion.py | 6→5 lines | ~57 |
+| 18:10 | Edited apps/api/app/services/ingestion.py | modified ingest_financial() | ~107 |
+| 18:11 | Edited apps/api/app/services/ingestion.py | modified ingest_utilization() | ~108 |
+| 18:15 | Created .superpowers/sdd/task-17-report.md | — | ~1346 |

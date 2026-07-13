@@ -1,7 +1,7 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-07-13T12:35:37.377Z
-> Files: 101 tracked | Anatomy hits: 0 | Misses: 0
+> Auto-maintained by OpenWolf. Last scanned: 2026-07-13T12:45:24.007Z
+> Files: 102 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ../../../Users/180655/AppData/Local/Temp/claude/c--Vino-FinSight-Source/9a861225-893c-4e78-9ebb-113290c5fed6/scratchpad/
 
@@ -30,6 +30,7 @@
 - `task-14-report.md` — Task 14 Report: App Shell, Routing, and Smoke Test (~1566 tok)
 - `task-15-report.md` — Task 15 Report: Scope-Options Router + Scope-Aware NL2SQL (~1777 tok)
 - `task-16-report.md` — Task 16 Report: Wire Up Scope Picker (Frontend) (~2113 tok)
+- `task-17-report.md` — Task 17 — Fix: unhandled parse exception in ingestion.py (~1262 tok)
 - `task-2-report.md` — Task 2 Report: Database Models (~954 tok)
 - `task-3-report.md` — Task 3 Report: Role Scoping Dependency (~1094 tok)
 - `task-4-report.md` — Task 4 Report: Ingestion Service + Uploads Router (~1741 tok)
@@ -91,7 +92,7 @@
 
 - `__init__.py` (~0 tok)
 - `dashboard.py` — revenue_margin_summary, utilization_summary (~734 tok)
-- `ingestion.py` — ingest_financial, ingest_utilization (~969 tok)
+- `ingestion.py` — ingest_financial, ingest_utilization (~1076 tok)
 - `insights.py` — generate_narrative (~205 tok)
 - `nl2sql.py` — UnsafeSQLError: validate_select_only, question_to_sql, run_query (~672 tok)
 - `scorecards.py` — program_scorecards (~363 tok)
@@ -103,7 +104,7 @@
 - `test_dashboard.py` — test_revenue_margin_summary_aggregates_across_all_programs, test_revenue_margin_summary_scoped_to_si (~615 tok)
 - `test_deps.py` — Tests for RoleScope: defaults, fallback, scoped pm (~150 tok)
 - `test_health.py` — test_health_endpoint (~45 tok)
-- `test_ingestion.py` — test_ingest_financial_creates_records, test_ingest_financial_missing_columns, test_ingest_utilizatio (~294 tok)
+- `test_ingestion.py` — test_ingest_financial_creates_records, test_ingest_financial_missing_columns, test_ingest_utilizatio (~482 tok)
 - `test_insights.py` — FakeClient: complete, test_generate_narrative_uses_llm_client (~131 tok)
 - `test_llm_factory.py` — test_factory_returns_anthropic_by_default, test_factory_returns_openai_when_configured (~223 tok)
 - `test_models.py` — test_account_program_financial_record_relationship (~215 tok)
