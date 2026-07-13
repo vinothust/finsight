@@ -123,3 +123,8 @@
 | 17:50 | Edited apps/web/src/pages/AskFinSight.tsx | added error handling | ~129 |
 | 17:50 | Edited apps/web/src/pages/AskFinSight.tsx | 2→3 lines | ~30 |
 | 17:53 | Edited apps/web/src/components/ScopePicker.test.tsx | reduced (-6 lines) | ~38 |
+| 17:59 | Created .superpowers/sdd/task-16-report.md | — | ~1754 |
+| 18:02 | Edited apps/web/src/components/ScopePicker.tsx | modified if() | ~286 |
+| 18:02 | Edited apps/web/src/components/ScopePicker.tsx | 18→19 lines | ~169 |
+| 18:03 | Edited apps/web/src/components/ScopePicker.test.tsx | expanded (+12 lines) | ~206 |
+| 18:05 | Edited .superpowers/sdd/task-16-report.md | added error handling | ~652 |

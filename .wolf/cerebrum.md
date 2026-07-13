@@ -38,6 +38,8 @@
 - [2026-07-13] In `apps/web`, never `npm install -D tailwindcss` without a version pin — "latest" resolves to Tailwind v4, which drops the `tailwindcss init` CLI and the classic `tailwind.config.js`/`postcss.config.js`/`@tailwind` directive model this project's briefs assume. Always install `tailwindcss@^3` explicitly.
 - [2026-07-13] `@radix-ui/react-select` needs `tslib` at runtime (via `react-remove-scroll`) but doesn't reliably pull it in; install `tslib` directly whenever adding this Radix package to a fresh app. Also remember the jsdom pointer-capture polyfills and the `@testing-library/jest-dom/vitest` import path (see Key Learnings) — both are needed the first time Radix Select is tested under Vitest.
 
+- [2026-07-13] **ScopePicker error-handling fix:** `ScopePicker.tsx`'s `useEffect` fetches (`getAccountOptions()`/`getProgramOptions()`) had no `.catch`, so a rejected fetch silently left the picker showing only the placeholder with no error indication. Fixed by adding `.catch` per branch that sets a local `error` state, rendered as a `<p className="text-sm text-rose-600">` above the `Select.Root` (mirrors `AskFinSight.tsx`'s existing error-message pattern). Error is cleared at the top of the effect on every role change so a stale error from a previous role doesn't linger.
+
 ## Decision Log
 
 <!-- Significant technical decisions with rationale. Why X was chosen over Y. -->

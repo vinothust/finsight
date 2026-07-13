@@ -215,6 +215,54 @@
       "related_bugs": [],
       "occurrences": 1,
       "last_seen": "2026-07-13T12:23:13.291Z"
+    },
+    {
+      "id": "bug-014",
+      "timestamp": "2026-07-13T12:32:27.859Z",
+      "error_message": "Missing error handling in unknown",
+      "file": "apps/web/src/components/ScopePicker.tsx",
+      "root_cause": "Code path had no error handling — exceptions would propagate uncaught",
+      "fix": "Added try/catch block",
+      "tags": [
+        "auto-detected",
+        "error-handling",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-07-13T12:32:27.859Z"
+    },
+    {
+      "id": "bug-015",
+      "timestamp": "2026-07-13T12:33:06.414Z",
+      "error_message": "Function not marked async",
+      "file": "apps/web/src/components/ScopePicker.test.tsx",
+      "root_cause": "Function uses await but wasn't declared async",
+      "fix": "Added async modifier",
+      "tags": [
+        "auto-detected",
+        "async-fix",
+        "tsx"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-07-13T12:33:06.414Z"
+    },
+    {
+      "id": "bug-016",
+      "timestamp": "2026-07-13T12:35:37.414Z",
+      "error_message": "Missing error handling in unknown",
+      "file": ".superpowers/sdd/task-16-report.md",
+      "root_cause": "Code path had no error handling — exceptions would propagate uncaught",
+      "fix": "Added try/catch block",
+      "tags": [
+        "auto-detected",
+        "error-handling",
+        "md"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-07-13T12:35:37.414Z"
     }
   ]
 }

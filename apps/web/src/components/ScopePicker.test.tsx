@@ -39,4 +39,16 @@ describe("ScopePicker", () => {
     await userEvent.click(await screen.findByText("Acme Corp"));
     expect(screen.getByText("Acme Corp")).toBeInTheDocument();
   });
+
+  it("fetches program options for pm and shows the program placeholder", async () => {
+    localStorage.setItem("finsight_role", "pm");
+    render(
+      <RoleProvider>
+        <ScopePicker />
+      </RoleProvider>
+    );
+
+    await waitFor(() => expect(fetch).toHaveBeenCalledWith(expect.stringContaining("/scope-options/programs")));
+    expect(screen.getByText("Select program...")).toBeInTheDocument();
+  });
 });

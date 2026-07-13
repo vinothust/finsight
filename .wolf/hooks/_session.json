@@ -528,14 +528,34 @@
       "first_read": "2026-07-13T12:19:19.712Z"
     },
     "c:/Vino/FinSight/Source/apps/web/src/pages/AskFinSight.tsx": {
-      "count": 1,
-      "tokens": 643,
+      "count": 2,
+      "tokens": 697,
       "first_read": "2026-07-13T12:20:37.992Z"
     },
     "c:/Vino/FinSight/Source/apps/web/src/components/ScopePicker.test.tsx": {
-      "count": 1,
-      "tokens": 438,
+      "count": 2,
+      "tokens": 391,
       "first_read": "2026-07-13T12:23:03.938Z"
+    },
+    "C:/Vino/FinSight/Source/.superpowers/sdd/task-16-report.md": {
+      "count": 1,
+      "tokens": 1644,
+      "first_read": "2026-07-13T12:30:37.765Z"
+    },
+    "C:/Vino/FinSight/Source/.superpowers/sdd/review-45f77a4..088ee0e.diff": {
+      "count": 1,
+      "tokens": 0,
+      "first_read": "2026-07-13T12:30:39.403Z"
+    },
+    "c:/Vino/FinSight/Source/apps/web/src/components/ScopePicker.tsx": {
+      "count": 2,
+      "tokens": 645,
+      "first_read": "2026-07-13T12:32:12.269Z"
+    },
+    "c:/Vino/FinSight/Source/.superpowers/sdd/task-16-report.md": {
+      "count": 1,
+      "tokens": 1644,
+      "first_read": "2026-07-13T12:35:18.621Z"
     }
   },
   "files_written": [
@@ -1228,6 +1248,36 @@
       "action": "edit",
       "tokens": 38,
       "at": "2026-07-13T12:23:13.282Z"
+    },
+    {
+      "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-16-report.md",
+      "action": "create",
+      "tokens": 1879,
+      "at": "2026-07-13T12:29:07.250Z"
+    },
+    {
+      "file": "c:/Vino/FinSight/Source/apps/web/src/components/ScopePicker.tsx",
+      "action": "edit",
+      "tokens": 286,
+      "at": "2026-07-13T12:32:27.849Z"
+    },
+    {
+      "file": "c:/Vino/FinSight/Source/apps/web/src/components/ScopePicker.tsx",
+      "action": "edit",
+      "tokens": 169,
+      "at": "2026-07-13T12:32:50.222Z"
+    },
+    {
+      "file": "c:/Vino/FinSight/Source/apps/web/src/components/ScopePicker.test.tsx",
+      "action": "edit",
+      "tokens": 206,
+      "at": "2026-07-13T12:33:06.404Z"
+    },
+    {
+      "file": "c:/Vino/FinSight/Source/.superpowers/sdd/task-16-report.md",
+      "action": "edit",
+      "tokens": 698,
+      "at": "2026-07-13T12:35:37.405Z"
     }
   ],
   "edit_counts": {
@@ -1317,12 +1367,13 @@
     "apps/api/tests/test_scope_options.py": 1,
     "apps/api/app/routers/scope_options.py": 1,
     ".superpowers/sdd/task-15-report.md": 1,
-    "apps/web/src/components/ScopePicker.test.tsx": 2,
-    "apps/web/src/components/ScopePicker.tsx": 1
+    "apps/web/src/components/ScopePicker.test.tsx": 3,
+    "apps/web/src/components/ScopePicker.tsx": 3,
+    ".superpowers/sdd/task-16-report.md": 2
   },
-  "anatomy_hits": 65,
-  "anatomy_misses": 42,
-  "repeated_reads_warned": 71,
+  "anatomy_hits": 68,
+  "anatomy_misses": 43,
+  "repeated_reads_warned": 74,
   "cerebrum_warnings": 0,
   "stop_count": 3
 }

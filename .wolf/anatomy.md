@@ -1,7 +1,7 @@
 # anatomy.md
 
-> Auto-maintained by OpenWolf. Last scanned: 2026-07-13T12:23:13.252Z
-> Files: 100 tracked | Anatomy hits: 0 | Misses: 0
+> Auto-maintained by OpenWolf. Last scanned: 2026-07-13T12:35:37.377Z
+> Files: 101 tracked | Anatomy hits: 0 | Misses: 0
 
 ## ../../../Users/180655/AppData/Local/Temp/claude/c--Vino-FinSight-Source/9a861225-893c-4e78-9ebb-113290c5fed6/scratchpad/
 
@@ -29,6 +29,7 @@
 - `task-13-report.md` — Task 13 Report: Ask FinSight (NL2SQL) + Uploads Pages (~831 tok)
 - `task-14-report.md` — Task 14 Report: App Shell, Routing, and Smoke Test (~1566 tok)
 - `task-15-report.md` — Task 15 Report: Scope-Options Router + Scope-Aware NL2SQL (~1777 tok)
+- `task-16-report.md` — Task 16 Report: Wire Up Scope Picker (Frontend) (~2113 tok)
 - `task-2-report.md` — Task 2 Report: Database Models (~954 tok)
 - `task-3-report.md` — Task 3 Report: Role Scoping Dependency (~1094 tok)
 - `task-4-report.md` — Task 4 Report: Ingestion Service + Uploads Router (~1741 tok)
@@ -136,8 +137,8 @@
 - `RoleSwitcher.test.tsx` (~258 tok)
 - `RoleSwitcher.tsx` — Radix Select dropdown bound to useRole(); labels PM/Account Director/Area Director (~220 tok)
 - `RoleSwitcher.tsx` — ROLE_LABELS (~330 tok)
-- `ScopePicker.test.tsx` (~391 tok)
-- `ScopePicker.tsx` — ScopePicker (~545 tok)
+- `ScopePicker.test.tsx` (~509 tok)
+- `ScopePicker.tsx` — ScopePicker (~648 tok)
 
 ## apps/web/src/context/
 

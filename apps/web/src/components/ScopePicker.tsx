@@ -7,12 +7,18 @@ export function ScopePicker() {
   const { role, scopeId, setScopeId } = useRole();
   const [accountOptions, setAccountOptions] = useState<AccountOption[]>([]);
   const [programOptions, setProgramOptions] = useState<ProgramOption[]>([]);
+  const [error, setError] = useState("");
 
   useEffect(() => {
+    setError("");
     if (role === "account_director") {
-      getAccountOptions().then(setAccountOptions);
+      getAccountOptions()
+        .then(setAccountOptions)
+        .catch((err) => setError((err as Error).message || "Failed to load account options"));
     } else if (role === "pm") {
-      getProgramOptions().then(setProgramOptions);
+      getProgramOptions()
+        .then(setProgramOptions)
+        .catch((err) => setError((err as Error).message || "Failed to load program options"));
     }
   }, [role]);
 
@@ -22,7 +28,9 @@ export function ScopePicker() {
   const placeholder = role === "account_director" ? "Select account..." : "Select program...";
 
   return (
-    <Select.Root
+    <div>
+      {error && <p className="text-sm text-rose-600 mb-2">{error}</p>}
+      <Select.Root
       value={scopeId != null ? String(scopeId) : undefined}
       onValueChange={(value) => setScopeId(Number(value))}
     >
@@ -47,6 +55,7 @@ export function ScopePicker() {
           </Select.Viewport>
         </Select.Content>
       </Select.Portal>
-    </Select.Root>
+      </Select.Root>
+    </div>
   );
 }
