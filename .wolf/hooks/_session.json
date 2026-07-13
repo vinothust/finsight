@@ -93,7 +93,7 @@
       "first_read": "2026-07-13T08:19:38.966Z"
     },
     "C:/Vino/FinSight/Source/apps/api/app/models/program.py": {
-      "count": 1,
+      "count": 2,
       "tokens": 150,
       "first_read": "2026-07-13T08:19:39.406Z"
     },
@@ -123,7 +123,7 @@
       "first_read": "2026-07-13T08:23:14.546Z"
     },
     "C:/Vino/FinSight/Source/apps/api/app/routers/uploads.py": {
-      "count": 3,
+      "count": 4,
       "tokens": 359,
       "first_read": "2026-07-13T08:31:36.746Z"
     },
@@ -153,7 +153,7 @@
       "first_read": "2026-07-13T08:43:19.204Z"
     },
     "C:/Vino/FinSight/Source/apps/api/app/deps.py": {
-      "count": 2,
+      "count": 3,
       "tokens": 148,
       "first_read": "2026-07-13T08:43:29.729Z"
     },
@@ -163,7 +163,7 @@
       "first_read": "2026-07-13T08:45:33.263Z"
     },
     "C:/Vino/FinSight/Source/apps/api/app/services/dashboard.py": {
-      "count": 1,
+      "count": 2,
       "tokens": 734,
       "first_read": "2026-07-13T08:45:46.094Z"
     },
@@ -328,8 +328,8 @@
       "first_read": "2026-07-13T11:15:34.385Z"
     },
     "C:/Vino/FinSight/Source/apps/web/src/lib/api.ts": {
-      "count": 4,
-      "tokens": 420,
+      "count": 5,
+      "tokens": 858,
       "first_read": "2026-07-13T11:16:19.249Z"
     },
     "C:/Vino/FinSight/Source/.superpowers/sdd/task-11-report.md": {
@@ -348,7 +348,7 @@
       "first_read": "2026-07-13T11:28:16.972Z"
     },
     "C:/Vino/FinSight/Source/apps/web/src/pages/Dashboard.tsx": {
-      "count": 1,
+      "count": 2,
       "tokens": 313,
       "first_read": "2026-07-13T11:28:30.439Z"
     },
@@ -358,7 +358,7 @@
       "first_read": "2026-07-13T11:28:30.758Z"
     },
     "C:/Vino/FinSight/Source/apps/web/src/pages/Utilization.tsx": {
-      "count": 1,
+      "count": 2,
       "tokens": 307,
       "first_read": "2026-07-13T11:28:30.876Z"
     },
@@ -438,8 +438,8 @@
       "first_read": "2026-07-13T11:54:23.839Z"
     },
     "C:/Vino/FinSight/Source/apps/api/app/services/ingestion.py": {
-      "count": 1,
-      "tokens": 969,
+      "count": 2,
+      "tokens": 1076,
       "first_read": "2026-07-13T11:54:24.221Z"
     },
     "C:/Vino/FinSight/Source/apps/api/app/services/nl2sql.py": {
@@ -463,12 +463,12 @@
       "first_read": "2026-07-13T11:54:54.907Z"
     },
     "C:/Vino/FinSight/Source/apps/web/src/pages/Uploads.tsx": {
-      "count": 1,
+      "count": 2,
       "tokens": 430,
       "first_read": "2026-07-13T11:54:55.930Z"
     },
     "C:/Vino/FinSight/Source/apps/api/app/services/insights.py": {
-      "count": 1,
+      "count": 2,
       "tokens": 205,
       "first_read": "2026-07-13T11:54:55.990Z"
     },
@@ -576,6 +576,41 @@
       "count": 1,
       "tokens": 294,
       "first_read": "2026-07-13T12:39:22.869Z"
+    },
+    "C:/Vino/FinSight/Source/.superpowers/sdd/review-ae247ad..67020be.diff": {
+      "count": 1,
+      "tokens": 0,
+      "first_read": "2026-07-13T12:47:19.723Z"
+    },
+    "C:/Vino/FinSight/Source/apps/api/tests/test_ingestion.py": {
+      "count": 1,
+      "tokens": 482,
+      "first_read": "2026-07-13T12:47:40.358Z"
+    },
+    "C:/Vino/FinSight/Source/.superpowers/sdd/review-93e06d6..67020be.diff": {
+      "count": 2,
+      "tokens": 0,
+      "first_read": "2026-07-13T12:48:55.774Z"
+    },
+    "C:/Vino/FinSight/Source/apps/web/src/pages/Scorecards.tsx": {
+      "count": 1,
+      "tokens": 331,
+      "first_read": "2026-07-13T12:49:27.088Z"
+    },
+    "C:/Vino/FinSight/Source/apps/web/src/pages/Insights.tsx": {
+      "count": 1,
+      "tokens": 203,
+      "first_read": "2026-07-13T12:49:27.456Z"
+    },
+    "C:/Vino/FinSight/Source/apps/api/app/services/scorecards.py": {
+      "count": 1,
+      "tokens": 363,
+      "first_read": "2026-07-13T12:49:37.290Z"
+    },
+    "C:/Vino/FinSight/Source/apps/api/app/routers/dashboard.py": {
+      "count": 1,
+      "tokens": 183,
+      "first_read": "2026-07-13T12:50:14.697Z"
     }
   },
   "files_written": [
@@ -1422,9 +1457,9 @@
     ".superpowers/sdd/task-16-report.md": 2,
     ".superpowers/sdd/task-17-report.md": 1
   },
-  "anatomy_hits": 71,
-  "anatomy_misses": 44,
-  "repeated_reads_warned": 74,
+  "anatomy_hits": 76,
+  "anatomy_misses": 46,
+  "repeated_reads_warned": 85,
   "cerebrum_warnings": 0,
-  "stop_count": 3
+  "stop_count": 5
 }

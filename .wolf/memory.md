@@ -133,3 +133,5 @@
 | 18:10 | Edited apps/api/app/services/ingestion.py | modified ingest_financial() | ~107 |
 | 18:11 | Edited apps/api/app/services/ingestion.py | modified ingest_utilization() | ~108 |
 | 18:15 | Created .superpowers/sdd/task-17-report.md | — | ~1346 |
+| 18:25 | Session end: 125 writes across 79 files (2026-07-13-finsight-mvp-design.md, 2026-07-13-finsight-mvp.md, .gitignore, requirements.txt, __init__.py) | 122 reads | ~126009 tok |
+| 18:28 | Session end: 125 writes across 79 files (2026-07-13-finsight-mvp-design.md, 2026-07-13-finsight-mvp.md, .gitignore, requirements.txt, __init__.py) | 122 reads | ~126009 tok |

@@ -2,14 +2,14 @@
   "version": 1,
   "created_at": "2026-07-13T07:13:33.621Z",
   "lifetime": {
-    "total_tokens_estimated": 23152,
-    "total_reads": 0,
-    "total_writes": 4,
+    "total_tokens_estimated": 275170,
+    "total_reads": 244,
+    "total_writes": 254,
     "total_sessions": 0,
-    "anatomy_hits": 0,
-    "anatomy_misses": 0,
-    "repeated_reads_blocked": 0,
-    "estimated_savings_vs_bare_cli": 0
+    "anatomy_hits": 152,
+    "anatomy_misses": 92,
+    "repeated_reads_blocked": 170,
+    "estimated_savings_vs_bare_cli": 93264
   },
   "sessions": [
     {
@@ -62,6 +62,2754 @@
         "writes_count": 3,
         "repeated_reads_blocked": 0,
         "anatomy_lookups": 0
+      }
+    },
+    {
+      "id": "",
+      "started": "",
+      "ended": "2026-07-13T12:55:28.196Z",
+      "reads": [
+        {
+          "file": "C:/Users/180655/.claude/plugins/cache/claude-plugins-official/superpowers/6.1.1/skills/subagent-driven-development/implementer-prompt.md",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Users/180655/.claude/plugins/cache/claude-plugins-official/superpowers/6.1.1/skills/subagent-driven-development/task-reviewer-prompt.md",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-1-brief.md",
+          "tokens_estimated": 0,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.wolf/anatomy.md",
+          "tokens_estimated": 0,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.wolf/cerebrum.md",
+          "tokens_estimated": 0,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.wolf/memory.md",
+          "tokens_estimated": 0,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-1-report.md",
+          "tokens_estimated": 785,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/review-2b93c0f..4f887f4.diff",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-2-brief.md",
+          "tokens_estimated": 0,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.wolf/buglog.json",
+          "tokens_estimated": 0,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/tests/conftest.py",
+          "tokens_estimated": 237,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-2-report.md",
+          "tokens_estimated": 954,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/review-4f887f4..5ed8356.diff",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-3-brief.md",
+          "tokens_estimated": 0,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-3-report.md",
+          "tokens_estimated": 1094,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/review-5ed8356..b8e18f0.diff",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-4-brief.md",
+          "tokens_estimated": 0,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/models/account.py",
+          "tokens_estimated": 131,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/models/program.py",
+          "tokens_estimated": 150,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/models/financial_record.py",
+          "tokens_estimated": 198,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/models/utilization_record.py",
+          "tokens_estimated": 175,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/models/upload.py",
+          "tokens_estimated": 155,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/main.py",
+          "tokens_estimated": 157,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/models/__init__.py",
+          "tokens_estimated": 90,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/routers/uploads.py",
+          "tokens_estimated": 359,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-4-report.md",
+          "tokens_estimated": 1741,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/review-b8e18f0..6733d18.diff",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-5-brief.md",
+          "tokens_estimated": 0,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-5-report.md",
+          "tokens_estimated": 817,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/review-6733d18..2f02b9d.diff",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/deps.py",
+          "tokens_estimated": 148,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-6-brief.md",
+          "tokens_estimated": 0,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/services/dashboard.py",
+          "tokens_estimated": 734,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-6-report.md",
+          "tokens_estimated": 879,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/review-2f02b9d..87d9647.diff",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-7-brief.md",
+          "tokens_estimated": 0,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/core/config.py",
+          "tokens_estimated": 108,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/requirements.txt",
+          "tokens_estimated": 59,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/core/llm/base.py",
+          "tokens_estimated": 47,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/core/llm/anthropic_client.py",
+          "tokens_estimated": 164,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/core/llm/openai_client.py",
+          "tokens_estimated": 174,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/core/llm/factory.py",
+          "tokens_estimated": 110,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/tests/test_llm_factory.py",
+          "tokens_estimated": 223,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/core/llm/__init__.py",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-7-report.md",
+          "tokens_estimated": 1369,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/review-87d9647..f741bc4.diff",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-8-brief.md",
+          "tokens_estimated": 0,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-8-report.md",
+          "tokens_estimated": 1642,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/review-f741bc4..e9dee8e.diff",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-9-brief.md",
+          "tokens_estimated": 0,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/api/tests/conftest.py",
+          "tokens_estimated": 237,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/api/app/main.py",
+          "tokens_estimated": 157,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/api/app/core/llm/factory.py",
+          "tokens_estimated": 110,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/api/app/models/account.py",
+          "tokens_estimated": 131,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-9-report.md",
+          "tokens_estimated": 1445,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/review-e9dee8e..10221f7.diff",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-10-brief.md",
+          "tokens_estimated": 0,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/web/tailwind.config.js",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/web/postcss.config.js",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/web/src/index.css",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/web/vite.config.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/web/package.json",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-10-report.md",
+          "tokens_estimated": 1752,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/review-10221f7..8e735ed.diff",
+          "tokens_estimated": 0,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-11-brief.md",
+          "tokens_estimated": 0,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/web/src/lib/api.ts",
+          "tokens_estimated": 858,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-11-report.md",
+          "tokens_estimated": 1038,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/review-8e735ed..f3a06af.diff",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-12-brief.md",
+          "tokens_estimated": 0,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/web/src/pages/Dashboard.tsx",
+          "tokens_estimated": 313,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/web/src/pages/Dashboard.test.tsx",
+          "tokens_estimated": 209,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/web/src/pages/Utilization.tsx",
+          "tokens_estimated": 307,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-12-report.md",
+          "tokens_estimated": 1200,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/review-f3a06af..99b9c6e.diff",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-13-brief.md",
+          "tokens_estimated": 0,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/web/src/lib/api.ts",
+          "tokens_estimated": 420,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/web/src/context/RoleContext.tsx",
+          "tokens_estimated": 250,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/web/src/pages/Dashboard.tsx",
+          "tokens_estimated": 313,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-13-report.md",
+          "tokens_estimated": 831,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/review-99b9c6e..82922d6.diff",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-14-brief.md",
+          "tokens_estimated": 0,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/web/src/App.tsx",
+          "tokens_estimated": 546,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/web/package.json",
+          "tokens_estimated": 262,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-14-report.md",
+          "tokens_estimated": 1566,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/review-82922d6..93e06d6.diff",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Users/180655/.claude/plugins/cache/claude-plugins-official/superpowers/6.1.1/skills/requesting-code-review/code-reviewer.md",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/docs/superpowers/plans/2026-07-13-finsight-mvp.md",
+          "tokens_estimated": 17979,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/services/ingestion.py",
+          "tokens_estimated": 1076,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/services/nl2sql.py",
+          "tokens_estimated": 556,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/web/src/pages/AskFinSight.tsx",
+          "tokens_estimated": 643,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/routers/nlq.py",
+          "tokens_estimated": 117,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/web/src/App.tsx",
+          "tokens_estimated": 546,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/web/src/pages/Uploads.tsx",
+          "tokens_estimated": 430,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/services/insights.py",
+          "tokens_estimated": 205,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/web/src/context/RoleContext.tsx",
+          "tokens_estimated": 250,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/api/app/deps.py",
+          "tokens_estimated": 148,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/api/app/services/nl2sql.py",
+          "tokens_estimated": 556,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/api/app/routers/nlq.py",
+          "tokens_estimated": 117,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/api/app/routers/dashboard.py",
+          "tokens_estimated": 183,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/api/app/models/program.py",
+          "tokens_estimated": 150,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/api/tests/test_nl2sql_run_query.py",
+          "tokens_estimated": 232,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-15-report.md",
+          "tokens_estimated": 1777,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/review-93e06d6..45f77a4.diff",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/web/src/setupTests.ts",
+          "tokens_estimated": 90,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/web/src/pages/AskFinSight.test.tsx",
+          "tokens_estimated": 296,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/web/src/pages/AskFinSight.tsx",
+          "tokens_estimated": 697,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/web/src/components/ScopePicker.test.tsx",
+          "tokens_estimated": 391,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-16-report.md",
+          "tokens_estimated": 1644,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/review-45f77a4..088ee0e.diff",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/web/src/components/ScopePicker.tsx",
+          "tokens_estimated": 645,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/.superpowers/sdd/task-16-report.md",
+          "tokens_estimated": 1644,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/review-088ee0e..ae247ad.diff",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/api/app/services/ingestion.py",
+          "tokens_estimated": 969,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/api/app/routers/uploads.py",
+          "tokens_estimated": 359,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/api/tests/test_ingestion.py",
+          "tokens_estimated": 294,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/review-ae247ad..67020be.diff",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/tests/test_ingestion.py",
+          "tokens_estimated": 482,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/review-93e06d6..67020be.diff",
+          "tokens_estimated": 0,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/web/src/pages/Scorecards.tsx",
+          "tokens_estimated": 331,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/web/src/pages/Insights.tsx",
+          "tokens_estimated": 203,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/services/scorecards.py",
+          "tokens_estimated": 363,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/routers/dashboard.py",
+          "tokens_estimated": 183,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "c:/Vino/FinSight/Source/docs/superpowers/specs/2026-07-13-finsight-mvp-design.md",
+          "tokens_estimated": 1256,
+          "action": "create"
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/docs/superpowers/plans/2026-07-13-finsight-mvp.md",
+          "tokens_estimated": 20540,
+          "action": "create"
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/docs/superpowers/plans/2026-07-13-finsight-mvp.md",
+          "tokens_estimated": 100,
+          "action": "edit"
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/.gitignore",
+          "tokens_estimated": 44,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/requirements.txt",
+          "tokens_estimated": 67,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/__init__.py",
+          "tokens_estimated": 0,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/core/__init__.py",
+          "tokens_estimated": 0,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/core/config.py",
+          "tokens_estimated": 108,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/core/db.py",
+          "tokens_estimated": 124,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/main.py",
+          "tokens_estimated": 86,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/tests/__init__.py",
+          "tokens_estimated": 0,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/tests/conftest.py",
+          "tokens_estimated": 202,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/tests/test_health.py",
+          "tokens_estimated": 45,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-1-report.md",
+          "tokens_estimated": 898,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/models/__init__.py",
+          "tokens_estimated": 90,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/models/account.py",
+          "tokens_estimated": 131,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/models/program.py",
+          "tokens_estimated": 150,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/models/financial_record.py",
+          "tokens_estimated": 198,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/models/utilization_record.py",
+          "tokens_estimated": 175,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/models/upload.py",
+          "tokens_estimated": 155,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/tests/conftest.py",
+          "tokens_estimated": 65,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/tests/test_models.py",
+          "tokens_estimated": 215,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-2-report.md",
+          "tokens_estimated": 1090,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/tests/test_deps.py",
+          "tokens_estimated": 150,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/deps.py",
+          "tokens_estimated": 148,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-3-report.md",
+          "tokens_estimated": 1251,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/tests/test_ingestion.py",
+          "tokens_estimated": 294,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/tests/test_uploads_api.py",
+          "tokens_estimated": 194,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/services/__init__.py",
+          "tokens_estimated": 0,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/schemas/__init__.py",
+          "tokens_estimated": 0,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/routers/__init__.py",
+          "tokens_estimated": 0,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/services/ingestion.py",
+          "tokens_estimated": 969,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/schemas/upload.py",
+          "tokens_estimated": 72,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/routers/uploads.py",
+          "tokens_estimated": 359,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/main.py",
+          "tokens_estimated": 36,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Users/180655/AppData/Local/Temp/claude/c--Vino-FinSight-Source/9a861225-893c-4e78-9ebb-113290c5fed6/scratchpad/probe.py",
+          "tokens_estimated": 282,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/routers/uploads.py",
+          "tokens_estimated": 97,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/routers/uploads.py",
+          "tokens_estimated": 99,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/tests/conftest.py",
+          "tokens_estimated": 144,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-4-report.md",
+          "tokens_estimated": 1990,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/tests/test_dashboard.py",
+          "tokens_estimated": 615,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/services/dashboard.py",
+          "tokens_estimated": 734,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/routers/dashboard.py",
+          "tokens_estimated": 183,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/main.py",
+          "tokens_estimated": 33,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-5-report.md",
+          "tokens_estimated": 934,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/tests/test_scorecards.py",
+          "tokens_estimated": 308,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/services/scorecards.py",
+          "tokens_estimated": 363,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/routers/scorecards.py",
+          "tokens_estimated": 122,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/main.py",
+          "tokens_estimated": 48,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-6-report.md",
+          "tokens_estimated": 1004,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/tests/test_llm_factory.py",
+          "tokens_estimated": 223,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/core/llm/__init__.py",
+          "tokens_estimated": 0,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/core/llm/base.py",
+          "tokens_estimated": 47,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/core/llm/anthropic_client.py",
+          "tokens_estimated": 164,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/core/llm/openai_client.py",
+          "tokens_estimated": 174,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/core/llm/factory.py",
+          "tokens_estimated": 110,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-7-report.md",
+          "tokens_estimated": 1564,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/tests/test_insights.py",
+          "tokens_estimated": 131,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/services/insights.py",
+          "tokens_estimated": 205,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/routers/insights.py",
+          "tokens_estimated": 124,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/main.py",
+          "tokens_estimated": 19,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/main.py",
+          "tokens_estimated": 42,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-8-report.md",
+          "tokens_estimated": 1877,
+          "action": "create"
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/api/tests/test_nl2sql_guard.py",
+          "tokens_estimated": 281,
+          "action": "create"
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/api/app/services/nl2sql.py",
+          "tokens_estimated": 556,
+          "action": "create"
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/api/tests/test_nl2sql_run_query.py",
+          "tokens_estimated": 232,
+          "action": "create"
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/api/app/routers/nlq.py",
+          "tokens_estimated": 117,
+          "action": "create"
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/api/app/main.py",
+          "tokens_estimated": 71,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-9-report.md",
+          "tokens_estimated": 1652,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/web/tailwind.config.js",
+          "tokens_estimated": 45,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/web/src/index.css",
+          "tokens_estimated": 17,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/web/src/context/RoleContext.tsx",
+          "tokens_estimated": 270,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/web/src/components/RoleSwitcher.test.tsx",
+          "tokens_estimated": 258,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/web/src/components/RoleSwitcher.tsx",
+          "tokens_estimated": 330,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/web/src/setupTests.ts",
+          "tokens_estimated": 11,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/web/vite.config.ts",
+          "tokens_estimated": 72,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/web/package.json",
+          "tokens_estimated": 22,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/web/src/setupTests.ts",
+          "tokens_estimated": 12,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/web/src/setupTests.ts",
+          "tokens_estimated": 48,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/web/src/setupTests.ts",
+          "tokens_estimated": 201,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/web/src/lib/api.ts",
+          "tokens_estimated": 648,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-10-report.md",
+          "tokens_estimated": 2002,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/web/src/pages/Dashboard.test.tsx",
+          "tokens_estimated": 209,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/web/src/pages/Dashboard.tsx",
+          "tokens_estimated": 313,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/web/src/pages/Utilization.tsx",
+          "tokens_estimated": 307,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-11-report.md",
+          "tokens_estimated": 1187,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/web/src/pages/Scorecards.test.tsx",
+          "tokens_estimated": 227,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/web/src/pages/Scorecards.tsx",
+          "tokens_estimated": 331,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/web/src/pages/Insights.tsx",
+          "tokens_estimated": 203,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-12-report.md",
+          "tokens_estimated": 1372,
+          "action": "create"
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/web/src/pages/AskFinSight.test.tsx",
+          "tokens_estimated": 296,
+          "action": "create"
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/web/src/pages/AskFinSight.tsx",
+          "tokens_estimated": 643,
+          "action": "create"
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/web/src/pages/Uploads.tsx",
+          "tokens_estimated": 430,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-13-report.md",
+          "tokens_estimated": 950,
+          "action": "create"
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/web/src/App.test.tsx",
+          "tokens_estimated": 122,
+          "action": "create"
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/web/src/App.tsx",
+          "tokens_estimated": 546,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-14-report.md",
+          "tokens_estimated": 1790,
+          "action": "create"
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/api/tests/test_scope_options.py",
+          "tokens_estimated": 470,
+          "action": "create"
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/api/tests/test_nl2sql_run_query.py",
+          "tokens_estimated": 670,
+          "action": "edit"
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/api/app/routers/scope_options.py",
+          "tokens_estimated": 235,
+          "action": "create"
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/api/app/main.py",
+          "tokens_estimated": 87,
+          "action": "edit"
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/api/app/services/nl2sql.py",
+          "tokens_estimated": 41,
+          "action": "edit"
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/api/app/services/nl2sql.py",
+          "tokens_estimated": 252,
+          "action": "edit"
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/api/app/routers/nlq.py",
+          "tokens_estimated": 147,
+          "action": "edit"
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/.superpowers/sdd/task-15-report.md",
+          "tokens_estimated": 2030,
+          "action": "create"
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/web/src/components/ScopePicker.test.tsx",
+          "tokens_estimated": 438,
+          "action": "create"
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/web/src/context/RoleContext.tsx",
+          "tokens_estimated": 220,
+          "action": "edit"
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/web/src/lib/api.ts",
+          "tokens_estimated": 317,
+          "action": "edit"
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/web/src/components/ScopePicker.tsx",
+          "tokens_estimated": 545,
+          "action": "create"
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/web/src/App.tsx",
+          "tokens_estimated": 33,
+          "action": "edit"
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/web/src/App.tsx",
+          "tokens_estimated": 41,
+          "action": "edit"
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/web/src/pages/AskFinSight.test.tsx",
+          "tokens_estimated": 202,
+          "action": "edit"
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/web/src/pages/AskFinSight.tsx",
+          "tokens_estimated": 129,
+          "action": "edit"
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/web/src/pages/AskFinSight.tsx",
+          "tokens_estimated": 30,
+          "action": "edit"
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/web/src/components/ScopePicker.test.tsx",
+          "tokens_estimated": 38,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-16-report.md",
+          "tokens_estimated": 1879,
+          "action": "create"
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/web/src/components/ScopePicker.tsx",
+          "tokens_estimated": 286,
+          "action": "edit"
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/web/src/components/ScopePicker.tsx",
+          "tokens_estimated": 169,
+          "action": "edit"
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/web/src/components/ScopePicker.test.tsx",
+          "tokens_estimated": 206,
+          "action": "edit"
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/.superpowers/sdd/task-16-report.md",
+          "tokens_estimated": 698,
+          "action": "edit"
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/api/tests/test_ingestion.py",
+          "tokens_estimated": 312,
+          "action": "edit"
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/api/tests/test_ingestion.py",
+          "tokens_estimated": 57,
+          "action": "edit"
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/api/app/services/ingestion.py",
+          "tokens_estimated": 107,
+          "action": "edit"
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/api/app/services/ingestion.py",
+          "tokens_estimated": 108,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-17-report.md",
+          "tokens_estimated": 1442,
+          "action": "create"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 58201,
+        "output_tokens_estimated": 67808,
+        "reads_count": 122,
+        "writes_count": 125,
+        "repeated_reads_blocked": 85,
+        "anatomy_lookups": 76
+      }
+    },
+    {
+      "id": "",
+      "started": "",
+      "ended": "2026-07-13T12:58:19.810Z",
+      "reads": [
+        {
+          "file": "C:/Users/180655/.claude/plugins/cache/claude-plugins-official/superpowers/6.1.1/skills/subagent-driven-development/implementer-prompt.md",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Users/180655/.claude/plugins/cache/claude-plugins-official/superpowers/6.1.1/skills/subagent-driven-development/task-reviewer-prompt.md",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-1-brief.md",
+          "tokens_estimated": 0,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.wolf/anatomy.md",
+          "tokens_estimated": 0,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.wolf/cerebrum.md",
+          "tokens_estimated": 0,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.wolf/memory.md",
+          "tokens_estimated": 0,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-1-report.md",
+          "tokens_estimated": 785,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/review-2b93c0f..4f887f4.diff",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-2-brief.md",
+          "tokens_estimated": 0,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.wolf/buglog.json",
+          "tokens_estimated": 0,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/tests/conftest.py",
+          "tokens_estimated": 237,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-2-report.md",
+          "tokens_estimated": 954,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/review-4f887f4..5ed8356.diff",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-3-brief.md",
+          "tokens_estimated": 0,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-3-report.md",
+          "tokens_estimated": 1094,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/review-5ed8356..b8e18f0.diff",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-4-brief.md",
+          "tokens_estimated": 0,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/models/account.py",
+          "tokens_estimated": 131,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/models/program.py",
+          "tokens_estimated": 150,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/models/financial_record.py",
+          "tokens_estimated": 198,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/models/utilization_record.py",
+          "tokens_estimated": 175,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/models/upload.py",
+          "tokens_estimated": 155,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/main.py",
+          "tokens_estimated": 157,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/models/__init__.py",
+          "tokens_estimated": 90,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/routers/uploads.py",
+          "tokens_estimated": 359,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-4-report.md",
+          "tokens_estimated": 1741,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/review-b8e18f0..6733d18.diff",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-5-brief.md",
+          "tokens_estimated": 0,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-5-report.md",
+          "tokens_estimated": 817,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/review-6733d18..2f02b9d.diff",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/deps.py",
+          "tokens_estimated": 148,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-6-brief.md",
+          "tokens_estimated": 0,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/services/dashboard.py",
+          "tokens_estimated": 734,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-6-report.md",
+          "tokens_estimated": 879,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/review-2f02b9d..87d9647.diff",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-7-brief.md",
+          "tokens_estimated": 0,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/core/config.py",
+          "tokens_estimated": 108,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/requirements.txt",
+          "tokens_estimated": 59,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/core/llm/base.py",
+          "tokens_estimated": 47,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/core/llm/anthropic_client.py",
+          "tokens_estimated": 164,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/core/llm/openai_client.py",
+          "tokens_estimated": 174,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/core/llm/factory.py",
+          "tokens_estimated": 110,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/tests/test_llm_factory.py",
+          "tokens_estimated": 223,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/core/llm/__init__.py",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-7-report.md",
+          "tokens_estimated": 1369,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/review-87d9647..f741bc4.diff",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-8-brief.md",
+          "tokens_estimated": 0,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-8-report.md",
+          "tokens_estimated": 1642,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/review-f741bc4..e9dee8e.diff",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-9-brief.md",
+          "tokens_estimated": 0,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/api/tests/conftest.py",
+          "tokens_estimated": 237,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/api/app/main.py",
+          "tokens_estimated": 157,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/api/app/core/llm/factory.py",
+          "tokens_estimated": 110,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/api/app/models/account.py",
+          "tokens_estimated": 131,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-9-report.md",
+          "tokens_estimated": 1445,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/review-e9dee8e..10221f7.diff",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-10-brief.md",
+          "tokens_estimated": 0,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/web/tailwind.config.js",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/web/postcss.config.js",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/web/src/index.css",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/web/vite.config.ts",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/web/package.json",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-10-report.md",
+          "tokens_estimated": 1752,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/review-10221f7..8e735ed.diff",
+          "tokens_estimated": 0,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-11-brief.md",
+          "tokens_estimated": 0,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/web/src/lib/api.ts",
+          "tokens_estimated": 858,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-11-report.md",
+          "tokens_estimated": 1038,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/review-8e735ed..f3a06af.diff",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-12-brief.md",
+          "tokens_estimated": 0,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/web/src/pages/Dashboard.tsx",
+          "tokens_estimated": 313,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/web/src/pages/Dashboard.test.tsx",
+          "tokens_estimated": 209,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/web/src/pages/Utilization.tsx",
+          "tokens_estimated": 307,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-12-report.md",
+          "tokens_estimated": 1200,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/review-f3a06af..99b9c6e.diff",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-13-brief.md",
+          "tokens_estimated": 0,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/web/src/lib/api.ts",
+          "tokens_estimated": 420,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/web/src/context/RoleContext.tsx",
+          "tokens_estimated": 250,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/web/src/pages/Dashboard.tsx",
+          "tokens_estimated": 313,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-13-report.md",
+          "tokens_estimated": 831,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/review-99b9c6e..82922d6.diff",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-14-brief.md",
+          "tokens_estimated": 0,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/web/src/App.tsx",
+          "tokens_estimated": 546,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/web/package.json",
+          "tokens_estimated": 262,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-14-report.md",
+          "tokens_estimated": 1566,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/review-82922d6..93e06d6.diff",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Users/180655/.claude/plugins/cache/claude-plugins-official/superpowers/6.1.1/skills/requesting-code-review/code-reviewer.md",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/docs/superpowers/plans/2026-07-13-finsight-mvp.md",
+          "tokens_estimated": 17979,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/services/ingestion.py",
+          "tokens_estimated": 1076,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/services/nl2sql.py",
+          "tokens_estimated": 556,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/web/src/pages/AskFinSight.tsx",
+          "tokens_estimated": 643,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/routers/nlq.py",
+          "tokens_estimated": 117,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/web/src/App.tsx",
+          "tokens_estimated": 546,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/web/src/pages/Uploads.tsx",
+          "tokens_estimated": 430,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/services/insights.py",
+          "tokens_estimated": 205,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/web/src/context/RoleContext.tsx",
+          "tokens_estimated": 250,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/api/app/deps.py",
+          "tokens_estimated": 148,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/api/app/services/nl2sql.py",
+          "tokens_estimated": 556,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/api/app/routers/nlq.py",
+          "tokens_estimated": 117,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/api/app/routers/dashboard.py",
+          "tokens_estimated": 183,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/api/app/models/program.py",
+          "tokens_estimated": 150,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/api/tests/test_nl2sql_run_query.py",
+          "tokens_estimated": 232,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-15-report.md",
+          "tokens_estimated": 1777,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/review-93e06d6..45f77a4.diff",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/web/src/setupTests.ts",
+          "tokens_estimated": 90,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/web/src/pages/AskFinSight.test.tsx",
+          "tokens_estimated": 296,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/web/src/pages/AskFinSight.tsx",
+          "tokens_estimated": 697,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/web/src/components/ScopePicker.test.tsx",
+          "tokens_estimated": 391,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-16-report.md",
+          "tokens_estimated": 1644,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/review-45f77a4..088ee0e.diff",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/web/src/components/ScopePicker.tsx",
+          "tokens_estimated": 645,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/.superpowers/sdd/task-16-report.md",
+          "tokens_estimated": 1644,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/review-088ee0e..ae247ad.diff",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/api/app/services/ingestion.py",
+          "tokens_estimated": 969,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/api/app/routers/uploads.py",
+          "tokens_estimated": 359,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/api/tests/test_ingestion.py",
+          "tokens_estimated": 294,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/review-ae247ad..67020be.diff",
+          "tokens_estimated": 0,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/tests/test_ingestion.py",
+          "tokens_estimated": 482,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/review-93e06d6..67020be.diff",
+          "tokens_estimated": 0,
+          "was_repeated": true,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/web/src/pages/Scorecards.tsx",
+          "tokens_estimated": 331,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/web/src/pages/Insights.tsx",
+          "tokens_estimated": 203,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/services/scorecards.py",
+          "tokens_estimated": 363,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/routers/dashboard.py",
+          "tokens_estimated": 183,
+          "was_repeated": false,
+          "anatomy_had_description": false
+        }
+      ],
+      "writes": [
+        {
+          "file": "c:/Vino/FinSight/Source/docs/superpowers/specs/2026-07-13-finsight-mvp-design.md",
+          "tokens_estimated": 1256,
+          "action": "create"
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/docs/superpowers/plans/2026-07-13-finsight-mvp.md",
+          "tokens_estimated": 20540,
+          "action": "create"
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/docs/superpowers/plans/2026-07-13-finsight-mvp.md",
+          "tokens_estimated": 100,
+          "action": "edit"
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/.gitignore",
+          "tokens_estimated": 44,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/requirements.txt",
+          "tokens_estimated": 67,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/__init__.py",
+          "tokens_estimated": 0,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/core/__init__.py",
+          "tokens_estimated": 0,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/core/config.py",
+          "tokens_estimated": 108,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/core/db.py",
+          "tokens_estimated": 124,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/main.py",
+          "tokens_estimated": 86,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/tests/__init__.py",
+          "tokens_estimated": 0,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/tests/conftest.py",
+          "tokens_estimated": 202,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/tests/test_health.py",
+          "tokens_estimated": 45,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-1-report.md",
+          "tokens_estimated": 898,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/models/__init__.py",
+          "tokens_estimated": 90,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/models/account.py",
+          "tokens_estimated": 131,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/models/program.py",
+          "tokens_estimated": 150,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/models/financial_record.py",
+          "tokens_estimated": 198,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/models/utilization_record.py",
+          "tokens_estimated": 175,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/models/upload.py",
+          "tokens_estimated": 155,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/tests/conftest.py",
+          "tokens_estimated": 65,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/tests/test_models.py",
+          "tokens_estimated": 215,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-2-report.md",
+          "tokens_estimated": 1090,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/tests/test_deps.py",
+          "tokens_estimated": 150,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/deps.py",
+          "tokens_estimated": 148,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-3-report.md",
+          "tokens_estimated": 1251,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/tests/test_ingestion.py",
+          "tokens_estimated": 294,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/tests/test_uploads_api.py",
+          "tokens_estimated": 194,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/services/__init__.py",
+          "tokens_estimated": 0,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/schemas/__init__.py",
+          "tokens_estimated": 0,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/routers/__init__.py",
+          "tokens_estimated": 0,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/services/ingestion.py",
+          "tokens_estimated": 969,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/schemas/upload.py",
+          "tokens_estimated": 72,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/routers/uploads.py",
+          "tokens_estimated": 359,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/main.py",
+          "tokens_estimated": 36,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Users/180655/AppData/Local/Temp/claude/c--Vino-FinSight-Source/9a861225-893c-4e78-9ebb-113290c5fed6/scratchpad/probe.py",
+          "tokens_estimated": 282,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/routers/uploads.py",
+          "tokens_estimated": 97,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/routers/uploads.py",
+          "tokens_estimated": 99,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/tests/conftest.py",
+          "tokens_estimated": 144,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-4-report.md",
+          "tokens_estimated": 1990,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/tests/test_dashboard.py",
+          "tokens_estimated": 615,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/services/dashboard.py",
+          "tokens_estimated": 734,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/routers/dashboard.py",
+          "tokens_estimated": 183,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/main.py",
+          "tokens_estimated": 33,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-5-report.md",
+          "tokens_estimated": 934,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/tests/test_scorecards.py",
+          "tokens_estimated": 308,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/services/scorecards.py",
+          "tokens_estimated": 363,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/routers/scorecards.py",
+          "tokens_estimated": 122,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/main.py",
+          "tokens_estimated": 48,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-6-report.md",
+          "tokens_estimated": 1004,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/tests/test_llm_factory.py",
+          "tokens_estimated": 223,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/core/llm/__init__.py",
+          "tokens_estimated": 0,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/core/llm/base.py",
+          "tokens_estimated": 47,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/core/llm/anthropic_client.py",
+          "tokens_estimated": 164,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/core/llm/openai_client.py",
+          "tokens_estimated": 174,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/core/llm/factory.py",
+          "tokens_estimated": 110,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-7-report.md",
+          "tokens_estimated": 1564,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/tests/test_insights.py",
+          "tokens_estimated": 131,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/services/insights.py",
+          "tokens_estimated": 205,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/routers/insights.py",
+          "tokens_estimated": 124,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/main.py",
+          "tokens_estimated": 19,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/api/app/main.py",
+          "tokens_estimated": 42,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-8-report.md",
+          "tokens_estimated": 1877,
+          "action": "create"
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/api/tests/test_nl2sql_guard.py",
+          "tokens_estimated": 281,
+          "action": "create"
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/api/app/services/nl2sql.py",
+          "tokens_estimated": 556,
+          "action": "create"
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/api/tests/test_nl2sql_run_query.py",
+          "tokens_estimated": 232,
+          "action": "create"
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/api/app/routers/nlq.py",
+          "tokens_estimated": 117,
+          "action": "create"
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/api/app/main.py",
+          "tokens_estimated": 71,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-9-report.md",
+          "tokens_estimated": 1652,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/web/tailwind.config.js",
+          "tokens_estimated": 45,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/web/src/index.css",
+          "tokens_estimated": 17,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/web/src/context/RoleContext.tsx",
+          "tokens_estimated": 270,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/web/src/components/RoleSwitcher.test.tsx",
+          "tokens_estimated": 258,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/web/src/components/RoleSwitcher.tsx",
+          "tokens_estimated": 330,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/web/src/setupTests.ts",
+          "tokens_estimated": 11,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/web/vite.config.ts",
+          "tokens_estimated": 72,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/web/package.json",
+          "tokens_estimated": 22,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/web/src/setupTests.ts",
+          "tokens_estimated": 12,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/web/src/setupTests.ts",
+          "tokens_estimated": 48,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/web/src/setupTests.ts",
+          "tokens_estimated": 201,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/web/src/lib/api.ts",
+          "tokens_estimated": 648,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-10-report.md",
+          "tokens_estimated": 2002,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/web/src/pages/Dashboard.test.tsx",
+          "tokens_estimated": 209,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/web/src/pages/Dashboard.tsx",
+          "tokens_estimated": 313,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/web/src/pages/Utilization.tsx",
+          "tokens_estimated": 307,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-11-report.md",
+          "tokens_estimated": 1187,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/web/src/pages/Scorecards.test.tsx",
+          "tokens_estimated": 227,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/web/src/pages/Scorecards.tsx",
+          "tokens_estimated": 331,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/apps/web/src/pages/Insights.tsx",
+          "tokens_estimated": 203,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-12-report.md",
+          "tokens_estimated": 1372,
+          "action": "create"
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/web/src/pages/AskFinSight.test.tsx",
+          "tokens_estimated": 296,
+          "action": "create"
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/web/src/pages/AskFinSight.tsx",
+          "tokens_estimated": 643,
+          "action": "create"
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/web/src/pages/Uploads.tsx",
+          "tokens_estimated": 430,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-13-report.md",
+          "tokens_estimated": 950,
+          "action": "create"
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/web/src/App.test.tsx",
+          "tokens_estimated": 122,
+          "action": "create"
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/web/src/App.tsx",
+          "tokens_estimated": 546,
+          "action": "create"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-14-report.md",
+          "tokens_estimated": 1790,
+          "action": "create"
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/api/tests/test_scope_options.py",
+          "tokens_estimated": 470,
+          "action": "create"
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/api/tests/test_nl2sql_run_query.py",
+          "tokens_estimated": 670,
+          "action": "edit"
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/api/app/routers/scope_options.py",
+          "tokens_estimated": 235,
+          "action": "create"
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/api/app/main.py",
+          "tokens_estimated": 87,
+          "action": "edit"
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/api/app/services/nl2sql.py",
+          "tokens_estimated": 41,
+          "action": "edit"
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/api/app/services/nl2sql.py",
+          "tokens_estimated": 252,
+          "action": "edit"
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/api/app/routers/nlq.py",
+          "tokens_estimated": 147,
+          "action": "edit"
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/.superpowers/sdd/task-15-report.md",
+          "tokens_estimated": 2030,
+          "action": "create"
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/web/src/components/ScopePicker.test.tsx",
+          "tokens_estimated": 438,
+          "action": "create"
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/web/src/context/RoleContext.tsx",
+          "tokens_estimated": 220,
+          "action": "edit"
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/web/src/lib/api.ts",
+          "tokens_estimated": 317,
+          "action": "edit"
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/web/src/components/ScopePicker.tsx",
+          "tokens_estimated": 545,
+          "action": "create"
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/web/src/App.tsx",
+          "tokens_estimated": 33,
+          "action": "edit"
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/web/src/App.tsx",
+          "tokens_estimated": 41,
+          "action": "edit"
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/web/src/pages/AskFinSight.test.tsx",
+          "tokens_estimated": 202,
+          "action": "edit"
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/web/src/pages/AskFinSight.tsx",
+          "tokens_estimated": 129,
+          "action": "edit"
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/web/src/pages/AskFinSight.tsx",
+          "tokens_estimated": 30,
+          "action": "edit"
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/web/src/components/ScopePicker.test.tsx",
+          "tokens_estimated": 38,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-16-report.md",
+          "tokens_estimated": 1879,
+          "action": "create"
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/web/src/components/ScopePicker.tsx",
+          "tokens_estimated": 286,
+          "action": "edit"
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/web/src/components/ScopePicker.tsx",
+          "tokens_estimated": 169,
+          "action": "edit"
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/web/src/components/ScopePicker.test.tsx",
+          "tokens_estimated": 206,
+          "action": "edit"
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/.superpowers/sdd/task-16-report.md",
+          "tokens_estimated": 698,
+          "action": "edit"
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/api/tests/test_ingestion.py",
+          "tokens_estimated": 312,
+          "action": "edit"
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/api/tests/test_ingestion.py",
+          "tokens_estimated": 57,
+          "action": "edit"
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/api/app/services/ingestion.py",
+          "tokens_estimated": 107,
+          "action": "edit"
+        },
+        {
+          "file": "c:/Vino/FinSight/Source/apps/api/app/services/ingestion.py",
+          "tokens_estimated": 108,
+          "action": "edit"
+        },
+        {
+          "file": "C:/Vino/FinSight/Source/.superpowers/sdd/task-17-report.md",
+          "tokens_estimated": 1442,
+          "action": "create"
+        }
+      ],
+      "totals": {
+        "input_tokens_estimated": 58201,
+        "output_tokens_estimated": 67808,
+        "reads_count": 122,
+        "writes_count": 125,
+        "repeated_reads_blocked": 85,
+        "anatomy_lookups": 76
       }
     }
   ],
