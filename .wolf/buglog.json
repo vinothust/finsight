@@ -1,4 +1,40 @@
 {
   "version": 1,
-  "bugs": []
+  "bugs": [
+    {
+      "id": "bug-001",
+      "timestamp": "2026-07-13T08:28:31.186Z",
+      "error_message": "Missing await",
+      "file": "apps/api/app/routers/uploads.py",
+      "root_cause": "Async call without await — returned Promise instead of value",
+      "fix": "Added await to async call",
+      "tags": [
+        "auto-detected",
+        "async-fix",
+        "py"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-07-13T08:28:31.186Z"
+    },
+    {
+      "id": "bug-002",
+      "timestamp": "2026-07-13T08:28:00.000Z",
+      "error_message": "sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: uploads / accounts",
+      "file": "apps/api/tests/conftest.py",
+      "root_cause": "db_session fixture created the SQLite in-memory engine with create_engine('sqlite:///:memory:', connect_args={'check_same_thread': False}) but no poolclass override. FastAPI's TestClient runs request handlers (both async and sync def routes) through an anyio worker thread that is different from the thread that ran Base.metadata.create_all(engine) and from the fixture's own thread. Without StaticPool, each thread checkout from the default pool got its own separate SQLite ':memory:' database, so the tables created in the test thread did not exist in the request-handling thread.",
+      "fix": "Added poolclass=StaticPool to the create_engine() call in the db_session fixture so all sessions/threads share the single in-memory connection.",
+      "tags": [
+        "sqlite",
+        "in-memory",
+        "threading",
+        "testclient",
+        "staticpool",
+        "pytest-fixture"
+      ],
+      "related_bugs": [],
+      "occurrences": 1,
+      "last_seen": "2026-07-13T08:28:00.000Z"
+    }
+  ]
 }

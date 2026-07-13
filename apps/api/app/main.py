@@ -3,6 +3,10 @@ from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI(title="FinSight API")
 
+from app.routers import uploads
+
+app.include_router(uploads.router)
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
