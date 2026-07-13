@@ -4,6 +4,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
 from app.core.db import Base, get_db
+import app.models  # noqa: F401
 from app.main import app
 
 
