@@ -67,3 +67,24 @@ export async function uploadDataset(dataset: "financial" | "utilization", file: 
   if (!response.ok) throw new Error(`Upload failed: ${await response.text()}`);
   return response.json();
 }
+
+export interface AccountOption {
+  id: number;
+  name: string;
+}
+export async function getAccountOptions(): Promise<AccountOption[]> {
+  const response = await fetch(`${API_BASE}/scope-options/accounts`);
+  if (!response.ok) throw new Error(`API error ${response.status}: ${await response.text()}`);
+  return response.json() as Promise<AccountOption[]>;
+}
+
+export interface ProgramOption {
+  id: number;
+  name: string;
+  account_id: number;
+}
+export async function getProgramOptions(): Promise<ProgramOption[]> {
+  const response = await fetch(`${API_BASE}/scope-options/programs`);
+  if (!response.ok) throw new Error(`API error ${response.status}: ${await response.text()}`);
+  return response.json() as Promise<ProgramOption[]>;
+}

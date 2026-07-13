@@ -6,6 +6,7 @@ interface RoleContextValue {
   role: Role;
   scopeId: number | null;
   setRole: (role: Role) => void;
+  setScopeId: (id: number | null) => void;
 }
 
 const STORAGE_KEY = "finsight_role";
@@ -16,13 +17,17 @@ export function RoleProvider({ children }: { children: ReactNode }) {
   const [role, setRoleState] = useState<Role>(
     () => (localStorage.getItem(STORAGE_KEY) as Role) || "area_director"
   );
+  const [scopeId, setScopeId] = useState<number | null>(null);
 
   const setRole = (next: Role) => {
     localStorage.setItem(STORAGE_KEY, next);
     setRoleState(next);
+    setScopeId(null);
   };
 
-  return <RoleContext.Provider value={{ role, scopeId: null, setRole }}>{children}</RoleContext.Provider>;
+  return (
+    <RoleContext.Provider value={{ role, scopeId, setRole, setScopeId }}>{children}</RoleContext.Provider>
+  );
 }
 
 export function useRole(): RoleContextValue {
