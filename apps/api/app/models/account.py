@@ -1,4 +1,4 @@
-from sqlalchemy import String
+from sqlalchemy import ForeignKey, String
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.core.db import Base
@@ -9,6 +9,7 @@ class Account(Base):
 
     id: Mapped[int] = mapped_column(primary_key=True)
     name: Mapped[str] = mapped_column(String(200), unique=True)
-    area_director: Mapped[str] = mapped_column(String(200), default="unassigned")
+    cluster_id: Mapped[int] = mapped_column(ForeignKey("clusters.id"))
 
-    programs: Mapped[list["Program"]] = relationship(back_populates="account")
+    cluster: Mapped["Cluster"] = relationship(back_populates="accounts")
+    projects: Mapped[list["Project"]] = relationship(back_populates="account")
