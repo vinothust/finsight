@@ -1,13 +1,13 @@
 from sqlalchemy.orm import Session
 
 from app.core.llm.factory import get_llm_client
-from app.deps import RoleScope
+from app.deps import CurrentUser
 from app.services.dashboard import revenue_margin_summary, utilization_summary
 
 
-def generate_narrative(db: Session, scope: RoleScope) -> str:
-    revenue = revenue_margin_summary(db, scope)
-    utilization = utilization_summary(db, scope)
+def generate_narrative(db: Session, user: CurrentUser) -> str:
+    revenue = revenue_margin_summary(db, user)
+    utilization = utilization_summary(db, user)
 
     prompt = (
         "You are a financial analyst for a services company. "

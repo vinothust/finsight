@@ -3,24 +3,12 @@ from collections import defaultdict
 from sqlalchemy import func
 from sqlalchemy.orm import Session
 
-from app.deps import RoleScope
+from app.deps import CurrentUser
 from app.models.financial_record import FinancialRecord
-from app.models.project import Project
 from app.models.utilization_record import UtilizationRecord
 
 
-def _scoped_project_ids(db: Session, scope: RoleScope) -> list[int] | None:
-    if scope.role == "area_director":
-        return None
-    if scope.role == "account_director" and scope.scope_id is not None:
-        return [i for (i,) in db.query(Project.id).filter(Project.account_id == scope.scope_id).all()]
-    if scope.role == "pm" and scope.scope_id is not None:
-        return [scope.scope_id]
-    return None
-
-
-def revenue_margin_summary(db: Session, scope: RoleScope) -> list[dict]:
-    project_ids = _scoped_project_ids(db, scope)
+def revenue_margin_summary(db: Session, user: CurrentUser) -> list[dict]:
     query = (
         db.query(
             FinancialRecord.period,
@@ -30,8 +18,8 @@ def revenue_margin_summary(db: Session, scope: RoleScope) -> list[dict]:
         .group_by(FinancialRecord.period)
         .order_by(FinancialRecord.period)
     )
-    if project_ids is not None:
-        query = query.filter(FinancialRecord.project_id.in_(project_ids))
+    if user.project_ids is not None:
+        query = query.filter(FinancialRecord.project_id.in_(user.project_ids))
 
     results = []
     for period, revenue, cost in query.all():
@@ -41,11 +29,10 @@ def revenue_margin_summary(db: Session, scope: RoleScope) -> list[dict]:
     return results
 
 
-def utilization_summary(db: Session, scope: RoleScope) -> list[dict]:
-    project_ids = _scoped_project_ids(db, scope)
+def utilization_summary(db: Session, user: CurrentUser) -> list[dict]:
     query = db.query(UtilizationRecord)
-    if project_ids is not None:
-        query = query.filter(UtilizationRecord.project_id.in_(project_ids))
+    if user.project_ids is not None:
+        query = query.filter(UtilizationRecord.project_id.in_(user.project_ids))
 
     by_period: dict = defaultdict(lambda: {"allocations": [], "bench_count": 0, "total": 0})
     for record in query.all():

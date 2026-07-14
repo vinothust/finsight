@@ -1,6 +1,6 @@
 from datetime import date
 
-from app.deps import RoleScope
+from app.deps import CurrentUser
 from app.models.account import Account
 from app.models.cluster import Cluster
 from app.models.financial_record import FinancialRecord
@@ -30,6 +30,7 @@ def test_project_scorecards_assigns_rag_status(db_session):
     )
     db_session.commit()
 
-    results = {r["project_name"]: r for r in project_scorecards(db_session, RoleScope(role="area_director"))}
+    admin = CurrentUser(id=1, email="admin@test.dev", name="Admin", role="admin", project_ids=None)
+    results = {r["project_name"]: r for r in project_scorecards(db_session, admin)}
     assert results["Healthy"]["rag_status"] == "green"
     assert results["At Risk"]["rag_status"] == "red"

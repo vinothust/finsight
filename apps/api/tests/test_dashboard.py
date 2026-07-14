@@ -1,6 +1,6 @@
 from datetime import date
 
-from app.deps import RoleScope
+from app.deps import CurrentUser
 from app.models.account import Account
 from app.models.cluster import Cluster
 from app.models.financial_record import FinancialRecord
@@ -42,19 +42,22 @@ def _seed(db_session):
 
 def test_revenue_margin_summary_aggregates_across_all_projects(db_session):
     _seed(db_session)
-    result = revenue_margin_summary(db_session, RoleScope(role="area_director"))
+    admin = CurrentUser(id=1, email="admin@test.dev", name="Admin", role="admin", project_ids=None)
+    result = revenue_margin_summary(db_session, admin)
     expected_margin = (150000.0 - 110000.0) / 150000.0
     assert result == [{"period": "2026-01-01", "revenue": 150000.0, "cost": 110000.0, "margin": expected_margin}]
 
 
 def test_revenue_margin_summary_scoped_to_single_project(db_session):
     p1, _ = _seed(db_session)
-    result = revenue_margin_summary(db_session, RoleScope(role="pm", scope_id=p1.id))
+    pm = CurrentUser(id=2, email="pm@test.dev", name="PM", role="project_manager", project_ids=[p1.id])
+    result = revenue_margin_summary(db_session, pm)
     assert result == [{"period": "2026-01-01", "revenue": 100000.0, "cost": 70000.0, "margin": 0.3}]
 
 
 def test_utilization_summary_computes_bench_pct(db_session):
     _seed(db_session)
-    result = utilization_summary(db_session, RoleScope(role="area_director"))
+    admin = CurrentUser(id=1, email="admin@test.dev", name="Admin", role="admin", project_ids=None)
+    result = utilization_summary(db_session, admin)
     assert result[0]["bench_pct"] == 0.5
     assert result[0]["avg_allocation_pct"] == 45.0

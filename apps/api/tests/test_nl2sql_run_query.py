@@ -1,4 +1,4 @@
-from app.deps import RoleScope
+from app.deps import CurrentUser
 from app.models.account import Account
 from app.services import nl2sql
 
@@ -23,23 +23,25 @@ def test_run_query_executes_generated_sql(db_session, monkeypatch):
 
     monkeypatch.setattr(nl2sql, "get_llm_client", lambda db: FakeClient("SELECT name FROM accounts"))
 
-    result = nl2sql.run_query(db_session, "List all accounts", RoleScope(role="area_director"))
+    admin = CurrentUser(id=1, email="admin@test.dev", name="Admin", role="admin", project_ids=None)
+    result = nl2sql.run_query(db_session, "List all accounts", admin)
     assert result["sql"] == "SELECT name FROM accounts"
     assert result["rows"] == [{"name": "Acme"}]
     assert "Acme" in result["explanation"]
 
 
-def test_run_query_includes_scoping_hint_in_prompt_for_pm_scope(db_session, monkeypatch):
+def test_run_query_includes_scoping_hint_in_prompt_for_project_manager_scope(db_session, monkeypatch):
     db_session.add(Account(name="Acme"))
     db_session.commit()
 
     fake_client = FakeClient("SELECT name FROM accounts")
     monkeypatch.setattr(nl2sql, "get_llm_client", lambda db: fake_client)
 
-    nl2sql.run_query(db_session, "List all accounts", RoleScope(role="pm", scope_id=5))
+    pm = CurrentUser(id=2, email="pm@test.dev", name="PM", role="project_manager", project_ids=[5])
+    nl2sql.run_query(db_session, "List all accounts", pm)
 
     sql_prompt = fake_client.prompts[0]
-    assert "project_id = 5" in sql_prompt
+    assert "project_id IN (5)" in sql_prompt
 
 
 def test_run_query_includes_scoping_hint_in_prompt_for_account_director_scope(db_session, monkeypatch):
@@ -49,20 +51,22 @@ def test_run_query_includes_scoping_hint_in_prompt_for_account_director_scope(db
     fake_client = FakeClient("SELECT name FROM accounts")
     monkeypatch.setattr(nl2sql, "get_llm_client", lambda db: fake_client)
 
-    nl2sql.run_query(db_session, "List all accounts", RoleScope(role="account_director", scope_id=7))
+    director = CurrentUser(id=3, email="ad@test.dev", name="AD", role="account_director", project_ids=[7, 8])
+    nl2sql.run_query(db_session, "List all accounts", director)
 
     sql_prompt = fake_client.prompts[0]
-    assert "account_id = 7" in sql_prompt
+    assert "project_id IN (7,8)" in sql_prompt
 
 
-def test_run_query_omits_scoping_hint_for_area_director(db_session, monkeypatch):
+def test_run_query_omits_scoping_hint_for_admin(db_session, monkeypatch):
     db_session.add(Account(name="Acme"))
     db_session.commit()
 
     fake_client = FakeClient("SELECT name FROM accounts")
     monkeypatch.setattr(nl2sql, "get_llm_client", lambda db: fake_client)
 
-    nl2sql.run_query(db_session, "List all accounts", RoleScope(role="area_director"))
+    admin = CurrentUser(id=1, email="admin@test.dev", name="Admin", role="admin", project_ids=None)
+    nl2sql.run_query(db_session, "List all accounts", admin)
 
     sql_prompt = fake_client.prompts[0]
     assert "Restrict results to" not in sql_prompt
@@ -75,6 +79,7 @@ def test_run_query_uses_complex_tier_for_sql_and_simple_tier_for_explanation(db_
     fake_client = FakeClient("SELECT name FROM accounts")
     monkeypatch.setattr(nl2sql, "get_llm_client", lambda db: fake_client)
 
-    nl2sql.run_query(db_session, "List all accounts", RoleScope(role="area_director"))
+    admin = CurrentUser(id=1, email="admin@test.dev", name="Admin", role="admin", project_ids=None)
+    nl2sql.run_query(db_session, "List all accounts", admin)
 
     assert fake_client.tiers == ["complex", "simple"]

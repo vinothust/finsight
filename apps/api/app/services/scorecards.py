@@ -1,9 +1,8 @@
 from sqlalchemy.orm import Session
 
-from app.deps import RoleScope
+from app.deps import CurrentUser
 from app.models.financial_record import FinancialRecord
 from app.models.project import Project
-from app.services.dashboard import _scoped_project_ids
 
 MARGIN_GREEN = 0.25
 MARGIN_YELLOW = 0.15
@@ -17,11 +16,10 @@ def _rag_for_margin(margin: float) -> str:
     return "red"
 
 
-def project_scorecards(db: Session, scope: RoleScope) -> list[dict]:
-    project_ids = _scoped_project_ids(db, scope)
+def project_scorecards(db: Session, user: CurrentUser) -> list[dict]:
     query = db.query(Project)
-    if project_ids is not None:
-        query = query.filter(Project.id.in_(project_ids))
+    if user.project_ids is not None:
+        query = query.filter(Project.id.in_(user.project_ids))
 
     results = []
     for project in query.all():

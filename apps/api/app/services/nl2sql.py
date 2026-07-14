@@ -5,7 +5,7 @@ from sqlalchemy.orm import Session
 
 from app.core.llm.base import LLMClient
 from app.core.llm.factory import get_llm_client
-from app.deps import RoleScope
+from app.deps import CurrentUser
 
 SCHEMA_DESCRIPTION = """
 Tables:
@@ -37,25 +37,28 @@ def validate_select_only(sql: str) -> str:
     return sql.strip()
 
 
-def question_to_sql(question: str, scope: RoleScope, client: LLMClient) -> str:
+def question_to_sql(question: str, user: CurrentUser, client: LLMClient) -> str:
     prompt = (
         f"Given this schema:\n{SCHEMA_DESCRIPTION}\n"
         f"Write a single read-only PostgreSQL SELECT statement to answer: {question}\n"
         "Return only the SQL in a ```sql code block."
     )
-    if scope.role != "area_director" and scope.scope_id is not None:
-        column = "account_id" if scope.role == "account_director" else "project_id"
-        prompt += (
-            f"\nThe caller's role is {scope.role}. Restrict results to {column} = {scope.scope_id} "
-            "wherever the schema allows it."
-        )
+    if user.role != "admin":
+        if user.project_ids:
+            ids = ",".join(str(i) for i in user.project_ids)
+            prompt += (
+                f"\nThe caller's role is {user.role}. Restrict results to project_id IN ({ids}) "
+                "wherever the schema allows it."
+            )
+        else:
+            prompt += f"\nThe caller's role is {user.role} and manages no projects; the answer must return no rows."
     raw = client.complete(prompt, system="You only write safe, read-only SQL.", tier="complex")
     return validate_select_only(_extract_sql(raw))
 
 
-def run_query(db: Session, question: str, scope: RoleScope) -> dict:
+def run_query(db: Session, question: str, user: CurrentUser) -> dict:
     client = get_llm_client(db)
-    sql = question_to_sql(question, scope, client)
+    sql = question_to_sql(question, user, client)
     rows = [dict(row) for row in db.execute(text(sql)).mappings().all()]
 
     explanation = client.complete(
