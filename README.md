@@ -94,6 +94,19 @@ Database tables are created directly from the SQLAlchemy models (no migrations w
 python -c "from app.core.db import Base, engine; import app.models; Base.metadata.create_all(engine)"
 ```
 
+### Dev seed users
+
+Run `python -m app.core.seed` (from `apps/api`, with `DATABASE_URL` pointed at your dev DB) to create one local-dev-only user per role, all sharing the password `DevPassword123!`:
+
+| Email | Role |
+|---|---|
+| admin@finsight.dev | admin |
+| clusterhead@finsight.dev | cluster_head |
+| director@finsight.dev | account_director |
+| pm@finsight.dev | project_manager |
+
+These are local development fixtures only — never use this password scheme outside a local/dev database.
+
 ## Frontend (`apps/web`) — run standalone
 
 ```bash
