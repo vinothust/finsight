@@ -10,7 +10,7 @@ class FinancialRecord(Base):
     __tablename__ = "financial_records"
 
     id: Mapped[int] = mapped_column(primary_key=True)
-    program_id: Mapped[int] = mapped_column(ForeignKey("programs.id"))
+    project_id: Mapped[int] = mapped_column(ForeignKey("projects.id"))
     period: Mapped[date] = mapped_column(Date)
     revenue: Mapped[float] = mapped_column(Numeric(14, 2))
     cost: Mapped[float] = mapped_column(Numeric(14, 2))

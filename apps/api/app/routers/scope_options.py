@@ -3,7 +3,7 @@ from sqlalchemy.orm import Session
 
 from app.core.db import get_db
 from app.models.account import Account
-from app.models.program import Program
+from app.models.project import Project
 
 router = APIRouter(prefix="/scope-options", tags=["scope-options"])
 
@@ -14,10 +14,10 @@ def list_accounts(db: Session = Depends(get_db)):
     return [{"id": a.id, "name": a.name} for a in accounts]
 
 
-@router.get("/programs")
-def list_programs(account_id: int | None = None, db: Session = Depends(get_db)):
-    query = db.query(Program)
+@router.get("/projects")
+def list_projects(account_id: int | None = None, db: Session = Depends(get_db)):
+    query = db.query(Project)
     if account_id is not None:
-        query = query.filter(Program.account_id == account_id)
-    programs = query.order_by(Program.name).all()
-    return [{"id": p.id, "name": p.name, "account_id": p.account_id} for p in programs]
+        query = query.filter(Project.account_id == account_id)
+    projects = query.order_by(Project.name).all()
+    return [{"id": p.id, "name": p.name, "account_id": p.account_id} for p in projects]

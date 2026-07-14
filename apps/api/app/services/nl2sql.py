@@ -9,10 +9,10 @@ from app.deps import RoleScope
 
 SCHEMA_DESCRIPTION = """
 Tables:
-- accounts(id, name, area_director)
-- programs(id, name, account_id, program_manager)
-- financial_records(id, program_id, period, revenue, cost)
-- utilization_records(id, program_id, resource_name, period, allocation_pct, on_bench)
+- accounts(id, name, cluster_id)
+- projects(id, name, account_id, status)
+- financial_records(id, project_id, period, revenue, cost)
+- utilization_records(id, project_id, resource_name, period, allocation_pct, on_bench)
 """
 
 FORBIDDEN_KEYWORDS = ("insert", "update", "delete", "drop", "alter", "create", "truncate", "attach", ";")
@@ -44,7 +44,7 @@ def question_to_sql(question: str, scope: RoleScope, client: LLMClient) -> str:
         "Return only the SQL in a ```sql code block."
     )
     if scope.role != "area_director" and scope.scope_id is not None:
-        column = "account_id" if scope.role == "account_director" else "program_id"
+        column = "account_id" if scope.role == "account_director" else "project_id"
         prompt += (
             f"\nThe caller's role is {scope.role}. Restrict results to {column} = {scope.scope_id} "
             "wherever the schema allows it."

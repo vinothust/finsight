@@ -5,7 +5,7 @@ from sqlalchemy.orm import Session
 
 from app.models.account import Account
 from app.models.financial_record import FinancialRecord
-from app.models.program import Program
+from app.models.project import Project
 from app.models.utilization_record import UtilizationRecord
 
 FINANCIAL_COLUMNS = {"account_name", "program_name", "period", "revenue", "cost"}
@@ -27,13 +27,13 @@ def _get_or_create_account(db: Session, name: str) -> Account:
     return account
 
 
-def _get_or_create_program(db: Session, name: str, account: Account) -> Program:
-    program = db.query(Program).filter_by(name=name, account_id=account.id).first()
-    if program is None:
-        program = Program(name=name, account_id=account.id)
-        db.add(program)
+def _get_or_create_project(db: Session, name: str, account: Account) -> Project:
+    project = db.query(Project).filter_by(name=name, account_id=account.id).first()
+    if project is None:
+        project = Project(name=name, account_id=account.id)
+        db.add(project)
         db.flush()
-    return program
+    return project
 
 
 def ingest_financial(db: Session, filename: str, content: bytes) -> tuple[int, list[dict]]:
@@ -50,10 +50,10 @@ def ingest_financial(db: Session, filename: str, content: bytes) -> tuple[int, l
     for idx, row in df.iterrows():
         try:
             account = _get_or_create_account(db, str(row["account_name"]))
-            program = _get_or_create_program(db, str(row["program_name"]), account)
+            project = _get_or_create_project(db, str(row["program_name"]), account)
             db.add(
                 FinancialRecord(
-                    program_id=program.id,
+                    project_id=project.id,
                     period=pd.to_datetime(row["period"]).date(),
                     revenue=float(row["revenue"]),
                     cost=float(row["cost"]),
@@ -79,12 +79,12 @@ def ingest_utilization(db: Session, filename: str, content: bytes) -> tuple[int,
     errors: list[dict] = []
     for idx, row in df.iterrows():
         try:
-            program = db.query(Program).filter_by(name=str(row["program_name"])).first()
-            if program is None:
+            project = db.query(Project).filter_by(name=str(row["program_name"])).first()
+            if project is None:
                 raise ValueError(f"unknown program: {row['program_name']}")
             db.add(
                 UtilizationRecord(
-                    program_id=program.id,
+                    project_id=project.id,
                     resource_name=str(row["resource_name"]),
                     period=pd.to_datetime(row["period"]).date(),
                     allocation_pct=float(row["allocation_pct"]),

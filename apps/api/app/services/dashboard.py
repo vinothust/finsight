@@ -5,22 +5,22 @@ from sqlalchemy.orm import Session
 
 from app.deps import RoleScope
 from app.models.financial_record import FinancialRecord
-from app.models.program import Program
+from app.models.project import Project
 from app.models.utilization_record import UtilizationRecord
 
 
-def _scoped_program_ids(db: Session, scope: RoleScope) -> list[int] | None:
+def _scoped_project_ids(db: Session, scope: RoleScope) -> list[int] | None:
     if scope.role == "area_director":
         return None
     if scope.role == "account_director" and scope.scope_id is not None:
-        return [i for (i,) in db.query(Program.id).filter(Program.account_id == scope.scope_id).all()]
+        return [i for (i,) in db.query(Project.id).filter(Project.account_id == scope.scope_id).all()]
     if scope.role == "pm" and scope.scope_id is not None:
         return [scope.scope_id]
     return None
 
 
 def revenue_margin_summary(db: Session, scope: RoleScope) -> list[dict]:
-    program_ids = _scoped_program_ids(db, scope)
+    project_ids = _scoped_project_ids(db, scope)
     query = (
         db.query(
             FinancialRecord.period,
@@ -30,8 +30,8 @@ def revenue_margin_summary(db: Session, scope: RoleScope) -> list[dict]:
         .group_by(FinancialRecord.period)
         .order_by(FinancialRecord.period)
     )
-    if program_ids is not None:
-        query = query.filter(FinancialRecord.program_id.in_(program_ids))
+    if project_ids is not None:
+        query = query.filter(FinancialRecord.project_id.in_(project_ids))
 
     results = []
     for period, revenue, cost in query.all():
@@ -42,10 +42,10 @@ def revenue_margin_summary(db: Session, scope: RoleScope) -> list[dict]:
 
 
 def utilization_summary(db: Session, scope: RoleScope) -> list[dict]:
-    program_ids = _scoped_program_ids(db, scope)
+    project_ids = _scoped_project_ids(db, scope)
     query = db.query(UtilizationRecord)
-    if program_ids is not None:
-        query = query.filter(UtilizationRecord.program_id.in_(program_ids))
+    if project_ids is not None:
+        query = query.filter(UtilizationRecord.project_id.in_(project_ids))
 
     by_period: dict = defaultdict(lambda: {"allocations": [], "bench_count": 0, "total": 0})
     for record in query.all():

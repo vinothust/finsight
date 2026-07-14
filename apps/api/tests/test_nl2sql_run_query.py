@@ -39,7 +39,7 @@ def test_run_query_includes_scoping_hint_in_prompt_for_pm_scope(db_session, monk
     nl2sql.run_query(db_session, "List all accounts", RoleScope(role="pm", scope_id=5))
 
     sql_prompt = fake_client.prompts[0]
-    assert "program_id = 5" in sql_prompt
+    assert "project_id = 5" in sql_prompt
 
 
 def test_run_query_includes_scoping_hint_in_prompt_for_account_director_scope(db_session, monkeypatch):
