@@ -34,3 +34,26 @@ def client(db_session):
     # network call, so the scheme only affects cookie-jar policy, not routing.
     yield TestClient(app, base_url="https://testserver")
     app.dependency_overrides.clear()
+
+
+from app.core.security import hash_password
+from app.models.user import User
+
+CSRF_HEADERS = {"X-Requested-With": "XMLHttpRequest"}
+
+
+@pytest.fixture()
+def authed_client(client, db_session):
+    def _login(role: str = "admin", email: str = "fixture@test.dev", password: str = "FixturePassword123!") -> tuple:
+        user = User(name="Fixture User", email=email, password_hash=hash_password(password), role=role)
+        db_session.add(user)
+        db_session.commit()
+        response = client.post(
+            "/auth/login",
+            json={"email": email, "password": password},
+            headers=CSRF_HEADERS,
+        )
+        assert response.status_code == 200, response.text
+        return client, user
+
+    return _login
