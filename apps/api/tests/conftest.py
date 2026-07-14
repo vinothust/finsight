@@ -29,5 +29,8 @@ def client(db_session):
         yield db_session
 
     app.dependency_overrides[get_db] = override_get_db
-    yield TestClient(app)
+    # https:// base_url (not http://) so httpx's cookie jar will actually send back
+    # the Secure cookies /auth/login sets - the ASGI transport never makes a real
+    # network call, so the scheme only affects cookie-jar policy, not routing.
+    yield TestClient(app, base_url="https://testserver")
     app.dependency_overrides.clear()

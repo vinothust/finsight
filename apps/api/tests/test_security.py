@@ -33,3 +33,9 @@ def test_create_refresh_token_returns_token_and_expiry():
 
 def test_decode_token_rejects_garbage():
     assert decode_token("not-a-real-token") is None
+
+
+def test_create_refresh_token_is_unique_even_for_same_subject_in_same_second():
+    token_a, _ = create_refresh_token(subject=1)
+    token_b, _ = create_refresh_token(subject=1)
+    assert token_a != token_b
