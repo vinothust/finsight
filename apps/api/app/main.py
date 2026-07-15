@@ -31,15 +31,19 @@ from app.routers import (
     llm_settings,
     nlq,
     projects,
+    roles,
     scope_options,
     scorecards,
     uploads,
+    users,
 )
 
 app.include_router(auth.router)
 app.include_router(clusters.router)
 app.include_router(accounts.router)
 app.include_router(projects.router)
+app.include_router(users.router)
+app.include_router(roles.router)
 app.include_router(uploads.router)
 app.include_router(dashboard.router)
 app.include_router(scorecards.router)
