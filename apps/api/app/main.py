@@ -22,9 +22,10 @@ async def unhandled_exception_handler(request: Request, exc: Exception) -> JSONR
     response.headers["Access-Control-Allow-Origin"] = request.headers.get("origin", "*")
     return response
 
-from app.routers import auth, dashboard, insights, llm_settings, nlq, scope_options, scorecards, uploads
+from app.routers import auth, clusters, dashboard, insights, llm_settings, nlq, scope_options, scorecards, uploads
 
 app.include_router(auth.router)
+app.include_router(clusters.router)
 app.include_router(uploads.router)
 app.include_router(dashboard.router)
 app.include_router(scorecards.router)
