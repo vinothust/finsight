@@ -1,6 +1,6 @@
 import { apiFetch } from '@/lib/api';
 
-export interface PagedResult<T> {
+export interface PagedResult {
   total: number;
   page: number;
   page_size: number;
@@ -76,7 +76,7 @@ function buildQuery(params: Record<string, string | number | undefined>): string
 
 export const clusterAdmin = {
   list: (params: { search?: string; page?: number; page_size?: number } = {}) =>
-    apiFetch<{ clusters: ClusterListItem[] } & PagedResult<ClusterListItem>>(`/clusters${buildQuery(params)}`),
+    apiFetch<{ clusters: ClusterListItem[] } & PagedResult>(`/clusters${buildQuery(params)}`),
   create: (payload: { name: string; description?: string | null; heads?: number[] }) =>
     apiFetch<{ cluster: ClusterDetail }>('/clusters', { method: 'POST', body: JSON.stringify(payload) }),
   update: (id: number, payload: Partial<{ name: string; description: string | null; heads: number[] }>) =>
@@ -86,7 +86,7 @@ export const clusterAdmin = {
 
 export const accountAdmin = {
   list: (params: { search?: string; cluster_id?: number; page?: number; page_size?: number } = {}) =>
-    apiFetch<{ accounts: AccountListItem[] } & PagedResult<AccountListItem>>(`/accounts${buildQuery(params)}`),
+    apiFetch<{ accounts: AccountListItem[] } & PagedResult>(`/accounts${buildQuery(params)}`),
   create: (payload: { name: string; cluster_id: number; directors?: number[] }) =>
     apiFetch<{ account: AccountDetail }>('/accounts', { method: 'POST', body: JSON.stringify(payload) }),
   update: (id: number, payload: Partial<{ name: string; cluster_id: number; directors: number[] }>) =>
@@ -96,7 +96,7 @@ export const accountAdmin = {
 
 export const projectAdmin = {
   list: (params: { search?: string; account_id?: number; page?: number; page_size?: number } = {}) =>
-    apiFetch<{ projects: ProjectListItem[] } & PagedResult<ProjectListItem>>(`/projects${buildQuery(params)}`),
+    apiFetch<{ projects: ProjectListItem[] } & PagedResult>(`/projects${buildQuery(params)}`),
   create: (payload: { name: string; account_id: number; status?: string; managers?: number[] }) =>
     apiFetch<{ project: ProjectDetail }>('/projects', { method: 'POST', body: JSON.stringify(payload) }),
   update: (id: number, payload: Partial<{ name: string; account_id: number; status: string; managers: number[] }>) =>
@@ -106,7 +106,7 @@ export const projectAdmin = {
 
 export const userAdmin = {
   list: (params: { search?: string; role?: string; page?: number; page_size?: number } = {}) =>
-    apiFetch<{ users: AdminUserItem[] } & PagedResult<AdminUserItem>>(`/users${buildQuery(params)}`),
+    apiFetch<{ users: AdminUserItem[] } & PagedResult>(`/users${buildQuery(params)}`),
   create: (payload: { name: string; email: string; role: string; department?: string | null }) =>
     apiFetch<{ user: AdminUserItem; temp_password: string }>('/users', { method: 'POST', body: JSON.stringify(payload) }),
   update: (id: number, payload: Partial<{ name: string; email: string; role: string; department: string | null }>) =>
