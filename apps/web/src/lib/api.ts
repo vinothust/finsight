@@ -22,7 +22,11 @@ export async function apiFetch<T>(path: string, options: RequestInit = {}): Prom
 
   if (!response.ok) {
     const message = data && (data.detail || data.error);
-    throw new Error(typeof message === "string" ? message : response.statusText);
+    const error = new Error(typeof message === "string" ? message : response.statusText) as Error & {
+      status?: number;
+    };
+    error.status = response.status;
+    throw error;
   }
 
   return data as T;

@@ -50,4 +50,19 @@ describe("apiFetch", () => {
 
     await expect(apiFetch("/auth/login", { method: "POST" })).rejects.toThrow("invalid email or password");
   });
+
+  it("throws an error with the response status attached", async () => {
+    const mockFetch = vi.fn().mockResolvedValue(
+      new Response(JSON.stringify({ detail: "not enough permissions" }), {
+        status: 403,
+        headers: { "content-type": "application/json" },
+      })
+    );
+    vi.stubGlobal("fetch", mockFetch);
+
+    await expect(apiFetch("/clusters")).rejects.toMatchObject({
+      message: "not enough permissions",
+      status: 403,
+    });
+  });
 });
