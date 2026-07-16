@@ -32,6 +32,16 @@ if (!window.matchMedia) {
   });
 }
 
+// jsdom does not implement ResizeObserver, but cmdk's Command and recharts'
+// ResponsiveContainer both use it.
+if (!window.ResizeObserver) {
+  window.ResizeObserver = class ResizeObserver {
+    observe() {}
+    unobserve() {}
+    disconnect() {}
+  };
+}
+
 afterEach(() => {
   cleanup();
 });
