@@ -3,6 +3,7 @@ from sqlalchemy.orm import Session
 
 from app.core.db import get_db
 from app.models.account import Account
+from app.models.cluster import Cluster
 from app.models.project import Project
 
 router = APIRouter(prefix="/scope-options", tags=["scope-options"])
@@ -21,3 +22,9 @@ def list_projects(account_id: int | None = None, db: Session = Depends(get_db)):
         query = query.filter(Project.account_id == account_id)
     projects = query.order_by(Project.name).all()
     return [{"id": p.id, "name": p.name, "account_id": p.account_id} for p in projects]
+
+
+@router.get("/clusters")
+def list_clusters(db: Session = Depends(get_db)):
+    clusters = db.query(Cluster).order_by(Cluster.name).all()
+    return [{"id": c.id, "name": c.name} for c in clusters]

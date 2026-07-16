@@ -46,3 +46,16 @@ def test_list_projects_with_account_id_filters_correctly(client, db_session):
     body = response.json()
     assert [p["name"] for p in body] == ["Beta Program", "Zed Program"]
     assert all(p["account_id"] == a1.id for p in body)
+
+
+def test_list_clusters_returns_seeded_clusters_ordered_by_name(client, db_session):
+    from app.models.cluster import Cluster
+
+    db_session.add_all([Cluster(name="Zeta Cluster"), Cluster(name="Acme Cluster")])
+    db_session.commit()
+
+    response = client.get("/scope-options/clusters")
+    assert response.status_code == 200
+    body = response.json()
+    assert [c["name"] for c in body] == ["Acme Cluster", "Zeta Cluster"]
+    assert all(set(c.keys()) == {"id", "name"} for c in body)
