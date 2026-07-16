@@ -1,17 +1,10 @@
 import Layout from '@/components/Layout';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import PnLOverview from '@/components/PnLOverview';
 
 const Dashboard = () => (
   <Layout>
     <h1 className="text-2xl font-display font-bold mb-6">Dashboard</h1>
-    <Card>
-      <CardHeader>
-        <CardTitle>Revenue Overview</CardTitle>
-      </CardHeader>
-      <CardContent>
-        <p className="text-muted-foreground">Dashboard data wiring lands in a later sub-phase.</p>
-      </CardContent>
-    </Card>
+    <PnLOverview />
   </Layout>
 );
 
