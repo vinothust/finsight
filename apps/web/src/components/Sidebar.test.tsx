@@ -1,11 +1,29 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import { describe, expect, it, vi } from "vitest";
 import { MemoryRouter } from "react-router-dom";
 import { AuthProvider } from "@/contexts/AuthContext";
+import { authService } from "@/services/authService";
 import Sidebar from "./Sidebar";
 
+vi.mock("@/services/authService", () => ({
+  authService: {
+    getCurrentUser: vi.fn(),
+    login: vi.fn(),
+    logout: vi.fn(),
+  },
+}));
+
+const mockedAuthService = vi.mocked(authService);
+
 describe("Sidebar", () => {
-  it("renders nav items and the current (stub) user's initials", () => {
+  it("renders nav items and the admin-only Administration section for an admin user", async () => {
+    mockedAuthService.getCurrentUser.mockResolvedValue({
+      id: "1",
+      name: "Ada Admin",
+      email: "ada@test.dev",
+      role: "admin",
+    });
+
     render(
       <MemoryRouter>
         <AuthProvider>
@@ -13,8 +31,9 @@ describe("Sidebar", () => {
         </AuthProvider>
       </MemoryRouter>
     );
+
     expect(screen.getByText("Dashboard")).toBeInTheDocument();
     expect(screen.getByText("Upload Data")).toBeInTheDocument();
-    expect(screen.getByText("Administration")).toBeInTheDocument(); // stub user role is admin
+    await waitFor(() => expect(screen.getByText("Administration")).toBeInTheDocument());
   });
 });
