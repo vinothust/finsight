@@ -24,10 +24,10 @@ async def unhandled_exception_handler(request: Request, exc: Exception) -> JSONR
 
 from app.routers import (
     accounts,
+    ai,
     auth,
     clusters,
     dashboard,
-    insights,
     llm_settings,
     nlq,
     pnl,
@@ -51,7 +51,7 @@ app.include_router(templates.router)
 app.include_router(uploads.router)
 app.include_router(dashboard.router)
 app.include_router(scorecards.router)
-app.include_router(insights.router)
+app.include_router(ai.router)
 app.include_router(nlq.router)
 app.include_router(scope_options.router)
 app.include_router(llm_settings.router)
