@@ -1,16 +1,35 @@
+from datetime import datetime
+
 from fastapi import APIRouter, Depends, File, HTTPException, UploadFile
 from sqlalchemy.orm import Session
 
 from app.core.db import get_db
 from app.models.upload import Upload
 from app.schemas.upload import UploadOut
-from app.services.ingestion import ingest_financial, ingest_utilization
+from app.services.ingestion import (
+    ingest_financial,
+    ingest_utilization,
+    insert_financial_records,
+    insert_utilization_records,
+    parse_financial,
+    parse_utilization,
+)
 
 router = APIRouter(prefix="/uploads", tags=["uploads"])
 
 DATASET_HANDLERS = {
     "financial": ingest_financial,
     "utilization": ingest_utilization,
+}
+
+PARSE_HANDLERS = {
+    "financial": parse_financial,
+    "utilization": parse_utilization,
+}
+
+INSERT_HANDLERS = {
+    "financial": insert_financial_records,
+    "utilization": insert_utilization_records,
 }
 
 
@@ -25,6 +44,7 @@ async def create_upload(dataset: str, file: UploadFile = File(...), db: Session 
 
     upload = Upload(
         filename=file.filename,
+        dataset=dataset,
         status="processed" if not errors else "processed_with_errors",
         row_errors=errors,
     )
@@ -38,3 +58,60 @@ async def create_upload(dataset: str, file: UploadFile = File(...), db: Session 
 @router.get("", response_model=list[UploadOut])
 def list_uploads(db: Session = Depends(get_db)):
     return db.query(Upload).order_by(Upload.uploaded_at.desc()).all()
+
+
+@router.post("/{dataset}/preview")
+async def preview_upload(dataset: str, file: UploadFile = File(...), db: Session = Depends(get_db)):
+    handler = PARSE_HANDLERS.get(dataset)
+    if handler is None:
+        raise HTTPException(400, f"unknown dataset type: {dataset}")
+
+    content = await file.read()
+    rows, errors = handler(db, file.filename, content)
+
+    upload = Upload(
+        filename=file.filename,
+        dataset=dataset,
+        status="pending_commit",
+        row_errors=errors,
+        preview=rows,
+    )
+    db.add(upload)
+    db.commit()
+    db.refresh(upload)
+
+    return {"upload_id": upload.id, "filename": upload.filename, "row_count": len(rows), "preview": rows[:20], "errors": errors}
+
+
+@router.post("/{upload_id}/commit")
+def commit_upload(upload_id: int, db: Session = Depends(get_db)):
+    upload = db.get(Upload, upload_id)
+    if upload is None:
+        raise HTTPException(404, "upload not found")
+    if upload.status == "committed":
+        raise HTTPException(409, "upload already committed")
+    if upload.preview is None:
+        raise HTTPException(400, "upload has no pending preview to commit")
+
+    insert_fn = INSERT_HANDLERS[upload.dataset]
+    inserted = insert_fn(db, upload.preview)
+    upload.status = "committed_with_errors" if upload.row_errors else "committed"
+    upload.committed_at = datetime.utcnow()
+    db.commit()
+    return {"success": True, "rows_inserted": inserted, "message": "upload committed"}
+
+
+@router.get("/{upload_id}")
+def get_upload(upload_id: int, db: Session = Depends(get_db)):
+    upload = db.get(Upload, upload_id)
+    if upload is None:
+        raise HTTPException(404, "upload not found")
+    return {
+        "id": upload.id,
+        "filename": upload.filename,
+        "dataset": upload.dataset,
+        "status": upload.status,
+        "row_errors": upload.row_errors,
+        "uploaded_at": upload.uploaded_at,
+        "committed_at": upload.committed_at,
+    }
