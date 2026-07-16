@@ -30,6 +30,7 @@ from app.routers import (
     insights,
     llm_settings,
     nlq,
+    pnl,
     projects,
     roles,
     scope_options,
@@ -44,6 +45,7 @@ app.include_router(accounts.router)
 app.include_router(projects.router)
 app.include_router(users.router)
 app.include_router(roles.router)
+app.include_router(pnl.router)
 app.include_router(uploads.router)
 app.include_router(dashboard.router)
 app.include_router(scorecards.router)
