@@ -44,3 +44,83 @@ def test_ingest_utilization_empty_file_returns_structured_error(db_session):
     assert len(errors) == 1
     assert errors[0]["row"] == 0
     assert "error" in errors[0]
+
+
+from app.services.ingestion import (
+    insert_financial_records,
+    insert_utilization_records,
+    parse_financial,
+    parse_utilization,
+)
+
+
+def test_parse_financial_returns_rows_without_inserting_records(db_session):
+    from app.models.financial_record import FinancialRecord
+
+    csv_content = (
+        b"account_name,program_name,period,revenue,cost\n"
+        b"Acme Corp,Modernization,2026-01-01,100000,70000\n"
+    )
+    rows, errors = parse_financial(db_session, "data.csv", csv_content)
+    assert errors == []
+    assert rows == [{"project_id": rows[0]["project_id"], "period": "2026-01-01", "revenue": 100000.0, "cost": 70000.0}]
+    assert db_session.query(FinancialRecord).count() == 0
+
+
+def test_insert_financial_records_creates_rows_from_parsed_data(db_session):
+    from app.models.financial_record import FinancialRecord
+
+    csv_content = (
+        b"account_name,program_name,period,revenue,cost\n"
+        b"Acme Corp,Modernization,2026-01-01,100000,70000\n"
+    )
+    rows, _ = parse_financial(db_session, "data.csv", csv_content)
+    created = insert_financial_records(db_session, rows)
+    assert created == 1
+    assert db_session.query(FinancialRecord).count() == 1
+
+
+def test_parse_utilization_returns_rows_without_inserting_records(db_session):
+    from app.models.account import Account
+    from app.models.project import Project
+    from app.models.utilization_record import UtilizationRecord
+
+    account = Account(name="Acme Corp")
+    db_session.add(account)
+    db_session.flush()
+    project = Project(name="Modernization", account_id=account.id)
+    db_session.add(project)
+    db_session.commit()
+
+    csv_content = (
+        b"program_name,resource_name,period,allocation_pct,on_bench\n"
+        b"Modernization,Jane Doe,2026-01-01,80,False\n"
+    )
+    rows, errors = parse_utilization(db_session, "data.csv", csv_content)
+    assert errors == []
+    assert rows == [
+        {"project_id": project.id, "resource_name": "Jane Doe", "period": "2026-01-01", "allocation_pct": 80.0, "on_bench": False}
+    ]
+    assert db_session.query(UtilizationRecord).count() == 0
+
+
+def test_insert_utilization_records_creates_rows_from_parsed_data(db_session):
+    from app.models.account import Account
+    from app.models.project import Project
+    from app.models.utilization_record import UtilizationRecord
+
+    account = Account(name="Acme Corp")
+    db_session.add(account)
+    db_session.flush()
+    project = Project(name="Modernization", account_id=account.id)
+    db_session.add(project)
+    db_session.commit()
+
+    csv_content = (
+        b"program_name,resource_name,period,allocation_pct,on_bench\n"
+        b"Modernization,Jane Doe,2026-01-01,80,False\n"
+    )
+    rows, _ = parse_utilization(db_session, "data.csv", csv_content)
+    created = insert_utilization_records(db_session, rows)
+    assert created == 1
+    assert db_session.query(UtilizationRecord).count() == 1
