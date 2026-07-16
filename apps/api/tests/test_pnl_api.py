@@ -103,3 +103,21 @@ def test_summary_utilization_trend(authed_client, db_session):
     response = client.get("/pnl/summary/utilization-trend")
     assert response.status_code == 200
     assert response.json()["data"] == [{"month": "January 2026", "utilization": 90.0, "headcount": 1}]
+
+
+def test_export_json_returns_same_shape_as_list(authed_client, db_session):
+    client, _ = authed_client(role="admin")
+    _seed(db_session)
+
+    response = client.get("/pnl/export?format=json")
+    assert response.status_code == 200
+    assert response.json()["data"][0]["project"] == "Modernization"
+
+
+def test_export_csv_returns_file(authed_client, db_session):
+    client, _ = authed_client(role="admin")
+    _seed(db_session)
+
+    response = client.get("/pnl/export?format=csv")
+    assert response.status_code == 200
+    assert response.headers["content-type"].startswith("text/csv")

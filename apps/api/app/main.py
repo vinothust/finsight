@@ -35,6 +35,7 @@ from app.routers import (
     roles,
     scope_options,
     scorecards,
+    templates,
     uploads,
     users,
 )
@@ -46,6 +47,7 @@ app.include_router(projects.router)
 app.include_router(users.router)
 app.include_router(roles.router)
 app.include_router(pnl.router)
+app.include_router(templates.router)
 app.include_router(uploads.router)
 app.include_router(dashboard.router)
 app.include_router(scorecards.router)

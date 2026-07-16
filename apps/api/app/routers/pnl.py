@@ -4,6 +4,7 @@ from sqlalchemy.orm import Session
 from app.core.db import get_db
 from app.deps import CurrentUser, get_current_user
 from app.services import pnl as pnl_service
+from app.services.pnl_export import export_rows
 
 router = APIRouter(prefix="/pnl", tags=["pnl"])
 
@@ -109,6 +110,33 @@ def summary_utilization_trend(
 ):
     data = pnl_service.get_utilization_trend(db, user, _parse_int_list(cluster_ids), _parse_int_list(account_ids), _parse_int_list(years))
     return {"data": data}
+
+
+@router.get("/export")
+def export_pnl(
+    cluster_ids: str | None = None,
+    account_ids: str | None = None,
+    project_ids: str | None = None,
+    format: str = "json",
+    db: Session = Depends(get_db),
+    user: CurrentUser = Depends(get_current_user),
+):
+    rows, _ = pnl_service.list_pnl_rows(
+        db,
+        user,
+        _parse_int_list(cluster_ids),
+        _parse_int_list(account_ids),
+        _parse_int_list(project_ids),
+        None,
+        None,
+        None,
+        1,
+        1_000_000,
+        "period:asc",
+    )
+    if format == "json":
+        return {"data": rows}
+    return export_rows(rows, format)
 
 
 @router.get("/{pnl_id}")
