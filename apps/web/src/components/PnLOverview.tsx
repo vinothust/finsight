@@ -2,6 +2,7 @@ import { useState } from 'react';
 import FilterPanel from '@/components/FilterPanel';
 import KPICards from '@/components/KPICards';
 import DataCharts from '@/components/DataCharts';
+import { InsightsPanel } from '@/components/InsightsPanel';
 import { useFilterOptions } from '@/hooks/useFilterOptions';
 import { usePnLDashboardData } from '@/hooks/usePnLDashboardData';
 import type { FilterState } from '@/types';
@@ -39,6 +40,7 @@ const PnLOverview = () => {
         marginByAccount={marginByAccount}
         utilizationTrend={utilizationTrend}
       />
+      <InsightsPanel filters={filters} />
     </div>
   );
 };

@@ -5,6 +5,7 @@ import { AuthProvider } from "@/contexts/AuthContext";
 import { authService } from "@/services/authService";
 import { filterService } from "@/services/filterService";
 import { pnlService } from "@/services/pnlService";
+import { aiService } from "@/services/aiService";
 import Analytics from "./Analytics";
 
 vi.mock("@/services/authService", () => ({
@@ -22,10 +23,14 @@ vi.mock("@/services/pnlService", () => ({
     getUtilizationTrend: vi.fn(),
   },
 }));
+vi.mock("@/services/aiService", () => ({
+  aiService: { getInsights: vi.fn(), sendChatMessage: vi.fn() },
+}));
 
 const mockedAuthService = vi.mocked(authService);
 const mockedFilterService = vi.mocked(filterService);
 const mockedPnlService = vi.mocked(pnlService);
+const mockedAiService = vi.mocked(aiService);
 
 describe("Analytics page", () => {
   it("renders the heading, filters, KPI cards, and charts", async () => {
@@ -47,6 +52,7 @@ describe("Analytics page", () => {
     mockedPnlService.getRevenueByCluster.mockResolvedValue([]);
     mockedPnlService.getMarginByAccount.mockResolvedValue([]);
     mockedPnlService.getUtilizationTrend.mockResolvedValue([]);
+    mockedAiService.getInsights.mockResolvedValue({ insights: [], generated_at: "2026-01-01T00:00:00Z" });
 
     render(
       <MemoryRouter>
@@ -59,5 +65,6 @@ describe("Analytics page", () => {
     expect(screen.getByRole("heading", { name: "Analytics" })).toBeInTheDocument();
     expect(screen.getByText("Filters")).toBeInTheDocument();
     await waitFor(() => expect(screen.getByText("Revenue & Profit Trend")).toBeInTheDocument());
+    await waitFor(() => expect(screen.getByText("AI Insights")).toBeInTheDocument());
   });
 });
