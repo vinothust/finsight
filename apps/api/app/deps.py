@@ -20,6 +20,7 @@ class CurrentUser:
     name: str
     role: str
     project_ids: list[int] | None  # None = unrestricted (admin)
+    department: str | None = None
 
 
 def require_csrf_header(request: Request) -> None:
@@ -59,7 +60,9 @@ def get_current_user(
         raise HTTPException(status_code=401, detail="user not found")
 
     project_ids = _resolve_project_ids(db, user)
-    return CurrentUser(id=user.id, email=user.email, name=user.name, role=user.role, project_ids=project_ids)
+    return CurrentUser(
+        id=user.id, email=user.email, name=user.name, role=user.role, project_ids=project_ids, department=user.department
+    )
 
 
 def require_role(*roles: str):

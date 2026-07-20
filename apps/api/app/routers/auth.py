@@ -26,7 +26,7 @@ def _hash_token(token: str) -> str:
 
 
 def _user_out(user: User | CurrentUser) -> dict:
-    return {"id": user.id, "name": user.name, "email": user.email, "role": user.role}
+    return {"id": user.id, "name": user.name, "email": user.email, "role": user.role, "department": user.department}
 
 
 def _set_auth_cookies(response: Response, user_id: int, db: Session) -> None:

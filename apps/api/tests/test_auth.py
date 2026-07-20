@@ -81,6 +81,20 @@ def test_refresh_rotates_token_and_old_one_stops_working(client, db_session):
     assert replay_response.status_code == 401
 
 
+def test_me_includes_department(client, db_session):
+    user = _seed_user(db_session)
+    user.department = "Finance"
+    db_session.commit()
+    client.post(
+        "/auth/login",
+        json={"email": "user@test.dev", "password": "TestPassword123!"},
+        headers=CSRF_HEADERS,
+    )
+    response = client.get("/auth/me")
+    assert response.status_code == 200
+    assert response.json()["user"]["department"] == "Finance"
+
+
 def test_logout_clears_session(client, db_session):
     _seed_user(db_session)
     client.post(
