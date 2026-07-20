@@ -21,9 +21,9 @@ describe('uploadService', () => {
     expect(mockedApiFetch).toHaveBeenCalledTimes(1);
     const [path, options] = mockedApiFetch.mock.calls[0];
     expect(path).toBe('/uploads/financial/preview');
-    expect(options.method).toBe('POST');
-    expect(options.body).toBeInstanceOf(FormData);
-    expect((options.body as FormData).get('file')).toBe(file);
+    expect(options?.method).toBe('POST');
+    expect(options?.body).toBeInstanceOf(FormData);
+    expect((options?.body as FormData).get('file')).toBe(file);
   });
 
   it('commitUpload posts to /uploads/{id}/commit', async () => {
