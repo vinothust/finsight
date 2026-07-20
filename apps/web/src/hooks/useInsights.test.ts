@@ -49,4 +49,13 @@ describe('useInsights', () => {
       })
     );
   });
+
+  it('does not throw an unhandled rejection when the fetch fails', async () => {
+    mockedAiService.getInsights.mockRejectedValue(new Error('network down'));
+
+    const { result } = renderHook(() => useInsights(FILTERS, null));
+
+    await waitFor(() => expect(result.current.isLoading).toBe(false));
+    expect(result.current.insights).toEqual([]);
+  });
 });

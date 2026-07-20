@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { toast } from 'sonner';
 import { aiService } from '@/services/aiService';
 import type { InsightItem } from '@/services/aiService';
 import type { FilterState } from '@/types';
@@ -19,6 +20,9 @@ export function useInsights(filters: FilterState, focusArea: string | null) {
       })
       .then((res) => {
         if (!cancelled) setInsights(res.insights);
+      })
+      .catch(() => {
+        if (!cancelled) toast.error('Failed to load insights');
       })
       .finally(() => {
         if (!cancelled) setIsLoading(false);
