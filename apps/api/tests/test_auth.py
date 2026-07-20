@@ -95,6 +95,92 @@ def test_me_includes_department(client, db_session):
     assert response.json()["user"]["department"] == "Finance"
 
 
+def test_change_password_requires_csrf_header(client, db_session):
+    _seed_user(db_session)
+    client.post(
+        "/auth/login",
+        json={"email": "user@test.dev", "password": "TestPassword123!"},
+        headers=CSRF_HEADERS,
+    )
+    response = client.patch(
+        "/auth/me/password", json={"current_password": "TestPassword123!", "new_password": "NewPassword123!"}
+    )
+    assert response.status_code == 403
+
+
+def test_change_password_rejects_wrong_current_password(client, db_session):
+    _seed_user(db_session)
+    client.post(
+        "/auth/login",
+        json={"email": "user@test.dev", "password": "TestPassword123!"},
+        headers=CSRF_HEADERS,
+    )
+    response = client.patch(
+        "/auth/me/password",
+        json={"current_password": "wrong", "new_password": "NewPassword123!"},
+        headers=CSRF_HEADERS,
+    )
+    assert response.status_code == 401
+
+
+def test_change_password_rejects_short_new_password(client, db_session):
+    _seed_user(db_session)
+    client.post(
+        "/auth/login",
+        json={"email": "user@test.dev", "password": "TestPassword123!"},
+        headers=CSRF_HEADERS,
+    )
+    response = client.patch(
+        "/auth/me/password",
+        json={"current_password": "TestPassword123!", "new_password": "short"},
+        headers=CSRF_HEADERS,
+    )
+    assert response.status_code == 400
+
+
+def test_change_password_succeeds_and_allows_login_with_new_password(client, db_session):
+    _seed_user(db_session)
+    client.post(
+        "/auth/login",
+        json={"email": "user@test.dev", "password": "TestPassword123!"},
+        headers=CSRF_HEADERS,
+    )
+    response = client.patch(
+        "/auth/me/password",
+        json={"current_password": "TestPassword123!", "new_password": "NewPassword123!"},
+        headers=CSRF_HEADERS,
+    )
+    assert response.status_code == 200
+    assert response.json()["success"] is True
+
+    login_response = client.post(
+        "/auth/login",
+        json={"email": "user@test.dev", "password": "NewPassword123!"},
+        headers=CSRF_HEADERS,
+    )
+    assert login_response.status_code == 200
+
+
+def test_change_password_revokes_existing_refresh_tokens(client, db_session):
+    _seed_user(db_session)
+    client.post(
+        "/auth/login",
+        json={"email": "user@test.dev", "password": "TestPassword123!"},
+        headers=CSRF_HEADERS,
+    )
+    old_refresh_cookie = client.cookies.get("finsight_refresh_token")
+
+    client.patch(
+        "/auth/me/password",
+        json={"current_password": "TestPassword123!", "new_password": "NewPassword123!"},
+        headers=CSRF_HEADERS,
+    )
+
+    client.cookies.set("finsight_refresh_token", old_refresh_cookie)
+    replay_response = client.post("/auth/refresh", headers=CSRF_HEADERS)
+    assert replay_response.status_code == 401
+
+
 def test_logout_clears_session(client, db_session):
     _seed_user(db_session)
     client.post(

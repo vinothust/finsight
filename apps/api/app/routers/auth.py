@@ -6,7 +6,7 @@ from pydantic import BaseModel
 from sqlalchemy.orm import Session
 
 from app.core.db import get_db
-from app.core.security import create_access_token, create_refresh_token, decode_token, verify_password
+from app.core.security import create_access_token, create_refresh_token, decode_token, hash_password, verify_password
 from app.deps import ACCESS_TOKEN_COOKIE, CurrentUser, get_current_user, require_csrf_header
 from app.models.refresh_token import RefreshToken
 from app.models.user import User
@@ -82,3 +82,26 @@ def logout(request: Request, response: Response, db: Session = Depends(get_db)):
 @router.get("/me")
 def me(user: CurrentUser = Depends(get_current_user)):
     return {"user": _user_out(user)}
+
+
+class PasswordChangeRequest(BaseModel):
+    current_password: str
+    new_password: str
+
+
+@router.patch("/me/password", dependencies=[Depends(require_csrf_header)])
+def change_password(
+    payload: PasswordChangeRequest,
+    db: Session = Depends(get_db),
+    user: CurrentUser = Depends(get_current_user),
+):
+    db_user = db.get(User, user.id)
+    if not verify_password(payload.current_password, db_user.password_hash):
+        raise HTTPException(status_code=401, detail="current password is incorrect")
+    if len(payload.new_password) < 8:
+        raise HTTPException(status_code=400, detail="new password must be at least 8 characters")
+
+    db_user.password_hash = hash_password(payload.new_password)
+    db.query(RefreshToken).filter_by(user_id=user.id, revoked_at=None).update({"revoked_at": datetime.utcnow()})
+    db.commit()
+    return {"success": True, "message": "password changed"}
