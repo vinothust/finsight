@@ -33,4 +33,15 @@ describe("authService", () => {
     expect(mockedApiFetch).toHaveBeenCalledWith("/auth/me");
     expect(user.name).toBe("Bo");
   });
+
+  it("changePassword PATCHes /auth/me/password with snake_case fields", async () => {
+    mockedApiFetch.mockResolvedValue({ success: true, message: "password changed" });
+
+    await authService.changePassword("oldpw", "NewPassword123!");
+
+    expect(mockedApiFetch).toHaveBeenCalledWith("/auth/me/password", {
+      method: "PATCH",
+      body: JSON.stringify({ current_password: "oldpw", new_password: "NewPassword123!" }),
+    });
+  });
 });

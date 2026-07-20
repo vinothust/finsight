@@ -5,6 +5,7 @@ export interface User {
   name: string;
   email: string;
   role: UserRole;
+  department?: string;
   avatar?: string;
   clusters?: string[];
   accounts?: string[];

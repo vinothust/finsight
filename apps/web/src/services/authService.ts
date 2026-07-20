@@ -18,4 +18,11 @@ export const authService = {
     const response = await apiFetch<{ user: User }>('/auth/me');
     return response.user;
   },
+
+  changePassword: async (currentPassword: string, newPassword: string): Promise<void> => {
+    await apiFetch('/auth/me/password', {
+      method: 'PATCH',
+      body: JSON.stringify({ current_password: currentPassword, new_password: newPassword }),
+    });
+  },
 };
