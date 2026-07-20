@@ -26,7 +26,15 @@ class Settings(BaseSettings):
     access_token_expire_minutes: int = 15
     refresh_token_expire_days: int = 7
 
-    cors_origins: list[str] = ["http://localhost:5173"]
+    # Vite auto-increments the dev server port when 5173 is already taken by another
+    # running instance (common when multiple dev servers are left open) - cover the
+    # typical fallback range so login doesn't break depending on which port it lands on.
+    cors_origins: list[str] = [
+        "http://localhost:5173",
+        "http://localhost:5174",
+        "http://localhost:5175",
+        "http://localhost:5176",
+    ]
 
 
 settings = Settings()
