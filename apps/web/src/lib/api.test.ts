@@ -51,6 +51,20 @@ describe("apiFetch", () => {
     await expect(apiFetch("/auth/login", { method: "POST" })).rejects.toThrow("invalid email or password");
   });
 
+  it("does not set Content-Type when the body is FormData", async () => {
+    const mockFetch = vi.fn().mockResolvedValue(
+      new Response(JSON.stringify({}), { status: 200, headers: { "content-type": "application/json" } })
+    );
+    vi.stubGlobal("fetch", mockFetch);
+
+    const form = new FormData();
+    form.set("file", new Blob(["a,b\n1,2"], { type: "text/csv" }), "test.csv");
+    await apiFetch("/uploads/financial/preview", { method: "POST", body: form });
+
+    const headers = new Headers(mockFetch.mock.calls[0][1].headers);
+    expect(headers.has("Content-Type")).toBe(false);
+  });
+
   it("throws an error with the response status attached", async () => {
     const mockFetch = vi.fn().mockResolvedValue(
       new Response(JSON.stringify({ detail: "not enough permissions" }), {
