@@ -17,10 +17,6 @@ vi.mock("@/services/filterService", () => ({
 vi.mock("@/services/pnlService", () => ({
   pnlService: {
     getKpis: vi.fn(),
-    getRevenueTrend: vi.fn(),
-    getRevenueByCluster: vi.fn(),
-    getMarginByAccount: vi.fn(),
-    getUtilizationTrend: vi.fn(),
   },
 }));
 vi.mock("@/services/aiService", () => ({
@@ -33,7 +29,7 @@ const mockedPnlService = vi.mocked(pnlService);
 const mockedAiService = vi.mocked(aiService);
 
 describe("Dashboard page", () => {
-  it("renders the heading, filters, KPI cards, and charts", async () => {
+  it("renders the heading, filters, and KPI cards (no charts)", async () => {
     mockedAuthService.getCurrentUser.mockResolvedValue({ id: "1", name: "Ada", email: "ada@test.dev", role: "admin" });
     mockedFilterService.getClusters.mockResolvedValue([]);
     mockedFilterService.getAccounts.mockResolvedValue([]);
@@ -48,10 +44,6 @@ describe("Dashboard page", () => {
       revenue_per_head: 50000,
       cost_per_head: 35000,
     });
-    mockedPnlService.getRevenueTrend.mockResolvedValue([]);
-    mockedPnlService.getRevenueByCluster.mockResolvedValue([]);
-    mockedPnlService.getMarginByAccount.mockResolvedValue([]);
-    mockedPnlService.getUtilizationTrend.mockResolvedValue([]);
     mockedAiService.getInsights.mockResolvedValue({ insights: [], generated_at: "2026-01-01T00:00:00Z" });
 
     render(
@@ -64,7 +56,7 @@ describe("Dashboard page", () => {
 
     expect(screen.getByRole("heading", { name: "Dashboard" })).toBeInTheDocument();
     expect(screen.getByText("Filters")).toBeInTheDocument();
-    await waitFor(() => expect(screen.getByText("Revenue & Profit Trend")).toBeInTheDocument());
     await waitFor(() => expect(screen.getByText("AI Insights")).toBeInTheDocument());
+    expect(screen.queryByText("Revenue & Profit Trend")).not.toBeInTheDocument();
   });
 });

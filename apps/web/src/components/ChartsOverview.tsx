@@ -1,9 +1,8 @@
 import { useState } from 'react';
 import FilterPanel from '@/components/FilterPanel';
-import KPICards from '@/components/KPICards';
-import { InsightsPanel } from '@/components/InsightsPanel';
+import DataCharts from '@/components/DataCharts';
 import { useFilterOptions } from '@/hooks/useFilterOptions';
-import { useKpiData } from '@/hooks/useKpiData';
+import { useChartsData } from '@/hooks/useChartsData';
 import type { FilterState } from '@/types';
 
 const EMPTY_FILTERS: FilterState = {
@@ -16,10 +15,10 @@ const EMPTY_FILTERS: FilterState = {
   marginRange: [0, 100],
 };
 
-const PnLOverview = () => {
+const ChartsOverview = () => {
   const [filters, setFilters] = useState<FilterState>(EMPTY_FILTERS);
   const { clusters, accounts, projects, years, months } = useFilterOptions();
-  const { kpis } = useKpiData(filters);
+  const { revenueTrend, revenueByCluster, marginByAccount, utilizationTrend } = useChartsData(filters);
 
   return (
     <div className="space-y-6">
@@ -32,10 +31,14 @@ const PnLOverview = () => {
         availableYears={years}
         availableMonths={months}
       />
-      <KPICards kpis={kpis} />
-      <InsightsPanel filters={filters} />
+      <DataCharts
+        revenueTrend={revenueTrend}
+        revenueByCluster={revenueByCluster}
+        marginByAccount={marginByAccount}
+        utilizationTrend={utilizationTrend}
+      />
     </div>
   );
 };
 
-export default PnLOverview;
+export default ChartsOverview;

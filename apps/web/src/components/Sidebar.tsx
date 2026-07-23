@@ -9,6 +9,7 @@ import {
   Building2,
   FolderKanban,
   Briefcase,
+  BarChart3,
   ChevronLeft,
   ChevronRight
 } from 'lucide-react';
@@ -35,8 +36,8 @@ const Sidebar: React.FC<SidebarProps> = ({ collapsed, onToggle }) => {
 
   const navItems = [
     { icon: LayoutDashboard, label: 'Dashboard', path: '/dashboard' },
+    { icon: BarChart3, label: 'Analytics', path: '/analytics' },
     { icon: Upload, label: 'Upload Data', path: '/upload' },
-    // { icon: BarChart3, label: 'Analytics', path: '/analytics' },
   ];
 
   const adminItems = [
