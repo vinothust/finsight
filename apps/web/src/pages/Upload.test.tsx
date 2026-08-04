@@ -48,6 +48,7 @@ describe('Upload page', () => {
 
   it('previews a selected financial file and shows rows and errors', async () => {
     mockedUploadService.previewUpload.mockResolvedValue({
+      needs_mapping: false,
       upload_id: 7,
       filename: 'financial.csv',
       row_count: 1,
@@ -67,6 +68,7 @@ describe('Upload page', () => {
 
   it('commits the previewed upload and resets afterward', async () => {
     mockedUploadService.previewUpload.mockResolvedValue({
+      needs_mapping: false,
       upload_id: 7,
       filename: 'financial.csv',
       row_count: 1,
@@ -88,6 +90,7 @@ describe('Upload page', () => {
 
   it('discards the preview when switching dataset tabs', async () => {
     mockedUploadService.previewUpload.mockResolvedValue({
+      needs_mapping: false,
       upload_id: 7,
       filename: 'financial.csv',
       row_count: 1,
