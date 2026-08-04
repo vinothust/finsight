@@ -26,6 +26,28 @@ describe('uploadService', () => {
     expect((options?.body as FormData).get('file')).toBe(file);
   });
 
+  it('previewUpload includes column_mapping in FormData only when provided', async () => {
+    mockedApiFetch.mockResolvedValue({ needs_mapping: false, upload_id: 1, filename: 'a.csv', row_count: 1, preview: [], errors: [] });
+    const file = new File(['a,b\n1,2'], 'a.csv', { type: 'text/csv' });
+
+    await uploadService.previewUpload('financial', file, { account_name: 'Account' });
+
+    const [, options] = mockedApiFetch.mock.calls[0];
+    const form = options?.body as FormData;
+    expect(form.get('column_mapping')).toBe(JSON.stringify({ account_name: 'Account' }));
+  });
+
+  it('previewUpload omits column_mapping when not provided', async () => {
+    mockedApiFetch.mockResolvedValue({ needs_mapping: false, upload_id: 1, filename: 'a.csv', row_count: 1, preview: [], errors: [] });
+    const file = new File(['a,b\n1,2'], 'a.csv', { type: 'text/csv' });
+
+    await uploadService.previewUpload('financial', file);
+
+    const [, options] = mockedApiFetch.mock.calls[0];
+    const form = options?.body as FormData;
+    expect(form.get('column_mapping')).toBeNull();
+  });
+
   it('commitUpload posts to /uploads/{id}/commit', async () => {
     mockedApiFetch.mockResolvedValue({ success: true, rows_inserted: 5, message: 'upload committed' });
 

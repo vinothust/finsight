@@ -1,11 +1,15 @@
 import { apiFetch, BASE_URL } from '@/lib/api';
 
 export interface PreviewResponse {
-  upload_id: number;
-  filename: string;
-  row_count: number;
-  preview: Record<string, unknown>[];
-  errors: { row: number; error: string }[];
+  needs_mapping: boolean;
+  upload_id?: number;
+  filename?: string;
+  row_count?: number;
+  preview?: Record<string, unknown>[];
+  errors?: { row: number; error: string }[];
+  source_columns?: string[];
+  suggested_mapping?: Record<string, string | null>;
+  unmapped_fields?: string[];
 }
 
 export interface CommitResponse {
@@ -20,9 +24,10 @@ const TEMPLATE_PATHS: Record<'pnl' | 'utilization', string> = {
 };
 
 export const uploadService = {
-  previewUpload: (dataset: 'financial' | 'utilization', file: File) => {
+  previewUpload: (dataset: 'financial' | 'utilization', file: File, columnMapping?: Record<string, string>) => {
     const form = new FormData();
     form.set('file', file);
+    if (columnMapping) form.set('column_mapping', JSON.stringify(columnMapping));
     return apiFetch<PreviewResponse>(`/uploads/${dataset}/preview`, { method: 'POST', body: form });
   },
 
