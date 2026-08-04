@@ -1,12 +1,15 @@
+import json
 from datetime import datetime
 
-from fastapi import APIRouter, Depends, File, HTTPException, UploadFile
+from fastapi import APIRouter, Depends, File, Form, HTTPException, UploadFile
 from sqlalchemy.orm import Session
 
 from app.core.db import get_db
 from app.models.upload import Upload
 from app.schemas.upload import UploadOut
+from app.services.column_mapping import CANONICAL_FIELDS, suggest_column_mapping
 from app.services.ingestion import (
+    get_columns,
     ingest_financial,
     ingest_utilization,
     insert_financial_records,
@@ -61,13 +64,35 @@ def list_uploads(db: Session = Depends(get_db)):
 
 
 @router.post("/{dataset}/preview")
-async def preview_upload(dataset: str, file: UploadFile = File(...), db: Session = Depends(get_db)):
+async def preview_upload(
+    dataset: str,
+    file: UploadFile = File(...),
+    column_mapping: str | None = Form(None),
+    db: Session = Depends(get_db),
+):
     handler = PARSE_HANDLERS.get(dataset)
     if handler is None:
         raise HTTPException(400, f"unknown dataset type: {dataset}")
 
     content = await file.read()
-    rows, errors = handler(db, file.filename, content)
+    parsed_mapping = json.loads(column_mapping) if column_mapping else None
+
+    if parsed_mapping is None:
+        try:
+            source_columns = get_columns(file.filename, content)
+        except Exception:  # noqa: BLE001 - unreadable file, fall through to the normal parse-error path below
+            source_columns = []
+        required = CANONICAL_FIELDS[dataset]
+        if source_columns and not set(required) <= set(source_columns):
+            suggested = suggest_column_mapping(db, dataset, source_columns)
+            return {
+                "needs_mapping": True,
+                "source_columns": source_columns,
+                "suggested_mapping": suggested,
+                "unmapped_fields": [f for f in required if not suggested.get(f)],
+            }
+
+    rows, errors = handler(db, file.filename, content, column_mapping=parsed_mapping)
 
     upload = Upload(
         filename=file.filename,
@@ -80,7 +105,14 @@ async def preview_upload(dataset: str, file: UploadFile = File(...), db: Session
     db.commit()
     db.refresh(upload)
 
-    return {"upload_id": upload.id, "filename": upload.filename, "row_count": len(rows), "preview": rows[:20], "errors": errors}
+    return {
+        "needs_mapping": False,
+        "upload_id": upload.id,
+        "filename": upload.filename,
+        "row_count": len(rows),
+        "preview": rows[:20],
+        "errors": errors,
+    }
 
 
 @router.post("/{upload_id}/commit")

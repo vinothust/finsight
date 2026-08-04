@@ -106,3 +106,70 @@ def test_preview_unknown_dataset_returns_400(client):
 def test_commit_unknown_upload_returns_404(client):
     response = client.post("/uploads/999/commit")
     assert response.status_code == 404
+
+
+def test_preview_with_mismatched_headers_returns_needs_mapping(client, monkeypatch):
+    from app.routers import uploads
+
+    monkeypatch.setattr(
+        uploads,
+        "suggest_column_mapping",
+        lambda db, dataset, cols: {"account_name": "Account", "program_name": None, "period": None, "revenue": None, "cost": None},
+    )
+
+    csv_content = b"Account,Foo,Bar,Baz,Qux\nAcme,x,y,z,w\n"
+    response = client.post(
+        "/uploads/financial/preview",
+        files={"file": ("data.csv", csv_content, "text/csv")},
+    )
+    assert response.status_code == 200
+    body = response.json()
+    assert body["needs_mapping"] is True
+    assert body["source_columns"] == ["Account", "Foo", "Bar", "Baz", "Qux"]
+    assert body["suggested_mapping"]["account_name"] == "Account"
+    assert "program_name" in body["unmapped_fields"]
+
+
+def test_preview_with_confirmed_column_mapping_parses_successfully(client):
+    import json
+
+    csv_content = (
+        b"Account,Project,Date,Revenue ($),Cost ($)\n"
+        b"Acme Corp,Modernization,2026-01-01,100000,70000\n"
+    )
+    mapping = {
+        "account_name": "Account",
+        "program_name": "Project",
+        "period": "Date",
+        "revenue": "Revenue ($)",
+        "cost": "Cost ($)",
+    }
+    response = client.post(
+        "/uploads/financial/preview",
+        files={"file": ("data.csv", csv_content, "text/csv")},
+        data={"column_mapping": json.dumps(mapping)},
+    )
+    assert response.status_code == 200
+    body = response.json()
+    assert body["needs_mapping"] is False
+    assert body["row_count"] == 1
+    assert body["errors"] == []
+
+
+def test_preview_with_exact_match_headers_skips_llm_call(client, monkeypatch):
+    from app.routers import uploads
+
+    called = []
+    monkeypatch.setattr(uploads, "suggest_column_mapping", lambda db, dataset, cols: called.append(1))
+
+    csv_content = (
+        b"account_name,program_name,period,revenue,cost\n"
+        b"Acme Corp,Modernization,2026-01-01,100000,70000\n"
+    )
+    response = client.post(
+        "/uploads/financial/preview",
+        files={"file": ("data.csv", csv_content, "text/csv")},
+    )
+    assert response.status_code == 200
+    assert response.json()["needs_mapping"] is False
+    assert called == []
