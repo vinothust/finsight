@@ -6,6 +6,7 @@ import { authService } from '@/services/authService';
 import { uploadService } from '@/services/uploadService';
 import Upload from './Upload';
 
+
 vi.mock('@/services/authService', () => ({
   authService: { getCurrentUser: vi.fn(), login: vi.fn(), logout: vi.fn() },
 }));
@@ -108,5 +109,39 @@ describe('Upload page', () => {
     renderPage();
     fireEvent.click(screen.getByRole('button', { name: /download p&l template/i }));
     expect(mockedUploadService.downloadTemplate).toHaveBeenCalledWith('pnl');
+  });
+
+  it('shows the column mapping dialog when the preview response needs mapping, then previews after confirming', async () => {
+    mockedUploadService.previewUpload
+      .mockResolvedValueOnce({
+        needs_mapping: true,
+        source_columns: ['Account', 'Project', 'Date', 'Revenue ($)', 'Cost ($)'],
+        suggested_mapping: { account_name: 'Account', program_name: 'Project', period: 'Date', revenue: 'Revenue ($)', cost: 'Cost ($)' },
+        unmapped_fields: [],
+      })
+      .mockResolvedValueOnce({
+        needs_mapping: false,
+        upload_id: 9,
+        filename: 'financial.csv',
+        row_count: 1,
+        preview: [{ project_id: 3, period: '2026-01-01', revenue: 100, cost: 50 }],
+        errors: [],
+      });
+
+    renderPage();
+    const input = screen.getByLabelText(/choose file/i, { selector: 'input' });
+    fireEvent.change(input, { target: { files: [makeFile()] } });
+
+    await waitFor(() => expect(screen.getByText('Confirm Column Mapping')).toBeInTheDocument());
+
+    fireEvent.click(screen.getByRole('button', { name: /confirm mapping/i }));
+
+    await waitFor(() => expect(mockedUploadService.previewUpload).toHaveBeenCalledTimes(2));
+    expect(mockedUploadService.previewUpload).toHaveBeenLastCalledWith(
+      'financial',
+      expect.any(File),
+      { account_name: 'Account', program_name: 'Project', period: 'Date', revenue: 'Revenue ($)', cost: 'Cost ($)' }
+    );
+    await waitFor(() => expect(screen.getByText('100')).toBeInTheDocument());
   });
 });

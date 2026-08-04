@@ -6,6 +6,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Button } from '@/components/ui/button';
+import { ColumnMappingDialog } from '@/components/upload/ColumnMappingDialog';
 import { uploadService } from '@/services/uploadService';
 import type { PreviewResponse } from '@/services/uploadService';
 
@@ -31,6 +32,11 @@ const Upload = () => {
   const [preview, setPreview] = useState<PreviewResponse | null>(null);
   const [isPreviewing, setIsPreviewing] = useState(false);
   const [isCommitting, setIsCommitting] = useState(false);
+  const [pendingFile, setPendingFile] = useState<File | null>(null);
+  const [mappingInfo, setMappingInfo] = useState<{
+    sourceColumns: string[];
+    suggestedMapping: Record<string, string | null>;
+  } | null>(null);
 
   const columns = dataset === 'financial' ? FINANCIAL_COLUMNS : UTILIZATION_COLUMNS;
 
@@ -44,8 +50,16 @@ const Upload = () => {
     setPreview(null);
     try {
       const result = await uploadService.previewUpload(dataset, file);
+      if (result.needs_mapping) {
+        setPendingFile(file);
+        setMappingInfo({
+          sourceColumns: result.source_columns ?? [],
+          suggestedMapping: result.suggested_mapping ?? {},
+        });
+        return;
+      }
       setPreview(result);
-      if (result.errors.length > 0) {
+      if (result.errors && result.errors.length > 0) {
         toast.error(`${result.errors.length} row(s) had errors`);
       }
     } catch (error) {
@@ -55,8 +69,26 @@ const Upload = () => {
     }
   };
 
+  const handleMappingConfirm = async (mapping: Record<string, string>) => {
+    if (!pendingFile) return;
+    setMappingInfo(null);
+    setIsPreviewing(true);
+    try {
+      const result = await uploadService.previewUpload(dataset, pendingFile, mapping);
+      setPreview(result);
+      if (result.errors && result.errors.length > 0) {
+        toast.error(`${result.errors.length} row(s) had errors`);
+      }
+    } catch (error) {
+      toast.error(error instanceof Error ? error.message : 'Failed to preview file');
+    } finally {
+      setIsPreviewing(false);
+      setPendingFile(null);
+    }
+  };
+
   const handleCommit = async () => {
-    if (!preview) return;
+    if (!preview?.upload_id) return;
     setIsCommitting(true);
     try {
       const result = await uploadService.commitUpload(preview.upload_id);
@@ -111,9 +143,9 @@ const Upload = () => {
             {preview && (
               <div className="space-y-3">
                 <p className="text-sm text-muted-foreground">
-                  {preview.row_count > 20
+                  {(preview.row_count ?? 0) > 20
                     ? `Showing 20 of ${preview.row_count} rows`
-                    : `${preview.row_count} row(s) parsed`}
+                    : `${preview.row_count ?? 0} row(s) parsed`}
                 </p>
                 <div className="rounded-lg border overflow-hidden">
                   <Table>
@@ -125,7 +157,7 @@ const Upload = () => {
                       </TableRow>
                     </TableHeader>
                     <TableBody>
-                      {preview.preview.map((row, idx) => (
+                      {(preview.preview ?? []).map((row, idx) => (
                         <TableRow key={idx}>
                           {columns.map((col) => (
                             <TableCell key={col.key}>{String(row[col.key] ?? '-')}</TableCell>
@@ -136,9 +168,9 @@ const Upload = () => {
                   </Table>
                 </div>
 
-                {preview.errors.length > 0 && (
+                {(preview.errors ?? []).length > 0 && (
                   <div className="rounded-lg border border-destructive/50 bg-destructive/5 p-3 space-y-1">
-                    {preview.errors.map((err, idx) => (
+                    {(preview.errors ?? []).map((err, idx) => (
                       <p key={idx} className="text-sm text-destructive">
                         Row {err.row}: {err.error}
                       </p>
@@ -150,6 +182,21 @@ const Upload = () => {
                   Commit
                 </Button>
               </div>
+            )}
+
+            {mappingInfo && (
+              <ColumnMappingDialog
+                open
+                dataset={dataset}
+                sourceColumns={mappingInfo.sourceColumns}
+                suggestedMapping={mappingInfo.suggestedMapping}
+                onConfirm={handleMappingConfirm}
+                onCancel={() => {
+                  setMappingInfo(null);
+                  setPendingFile(null);
+                  setIsPreviewing(false);
+                }}
+              />
             )}
           </CardContent>
         </Card>
