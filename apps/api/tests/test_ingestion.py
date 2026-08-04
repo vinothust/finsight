@@ -104,6 +104,61 @@ def test_parse_utilization_returns_rows_without_inserting_records(db_session):
     assert db_session.query(UtilizationRecord).count() == 0
 
 
+def test_parse_financial_applies_column_mapping_before_validating(db_session):
+    csv_content = (
+        b"Account,Project,Date,Revenue ($),Cost ($)\n"
+        b"Acme Corp,Modernization,2026-01-01,100000,70000\n"
+    )
+    mapping = {
+        "account_name": "Account",
+        "program_name": "Project",
+        "period": "Date",
+        "revenue": "Revenue ($)",
+        "cost": "Cost ($)",
+    }
+    rows, errors = parse_financial(db_session, "data.csv", csv_content, column_mapping=mapping)
+    assert errors == []
+    assert rows[0]["revenue"] == 100000.0
+
+
+def test_parse_financial_without_mapping_still_requires_exact_columns(db_session):
+    csv_content = b"Account,Project,Date,Revenue ($),Cost ($)\nAcme,Mod,2026-01-01,100,70\n"
+    rows, errors = parse_financial(db_session, "data.csv", csv_content)
+    assert rows == []
+    assert "missing columns" in errors[0]["error"]
+
+
+def test_get_columns_returns_header_list(db_session):
+    from app.services.ingestion import get_columns
+
+    csv_content = b"account_name,program_name,period,revenue,cost\nAcme,Mod,2026-01-01,100,70\n"
+    assert get_columns("data.csv", csv_content) == ["account_name", "program_name", "period", "revenue", "cost"]
+
+
+def test_parse_utilization_applies_column_mapping_before_validating(db_session):
+    from app.models.account import Account
+    from app.models.project import Project
+
+    account = Account(name="Acme Corp")
+    db_session.add(account)
+    db_session.flush()
+    project = Project(name="Modernization", account_id=account.id)
+    db_session.add(project)
+    db_session.commit()
+
+    csv_content = b"Project,Resource,Date,Allocation,Bench\nModernization,Jane Doe,2026-01-01,80,False\n"
+    mapping = {
+        "program_name": "Project",
+        "resource_name": "Resource",
+        "period": "Date",
+        "allocation_pct": "Allocation",
+        "on_bench": "Bench",
+    }
+    rows, errors = parse_utilization(db_session, "data.csv", csv_content, column_mapping=mapping)
+    assert errors == []
+    assert rows[0]["resource_name"] == "Jane Doe"
+
+
 def test_insert_utilization_records_creates_rows_from_parsed_data(db_session):
     from app.models.account import Account
     from app.models.project import Project

@@ -19,6 +19,10 @@ def _read_dataframe(filename: str, content: bytes) -> pd.DataFrame:
     return pd.read_excel(io.BytesIO(content))
 
 
+def get_columns(filename: str, content: bytes) -> list[str]:
+    return list(_read_dataframe(filename, content).columns)
+
+
 def _get_or_create_account(db: Session, name: str) -> Account:
     account = db.query(Account).filter_by(name=name).first()
     if account is None:
@@ -37,11 +41,18 @@ def _get_or_create_project(db: Session, name: str, account: Account) -> Project:
     return project
 
 
-def parse_financial(db: Session, filename: str, content: bytes) -> tuple[list[dict], list[dict]]:
+def parse_financial(
+    db: Session, filename: str, content: bytes, column_mapping: dict[str, str] | None = None
+) -> tuple[list[dict], list[dict]]:
     try:
         df = _read_dataframe(filename, content)
     except Exception as exc:  # noqa: BLE001 - malformed/unparseable file, report as structured error
         return [], [{"row": 0, "error": f"could not parse file: {exc}"}]
+
+    if column_mapping:
+        rename = {source: canonical for canonical, source in column_mapping.items() if source}
+        df = df.rename(columns=rename)
+
     missing = FINANCIAL_COLUMNS - set(df.columns)
     if missing:
         return [], [{"row": 0, "error": f"missing columns: {sorted(missing)}"}]
@@ -80,17 +91,26 @@ def insert_financial_records(db: Session, rows: list[dict]) -> int:
     return len(rows)
 
 
-def ingest_financial(db: Session, filename: str, content: bytes) -> tuple[int, list[dict]]:
-    rows, errors = parse_financial(db, filename, content)
+def ingest_financial(
+    db: Session, filename: str, content: bytes, column_mapping: dict[str, str] | None = None
+) -> tuple[int, list[dict]]:
+    rows, errors = parse_financial(db, filename, content, column_mapping=column_mapping)
     created = insert_financial_records(db, rows)
     return created, errors
 
 
-def parse_utilization(db: Session, filename: str, content: bytes) -> tuple[list[dict], list[dict]]:
+def parse_utilization(
+    db: Session, filename: str, content: bytes, column_mapping: dict[str, str] | None = None
+) -> tuple[list[dict], list[dict]]:
     try:
         df = _read_dataframe(filename, content)
     except Exception as exc:  # noqa: BLE001 - malformed/unparseable file, report as structured error
         return [], [{"row": 0, "error": f"could not parse file: {exc}"}]
+
+    if column_mapping:
+        rename = {source: canonical for canonical, source in column_mapping.items() if source}
+        df = df.rename(columns=rename)
+
     missing = UTILIZATION_COLUMNS - set(df.columns)
     if missing:
         return [], [{"row": 0, "error": f"missing columns: {sorted(missing)}"}]
@@ -131,7 +151,9 @@ def insert_utilization_records(db: Session, rows: list[dict]) -> int:
     return len(rows)
 
 
-def ingest_utilization(db: Session, filename: str, content: bytes) -> tuple[int, list[dict]]:
-    rows, errors = parse_utilization(db, filename, content)
+def ingest_utilization(
+    db: Session, filename: str, content: bytes, column_mapping: dict[str, str] | None = None
+) -> tuple[int, list[dict]]:
+    rows, errors = parse_utilization(db, filename, content, column_mapping=column_mapping)
     created = insert_utilization_records(db, rows)
     return created, errors
