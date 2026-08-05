@@ -8,19 +8,22 @@ from app.models.account import Account
 from app.models.financial_record import FinancialRecord
 from app.models.project import Project
 from app.models.utilization_record import UtilizationRecord
+from app.services.hc_pnl_ingestion import is_hc_pnl_workbook, parse_hc_pnl_financial, parse_hc_pnl_utilization
 
 FINANCIAL_COLUMNS = {"account_name", "program_name", "period", "revenue", "cost"}
 UTILIZATION_COLUMNS = {"program_name", "resource_name", "period", "allocation_pct", "on_bench"}
 
 
-def _read_dataframe(filename: str, content: bytes) -> pd.DataFrame:
+def _read_dataframe(filename: str, content: bytes, dataset: str | None = None) -> pd.DataFrame:
     if filename.lower().endswith(".csv"):
         return pd.read_csv(io.BytesIO(content))
+    if dataset and is_hc_pnl_workbook(filename, content):
+        return parse_hc_pnl_financial(content) if dataset == "financial" else parse_hc_pnl_utilization(content)
     return pd.read_excel(io.BytesIO(content))
 
 
-def get_columns(filename: str, content: bytes) -> list[str]:
-    return list(_read_dataframe(filename, content).columns)
+def get_columns(filename: str, content: bytes, dataset: str | None = None) -> list[str]:
+    return list(_read_dataframe(filename, content, dataset).columns)
 
 
 def _get_or_create_account(db: Session, name: str) -> Account:
@@ -45,7 +48,7 @@ def parse_financial(
     db: Session, filename: str, content: bytes, column_mapping: dict[str, str] | None = None
 ) -> tuple[list[dict], list[dict]]:
     try:
-        df = _read_dataframe(filename, content)
+        df = _read_dataframe(filename, content, dataset="financial")
     except Exception as exc:  # noqa: BLE001 - malformed/unparseable file, report as structured error
         return [], [{"row": 0, "error": f"could not parse file: {exc}"}]
 
@@ -103,7 +106,7 @@ def parse_utilization(
     db: Session, filename: str, content: bytes, column_mapping: dict[str, str] | None = None
 ) -> tuple[list[dict], list[dict]]:
     try:
-        df = _read_dataframe(filename, content)
+        df = _read_dataframe(filename, content, dataset="utilization")
     except Exception as exc:  # noqa: BLE001 - malformed/unparseable file, report as structured error
         return [], [{"row": 0, "error": f"could not parse file: {exc}"}]
 

@@ -79,7 +79,7 @@ async def preview_upload(
 
     if parsed_mapping is None:
         try:
-            source_columns = get_columns(file.filename, content)
+            source_columns = get_columns(file.filename, content, dataset=dataset)
         except Exception:  # noqa: BLE001 - unreadable file, fall through to the normal parse-error path below
             source_columns = []
         required = CANONICAL_FIELDS[dataset]
